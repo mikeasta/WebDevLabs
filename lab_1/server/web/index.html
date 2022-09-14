@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/style.css">
+    <title>Tetris</title>
+</head>
+<body>
+
+    <div id="main_menu_wrapper" >
+        <div id="main_menu">
+            <h1>Hello, Tetris!</h1>
+            <input type="text" id="nickname_input" placeholder="Enter your nickname">
+            <button type="submit" id="nickname_btn">Play</button>
+            <button type="submit" id="leaderboards_btn">Leaderboards</button>
+        </div>
+
+        <div id="leaderboards_wrapper" style="display: none">
+            <h2>Leaderboards</h2>
+            <table id="leaderboards_table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nickname
+                        </th>
+                        <th>
+                            Score
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboards_table_body"></tbody>
+            </table>
+            <button id="leaderboards_close_button">Close</button>
+        </div>
+    </div>
+
+    <div id="gameplay_wrapper" style="display: none">
+        <h1>Hello, Tetris</h1>
+        <div id="gameplay_interface">
+            <div id="gameplay_stats">
+                <button type="submit" id="back_to_menu">Go to menu</button>
+                <h3 id="players_nickname"></h3>
+                <p id="current_score"></p>
+                <p id="current_level"></p>
+                <p>Следующая фигура:</p>
+                <canvas id="next_shape"></canvas>
+                <p>Управление:</p>
+                <ul id="controls_description">
+                    <li>Клавиша "W" - Поворот на 90 градусов</li>
+                    <li>Клавиша "A" - Движение влево</li>
+                    <li>Клавиша "S" - Рывок вниз</li>
+                    <li>Клавиша "D" - Движение вправо</li>
+                </ul>
+            </div>
+            <canvas id="playground"></canvas>
+        </div>
+    </div>
+
+    <script src="./scripts/graphics.js"></script>
+    <script src="./scripts/templates.js"></script>
+    <script src="./scripts/menu_interaction.js"></script>
+    <script src="./scripts/tetramino_interaction.js"></script>
+    <script src="./scripts/gameplay_rules.js"></script>
+    <script src="./scripts/controls.js"></script>
+</body>
+</html>
