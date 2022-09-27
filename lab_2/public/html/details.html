@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/cb7794a450.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles/details.css">
+    <title>Library</title>
+</head>
+<body>
+    <h1 id="main_screen_headline">Домашняя библиотека <i class="fa-solid fa-book"></i></h1>
+    <h2 id="details_headline">Подробности о книге</h2>
+    <section id="details_section">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg" alt="" id="details_book_picture">
+        <div id="details_text_section">
+            <input type="text" id="details_book_name"   value="Война и Мир." placeholder="Название книги">
+            <input type="text" id="details_book_author" value="Лев Николаевич Толстой" placeholder="Автор книги">
+            <input type="text" id="details_book_author" value="Выпущена: DD.MM.1865" placeholder="Дата выпуска">
+            <input type="text" id="details_book_img_url" placeholder="Ссылка на изображение книги" value="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg">
+            <input type="text" id="details_book_status" value="Пребывает у клиента до: 23.10.2022" disabled placeholder="Статус книги">
+        </div>
+    </section>
+    <section id="details_control_section">
+        <button id="details_save_book">Сохранить данные о книге</button>
+        <button id="details_return_book">Вернуть книгу в библиотеку</button>
+        <button id="details_remove_book">Удалить книгу из библиотеки</button>
+    </section>
+    <section id="details_borrow_section">
+        <h3>Отдать книгу:</h3>
+        <input type="text" id="details_borrow_client_name" placeholder="Имя клиента">
+        <input type="text" id="details_borrow_due_to" placeholder="Дата возврата">
+        <button id="details_borrow_btn">Отдать книгу</button>
+    </section>
+</body>
+</html>

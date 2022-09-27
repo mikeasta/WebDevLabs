@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/index.css">
+    <script src="https://kit.fontawesome.com/cb7794a450.js" crossorigin="anonymous"></script>
+    <title>Library</title>
+</head>
+<body>
+    <h1 id="main_screen_headline">Домашняя библиотека <i class="fa-solid fa-book"></i></h1>
+    <section id="filter_section">
+        <h3>Фильтр:</h3>
+        <label for="filter_radio_0"> Все 
+            <input type="radio" name="filter_radio" id="filter_radio_0" checked>
+        </label>
+        <label for="filter_radio_1"> В наличии 
+            <input type="radio" name="filter_radio" id="filter_radio_1">
+        </label>
+        <label for="filter_radio_2"> Пребывает у клиента
+            <input type="radio" name="filter_radio" id="filter_radio_2">
+        </label>
+        <button id="filter_btn">Отфильтровать <i class="fa-solid fa-sliders"></i></button>
+    </section>
+
+    <main id="booklist_section">
+        <div id="booklist_headline">
+            <h3>Список книг</h3>
+            <div id="booklist_headline_divider"></div>
+        </div>
+        <ul id="booklist">
+            <li class="book_card">
+                <img class="book_img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg" alt="обложка_книги">
+                <p class="book_label">"Война и мир"</p>
+                <p class="book_author">Лев Николаевич Толстой</p>
+                <p class="book_status book_status_1">В наличии</p>
+            </li>
+            <li class="book_card">
+                <img class="book_img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg" alt="обложка_книги">
+                <p class="book_label">"Война и мир"</p>
+                <p class="book_author">Лев Николаевич Толстой</p>
+                <p class="book_status book_status_1">В наличии</p>
+            </li>
+            <li class="book_card">
+                <img class="book_img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg" alt="обложка_книги">
+                <p class="book_label">"Война и мир"</p>
+                <p class="book_author">Лев Николаевич Толстой</p>
+                <p class="book_status book_status_1">В наличии</p>
+            </li>
+            <li class="book_card">
+                <img class="book_img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg" alt="обложка_книги">
+                <p class="book_label">"Война и мир"</p>
+                <p class="book_author">Лев Николаевич Толстой</p>
+                <p class="book_status book_status_1">В наличии</p>
+            </li>
+            <li class="book_card">
+                <img class="book_img" src="https://cv6.litres.ru/pub/c/elektronnaya-kniga/cover_max1500/32544665-erih-mariya-remark-tri-tovarischa-32544665.jpg" alt="обложка_книги">
+                <p class="book_label">"Три товарища"</p>
+                <p class="book_author">Эрих Мария Ремарк</p>
+                <p class="book_status book_status_2">Пребывает у клиента до: 23.10.2022</p>
+            </li>
+            <li id="add_new_book">
+                <i class="fa-solid fa-plus"></i>
+            </li>
+        </ul>
+    </main>
+</body>
+</html>
