@@ -1,0 +1,31 @@
+doctype html
+html (lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="../styles/details.css")
+        script(src="https://kit.fontawesome.com/cb7794a450.js" crossorigin="anonymous")
+        title Library 
+    body 
+        h1(id="main_screen_headline") Домашняя библиотека
+            i(class="fa-solid fa-book")
+        h2(id="details_headline") Подробности о книге
+
+        -
+            var booklist = []
+            var book = ''
+
+        section(id="details_section")
+            img(alt="" id="details_book_picture" src=book.image)
+            div(id="details_text_section")
+                input(type="text" id="details_book_name" placeholder="Название книги" value=book.label)
+                input(type="text" id="details_book_author" placeholder="Автор книги" value=book.author)
+                input(type="text" id="details_book_release_date" placeholder="Дата выпуска" value=book.release)
+                input(type="text" id="details_book_img_url" placeholder="Ссылка на изображение книги" value=book.img)
+                input(type="text" id="details_book_status" value=#{item.status == 1: "В наличии" : `Пребывает у клиента ${item.client} до ${item.due}`} disabled placeholder="Статус книги")
+
+        section(id="details_control_section") 
+            button(id="details_save_book") Сохранить данные о книге
+            button(id="details_return_book") Вернуть книгу в библиотеку
+            button(id="details_remove_book") Удалить книгу из библиотеки
