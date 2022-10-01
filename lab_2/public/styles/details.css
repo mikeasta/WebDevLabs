@@ -27,6 +27,7 @@ body {
     background-color: #ecf0f1;
     padding: 20px;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 #details_section img {
@@ -47,7 +48,7 @@ body {
     background: none;
 
     border-bottom: 1px solid #3498db;
-    width: 200%;
+    width: 150%;
     font-size: 20px;
     padding: 5px;
 }

@@ -43,7 +43,7 @@ body {
 }
 
 #filter_btn:hover {
-    transition: .2s;
+    transition: .4s;
     background-color: #ecf0f1;
     color: #3498db;
     cursor: pointer;
@@ -116,11 +116,16 @@ body {
 
 .book_label {
     font-weight: 700;
+    font-size: 16px;
+}
+
+.book_author {
+    font-size: 12px;
 }
 
 .book_status {
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .book_status_1 {
