@@ -43,7 +43,7 @@ body {
 }
 
 #filter_btn:hover {
-    transition: .2s;
+    transition: .4s;
     background-color: #ecf0f1;
     color: #3498db;
     cursor: pointer;
@@ -116,11 +116,16 @@ body {
 
 .book_label {
     font-weight: 700;
+    font-size: 16px;
+}
+
+.book_author {
+    font-size: 12px;
 }
 
 .book_status {
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .book_status_1 {
@@ -165,4 +170,37 @@ body {
     cursor: pointer;
     background-color: #3498db;
     color:#ecf0f1;
+}
+
+@media screen and (max-width: 320px) {
+    #main_screen_headline {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #filter_section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #filter_section label {
+        margin: 5px 0;
+    }
+
+    #filter_btn {
+        font-size: 14px;
+        align-self: center;
+        padding: 10px 15px;
+        margin-top: 10px;
+    }
+
+    #booklist {
+        flex-direction: column;
+    }
+    
+    .book_card,
+    #add_new_book {
+        width: 100%;
+    }
+
 }

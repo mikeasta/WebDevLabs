@@ -15,41 +15,70 @@ body {
     align-items: center;
 }
 
-#main_screen_headline,
-#details_headline {
+#main_screen_headline {
     color: #ecf0f1;
     margin: 30px 0;
 }
 
+#details_headline {
+    color: #ecf0f1;
+    margin-bottom: 30px;
+}
+
 #details_section {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 40%; 
     background-color: #ecf0f1;
     padding: 20px;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 #details_section img {
-    width: 150px;
-    height: 250px;
+    width: 250px;
+    height: 400px;
+    margin-bottom: 20px;
 }
 
 #details_text_section {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-left: 10%;
+}
+
+#details_text_section div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3498db;
+    padding: 25px 0;
 }
 
 #details_text_section input {
+    width: 450px;
     border: none;
     outline: none;
     background: none;
 
-    border-bottom: 1px solid #3498db;
-    width: 200%;
     font-size: 20px;
     padding: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+#details_text_section textarea {
+    width: 450px;
+    height: 500px;
+    padding: 5px;
+
+    outline: none;
+    border: none;
+    background:none;
+    border: 1px solid #3498db;
+    background-color: #f6f9fa;
 }
 
 #details_control_section {
@@ -106,4 +135,46 @@ body {
     transition: .2s;
     cursor: pointer;
     box-shadow: 0px 2px 4px 3px rgba(34, 60, 80, 0.1);
+}
+
+@media screen and (max-width: 320px) {
+    #main_screen_headline {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #details_section {
+        width: 80%;
+    }
+
+    #details_section img {
+        width: 150px;
+        height: 250px;
+    }
+
+    #details_text_section {
+        font-size: 10px;
+    }
+
+    #details_text_section input {
+        width: 150px;
+        font-size: 10px;
+        border-radius: 0;
+    }
+
+    #details_text_section textarea {
+        width: 150px;
+        font-size: 10px;
+    }
+
+    #details_control_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #details_control_section button {
+        width: 80%;
+        font-size: 14px;
+    }
 }

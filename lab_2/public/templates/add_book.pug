@@ -14,10 +14,25 @@ html (lang="en")
         
         section(id="add_section")
             div(id="add_text_section")
-                input(type="text" id="add_book_name" placeholder="Название книги")
-                input(type="text" id="add_book_author" placeholder="Автор книги")
-                input(type="text" id="add_book_release" placeholder="Дата выпуска (только дата)")
-                input(type="text" id="add_book_img_url" placeholder="Ссылка на изображение книги")
+                div 
+                    p Название:
+                    input(type="text" id="add_book_name" placeholder="Название книги")
+                
+                div 
+                    p Автор:
+                    input(type="text" id="add_book_author" placeholder="Автор книги")
+
+                div 
+                    p Дата издания (Месяц/День/Год):
+                    input(type="text" id="add_book_release" placeholder="Дата выпуска (только дата)")
+                
+                div 
+                    p Описание:
+                    textarea(id="add_book_description")
+
+                div 
+                    p Ссылка на изображение книги:
+                    input(type="text" id="add_book_img_url" placeholder="Ссылка на изображение книги")
         
         section(id="add_control_section")
             button(id="add_save_book") Сохранить данные о книге

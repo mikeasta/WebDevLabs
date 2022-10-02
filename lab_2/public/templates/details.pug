@@ -14,16 +14,34 @@ html (lang="en")
 
         -
             var booklist = []
-            var book = ''
+            var book = {}
 
         section(id="details_section")
             img(alt="" id="details_book_picture" src=book.image)
             div(id="details_text_section")
-                input(type="text" id="details_book_name" placeholder="Название книги" value=book.label)
-                input(type="text" id="details_book_author" placeholder="Автор книги" value=book.author)
-                input(type="text" id="details_book_release_date" placeholder="Дата выпуска" value=book.release)
-                input(type="text" id="details_book_img_url" placeholder="Ссылка на изображение книги" value=book.image)
-                input(type="text" id="details_book_status" value=#{item.status === 1: "В наличии" : `Пребывает у клиента ${item.client} до ${item.due}`} disabled placeholder="Статус книги")
+                div 
+                    p Название книги:
+                    input(type="text" id="details_book_name" placeholder="Название книги" value=book.label)
+                
+                div 
+                    p Автор книги:
+                    input(type="text" id="details_book_author" placeholder="Автор книги" value=book.author)
+                
+                div 
+                    p Дата издания (Месяц/День/Год):
+                    input(type="date" id="details_book_release_date" placeholder="Дата выпуска" value=book.release)
+                
+                div
+                    p Описание:
+                    textarea(id="details_book_description" value=book.description)
+
+                div 
+                    p Ссылка на изображение книги:
+                    input(type="text" id="details_book_img_url" placeholder="Ссылка на изображение книги" value=book.image)
+                
+                div 
+                    p Статус книги:
+                    input(type="text" id="details_book_status" value=#{item.status == 1: "В наличии" : `Пребывает у клиента ${item.client} до ${item.due}`} disabled placeholder="Статус книги")
 
         section(id="details_control_section") 
             button(id="details_save_book") Сохранить данные о книге

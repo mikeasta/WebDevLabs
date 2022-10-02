@@ -1,0 +1,135 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+    background-color: #3498db;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main_screen_headline{
+    color: #ecf0f1;
+    margin: 30px 0;
+}
+
+#add_headline {
+    color: #ecf0f1;
+    margin-bottom: 30px;
+}
+
+#add_section {
+    display: flex;
+    justify-content: center;
+    width: 40%; 
+    background-color: #ecf0f1;
+    border-radius: 5px;
+}
+
+#add_text_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+#add_text_section div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3498db;
+    padding: 25px;
+}
+
+#add_text_section div:last-child {
+    border-bottom: none;
+}
+
+#add_text_section input {
+    border: none;
+    outline: none;
+    background: none;
+
+    width: 400px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+#add_text_section textarea {
+    width: 400px;
+    padding: 10px;
+}
+
+#add_control_section button {
+    border: none;
+    outline: none;
+    background: none;
+
+    background-color: #ecf0f1;
+    color:#3498db;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px;   
+    border-radius: 5px;
+}   
+
+#add_control_section button:hover {
+    transition: .2s;
+    box-shadow: 0px 4px 8px 6px rgba(34, 60, 80, 0.2);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 320px) {
+    #main_screen_headline {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #add_headline {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    #add_section {
+        width: 80%;
+    }
+
+    #add_text_section {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    #add_text_section input {
+        width: 150px;
+        font-size: 10px;
+        border-radius: 0;
+    }
+
+    #add_text_section textarea {
+        width: 150px;
+        font-size: 10px;
+    }
+
+    #add_control_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #add_control_section button {
+        width: 80%;
+        font-size: 14px;
+    }
+}
