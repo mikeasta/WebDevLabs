@@ -36,7 +36,7 @@ html (lang="en")
                         img(class="book_img" src=item.image alt="")
                         p(class="book_label") #{item.label}
                         p(class="book_author") #{item.author}
-                        p(class=`book_status book_status_${item.status}`) #{item.status == 1: "В наличии" : `Пребывает у клиента ${item.client} до ${item.due}`}
+                        p(class=`book_status book_status_${item.status}`) #{item.status === 1: "В наличии" : `Пребывает у клиента ${item.client} до ${item.due}`}
 
                 li(id="add_new_book")
                     i(class="fa-solid fa-plus")

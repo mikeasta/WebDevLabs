@@ -23,7 +23,7 @@ html (lang="en")
                 input(type="text" id="details_book_author" placeholder="Автор книги" value=book.author)
                 input(type="text" id="details_book_release_date" placeholder="Дата выпуска" value=book.release)
                 input(type="text" id="details_book_img_url" placeholder="Ссылка на изображение книги" value=book.image)
-                input(type="text" id="details_book_status" value=#{item.status == 1: "В наличии" : `Пребывает у клиента ${item.client} до ${item.due}`} disabled placeholder="Статус книги")
+                input(type="text" id="details_book_status" value=#{item.status === 1: "В наличии" : `Пребывает у клиента ${item.client} до ${item.due}`} disabled placeholder="Статус книги")
 
         section(id="details_control_section") 
             button(id="details_save_book") Сохранить данные о книге
