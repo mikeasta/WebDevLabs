@@ -15,16 +15,20 @@ body {
     align-items: center;
 }
 
-#main_screen_headline,
-#add_headline {
+#main_screen_headline{
     color: #ecf0f1;
     margin: 30px 0;
 }
 
+#add_headline {
+    color: #ecf0f1;
+    margin-bottom: 30px;
+}
 
 #add_section {
     display: flex;
-    width: 520px; 
+    justify-content: center;
+    width: 40%; 
     background-color: #ecf0f1;
     border-radius: 5px;
 }
@@ -37,14 +41,33 @@ body {
     overflow: hidden;
 }
 
+#add_text_section div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3498db;
+    padding: 25px;
+}
+
+#add_text_section div:last-child {
+    border-bottom: none;
+}
+
 #add_text_section input {
     border: none;
     outline: none;
     background: none;
 
-    border-bottom: 1px solid #3498db;
-    width: 500px;
+    width: 400px;
     font-size: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+#add_text_section textarea {
+    width: 400px;
     padding: 10px;
 }
 

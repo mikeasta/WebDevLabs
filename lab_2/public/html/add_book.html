@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/cb7794a450.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../styles/add.css">
+    <link rel="stylesheet" href="../styles/add_book.css">
     <title>Library</title>
 </head>
 <body>
@@ -13,10 +13,26 @@
     <h2 id="add_headline">Добавление новой книги</h2>
     <section id="add_section">
         <div id="add_text_section">
-            <input type="text" id="add_book_name" placeholder="Название книги">
-            <input type="text" id="add_book_author" placeholder="Автор книги">
-            <input type="text" id="add_book_release" placeholder="Дата выпуска (только дата)">
-            <input type="text" id="add_book_img_url" placeholder="Ссылка на изображение книги">
+            <div>
+                <p>Название:</p>
+                <input type="text" id="add_book_name">
+            </div>
+            <div>
+                <p>Автор:</p>
+                <input type="text" id="add_book_author">
+            </div>
+            <div>
+                <p>Дата издания (Месяц/День/Год):</p>
+                <input type="date" id="add_book_release">
+            </div>
+            <div>
+                <p>Описание:</p>
+                <textarea id="add_book_description"></textarea>
+            </div>
+            <div>
+                <p>Ссылка на изображение книги:</p>
+                <input type="text" id="add_book_img_url">
+            </div>
         </div>
     </section>
     <section id="add_control_section">
