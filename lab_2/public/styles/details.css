@@ -58,7 +58,7 @@ body {
 }
 
 #details_text_section input {
-    width: 500px;
+    width: 450px;
     border: none;
     outline: none;
     background: none;
@@ -70,7 +70,7 @@ body {
 }
 
 #details_text_section textarea {
-    width: 500px;
+    width: 450px;
     height: 500px;
     padding: 5px;
 
