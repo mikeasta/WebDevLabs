@@ -5,22 +5,12 @@ const server  = express()
 // Defining folder with static files
 server.use("/styles", express.static(__dirname + '/public/styles'))
 
-// Defining folder with .pug templates
+// Including PUG drawer engine 
 server.set('view engine', 'pug')
 server.set('views', __dirname + "/public/templates")
 
-// Draw initial page
-server.get('/', (req, res) => {
-    res.render('index')
-})
-
-// Draw 
-server.get('/add_new_book', (req, res) => {
-    res.render('add_book')
-})
-
 // API Router included
-server.use('/api', require('./routes'))
+server.use('/', require('./routes'))
 
 // Port defining
 const PORT = process.env.PORT || 5000

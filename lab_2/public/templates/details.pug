@@ -1,5 +1,5 @@
 doctype html
-html (lang="en")
+html(lang="en")
     head
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
@@ -14,7 +14,7 @@ html (lang="en")
 
         -
             var booklist = []
-            var book = {}
+            var book = { label: "Война и мир", author: "Лев Николаевич Толстой", release: "1865-02-01", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg", status: 2, client: "Mike", due: "10.09.2022", description:"lorem lorema ipsuma" }
 
         section(id="details_section")
             img(alt="" id="details_book_picture" src=book.image)
@@ -28,12 +28,12 @@ html (lang="en")
                     input(type="text" id="details_book_author" placeholder="Автор книги" value=book.author)
                 
                 div 
-                    p Дата издания (Месяц/День/Год):
+                    p Дата издания:
                     input(type="date" id="details_book_release_date" placeholder="Дата выпуска" value=book.release)
                 
                 div
                     p Описание:
-                    textarea(id="details_book_description" value=book.description)
+                    textarea(id="details_book_description") #{book.description}
 
                 div 
                     p Ссылка на изображение книги:
@@ -41,7 +41,9 @@ html (lang="en")
                 
                 div 
                     p Статус книги:
-                    input(type="text" id="details_book_status" value=#{item.status == 1: "В наличии" : `Пребывает у клиента ${item.client} до ${item.due}`} disabled placeholder="Статус книги")
+                    - let str = ''
+                    - if(book.status === 1) {str = "В наличии"} else { str = `Пребывает у клиента ${book.client} до ${book.due}`}
+                    input(type="text" id="details_book_status" value=str disabled placeholder="Статус книги")
 
         section(id="details_control_section") 
             button(id="details_save_book") Сохранить данные о книге
