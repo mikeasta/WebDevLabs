@@ -20,6 +20,10 @@ body {
     margin: 30px 0;
 }
 
+#main_screen_headline i {
+    margin-left: 15px;
+}
+
 #filter_section {
     width: 60%;
     display: flex;
@@ -28,6 +32,10 @@ body {
     background-color: #ecf0f1;
     padding: 20px 25px;
     border-radius: 10px;
+}
+
+#filter_section input {
+    margin-left: 5px;
 }
 
 #filter_btn {
