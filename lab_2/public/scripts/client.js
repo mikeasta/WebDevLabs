@@ -55,31 +55,26 @@ export const createNewBook = async book => {
 }
 
 // * PAGE REQUESTS
-let request = new XMLHttpRequest()
-
 /**
  * @route GET /
  * @desc  Index page
  */
-export const indexPage = () => {
-    request.open('GET', url + "/")
-    request.send()
+export const indexPage = async () => {
+    window.location = url + "/"
 }
 
 /**
  * @route GET /details/:book_id
  * @desc Special book details page
  */
-export const detailsPage = book_id => {
-    request.open('GET', url + "/details/" + book_id)
-    request.send()
+export const detailsPage = async book_id => {
+    window.location = url + "/book_details/" + book_id
 }
 
 /**
  * @route GET /add_new_book
  * @desc  Add new book page
  */
-export const addNewBookPage = () => {
-    request.open('GET', url + "/add_new_book")
-    request.send()
+export const addNewBookPage = async () => {
+    window.location = url + "/add_new_book"
 }
