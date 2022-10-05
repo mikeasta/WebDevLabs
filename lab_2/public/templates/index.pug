@@ -35,7 +35,7 @@ html(lang="en")
             
             ul(id="booklist")
                 each item in booklist
-                    li(class="book_card")
+                    li(class="book_card" id=`book_id#${item.id}`)
                         img(class="book_img" src=item.image alt="")
                         p(class="book_label") #{item.label}
                         p(class="book_author") #{item.author}

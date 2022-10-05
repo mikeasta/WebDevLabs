@@ -7,8 +7,9 @@ const server  = express()
 // read req.body data in more comfortable json object
 server.use(express.json({ extended: false }));
 
-// Defining folder with static files
+// Defining folders with static files
 server.use("/styles", express.static(__dirname + '/public/styles'))
+server.use("/scripts", express.static(__dirname + '/public/scripts'))
 
 // Including PUG drawer engine 
 server.set('view engine', 'pug')
