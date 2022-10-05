@@ -2,6 +2,11 @@
 const express = require('express')
 const server  = express()
 
+// Init Middleware 
+// This middleware gives us oportunity to 
+// read req.body data in more comfortable json object
+server.use(express.json({ extended: false }));
+
 // Defining folder with static files
 server.use("/styles", express.static(__dirname + '/public/styles'))
 

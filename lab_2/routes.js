@@ -11,7 +11,7 @@ let database = require('./database.json')
  * @desc  Loads whole booklist from database
  */
 router.get('/api/get_booklist', (req, res, next) => {
-    res.send(database)
+    res.send(database.books)
 })
 
 
@@ -21,7 +21,7 @@ router.get('/api/get_booklist', (req, res, next) => {
  */
 router.get('/api/get_book/:book_id', (req, res, next) => {
     // Check if book_id is NaN
-    if (isNaN(Number(book_id))) 
+    if (isNaN(Number(req.params.book_id))) 
         res.send(`Page not found: invalid book id`)
     
     // Look for book
@@ -35,24 +35,19 @@ router.get('/api/get_book/:book_id', (req, res, next) => {
  * @route PUT /api/update_book/:book_id
  * @desc  Updates special book. If book doesnt exist in DB, creates it
  */
-router.put('/api/update_book/:book_id', (req, res, next) => {
-    const book_id_num = Number(book_id)
+router.put('/api/update_book', (req, res, next) => {
     let book = req.body.book
 
     // Check if book raw paremeter exists
     if (!book) 
         res.send(`Page not found: invalid book data`)
 
-    // Check if book_id is NaN
-    if (isNaN(book_id_num)) 
-        res.send(`Page not found: invalid book id`)
-
     let index = -1;
 
     // Look for book index
-    database.books.forEach((book, book_index) => {
-        if (book.id == book_id_num) {
-            index = book_index
+    database.books.forEach((b, idx) => {
+        if (b.id == book.id) {
+            index = idx
         }
     })
 
@@ -63,7 +58,7 @@ router.put('/api/update_book/:book_id', (req, res, next) => {
         database.books = [...database.books.slice(0, index), book, ...database.books.slice(index+1) ]
     }
 
-    res.send(database)
+    res.send(database.books)
 }) 
 
 
@@ -78,7 +73,7 @@ router.post('/api/create_new_book', (req, res, next) => {
     if (!book) 
         res.send(`Page not found: invalid book data`)
 
-    book.id == ++database.latest_id
+    book.id = ++database.latest_id
     database.books.push(book)
     res.send(database)
 })
@@ -89,7 +84,7 @@ router.post('/api/create_new_book', (req, res, next) => {
  * @desc  Deletes special book.
  */
 router.delete('/api/delete_book/:book_id', (req, res, next) => {
-    const book_id_num = Number(book_id)
+    const book_id_num = Number(req.params.book_id)
 
     // Check if book_id is NaN
     if (isNaN(book_id_num)) 
@@ -105,7 +100,7 @@ router.delete('/api/delete_book/:book_id', (req, res, next) => {
     })
 
     if (index != -1) {
-        database.books = [...database.books[0, index], ...database.books[index+1]]
+        database.books = [...database.books.slice(0, index), ...database.books.slice(index+1)]
         res.send(database)
     } else {
         res.send(`Page not found: required book not found.`)
@@ -159,6 +154,7 @@ router.get('/book_details/:book_id', (req, res) => {
 }) 
 
 
+// Not found result
 router.get('*', (req, res, next) => {
     res.status(404)
     res.end('Page not found')
