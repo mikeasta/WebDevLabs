@@ -5,7 +5,7 @@ const url = 'http://localhost:5000'
  * @route GET /api/get_booklist
  * @desc  Returns library
  */
-const getBooklist = async () => {
+export const getBooklist = async () => {
     let response = await fetch(url + "/api/get_booklist")
     return await response.json()
 }
@@ -14,7 +14,7 @@ const getBooklist = async () => {
  * @route GET /api/get_book/:book_id
  * @desc  Returns special book by it's id
  */
-const getBook = async book_id => {
+export const getBook = async book_id => {
     let response = await fetch(url + "/api/get_book/" + book_id)
     return await response.json()
 }
@@ -23,7 +23,7 @@ const getBook = async book_id => {
  * @route DELETE /api/delete_book/:book_id
  * @desc  Deletes book from server library
  */
-const deleteBook = async book_id => {
+export const deleteBook = async book_id => {
     let response = await fetch(url + "/api/delete_book/" + book_id, {
         method: "DELETE"
     })
@@ -34,7 +34,7 @@ const deleteBook = async book_id => {
  * @route PUT /api/update_book
  * @desc  Updates special book
  */
-const updateBook = async book => {
+export const updateBook = async book => {
     let response = await fetch(url + "/api/update_book", {
         method: "PUT",
         body: JSON.stringify({book})
@@ -46,7 +46,7 @@ const updateBook = async book => {
  * @route POST /api/create_new_book
  * @desc  Creates new book
  */
-const createNewBook = async book => {
+export const createNewBook = async book => {
     let response = await fetch(url + "/api/create_new_book", {
         method: "POST",
         body: JSON.stringify({book})
@@ -61,7 +61,7 @@ let request = new XMLHttpRequest()
  * @route GET /
  * @desc  Index page
  */
-const indexPage = () => {
+export const indexPage = () => {
     request.open('GET', url + "/")
     request.send()
 }
@@ -70,7 +70,7 @@ const indexPage = () => {
  * @route GET /details/:book_id
  * @desc Special book details page
  */
-const detailsPage = book_id => {
+export const detailsPage = book_id => {
     request.open('GET', url + "/details/" + book_id)
     request.send()
 }
@@ -79,7 +79,7 @@ const detailsPage = book_id => {
  * @route GET /add_new_book
  * @desc  Add new book page
  */
-const addNewBookPage = () => {
+export const addNewBookPage = () => {
     request.open('GET', url + "/add_new_book")
     request.send()
 }
