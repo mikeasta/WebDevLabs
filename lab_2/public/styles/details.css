@@ -15,16 +15,16 @@ body {
     align-items: center;
 }
 
-#main_screen_headline {
+#details_screen_headline {
     color: #3498db;
     margin: 30px 0;
 }
 
-#main_screen_headline i {
+#details_screen_headline i {
     margin-left: 15px;
 }
 
-#main_screen_headline:hover {
+#details_screen_headline:hover {
     cursor: pointer;
 }
 
@@ -63,6 +63,10 @@ body {
     align-items: center;
     border-bottom: 1px solid #3498db;
     padding: 25px 0;
+}
+
+#details_text_section div:last-child {
+    border-bottom: none;
 }
 
 #details_control_section {
