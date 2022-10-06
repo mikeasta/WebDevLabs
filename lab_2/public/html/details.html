@@ -14,45 +14,59 @@
     <section id="details_section">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg" alt="" id="details_book_picture">
         <div id="details_text_section">
+            <section id="details_control_section">
+                <button id="details_save_book" style="display: none; color: #2ecc71;"><i class="fa-regular fa-floppy-disk"></i></button>
+                <button id="details_edit_book"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button id="details_borrow_book"><i class="fa-regular fa-user"></i></button>
+                <button id="details_return_book"><i class="fa-solid fa-house-user"></i></button>
+                <button id="details_remove_book" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i></button>
+            </section>
+
             <div>
                 <p>Название книги:</p>
-                <input type="text" id="details_book_name"   value="Война и Мир." placeholder="Название книги">
+                <p>Война и Мир.</p>
+                <input type="text" id="details_book_name" value="Война и Мир." placeholder="Название книги" style="display:none;">
             </div>
             <div>
                 <p>Автор книги:</p>
-                <input type="text" id="details_book_author" value="Лев Николаевич Толстой" placeholder="Автор книги">
+                <p>Лев Николаевич Толстой</p>
+                <input type="text" id="details_book_author" value="Лев Николаевич Толстой" placeholder="Автор книги" style="display:none;">
             </div>
             
             <div>
                 <p>Дата издания (Месяц/День/Год):</p>
-                <input type="date" id="details_book_release_date" value="1865-12-01" placeholder="Дата выпуска">
+                <p>01/12/1865</p>
+                <input type="date" id="details_book_release_date" value="1865-12-01" placeholder="Дата выпуска" style="display:none;">
             </div>
             
             <div>
                 <p>Описание:</p>
-                <textarea id="details_book_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium in possimus modi, soluta est officia a, ipsa corrupti iure porro exercitationem repudiandae vero ipsam ab alias magnam maiores quibusdam minus!
+                <p id="details_book_description_paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium in possimus modi, soluta est officia a, ipsa corrupti iure porro exercitationem repudiandae vero ipsam ab alias magnam maiores quibusdam minus!
                 Aspernatur dicta delectus expedita, rerum, voluptatum hic debitis quisquam omnis similique repudiandae ad corporis explicabo facilis reiciendis veniam sunt id tempore nesciunt provident unde amet magni. Pariatur maiores debitis voluptatum.
                 Dicta hic consectetur voluptatem suscipit aliquam rerum amet dolorem placeat. Soluta, ipsum odio veniam fuga animi inventore numquam in, vitae perferendis et, consectetur omnis consequuntur. Labore, at. Eius, dolores. Placeat.
                 Atque dolor quidem quod, ipsam eos quis, rerum incidunt corrupti vel obcaecati esse. At facere aliquid ab quaerat deserunt, cumque saepe officia debitis dolorum hic possimus unde labore laboriosam modi.
-                Aspernatur aliquid, nesciunt excepturi similique ducimus veritatis voluptates omnis rerum aliquam deserunt? Quia autem eveniet, sequi alias, magni placeat dolor minus impedit possimus itaque maiores corporis. Veniam possimus impedit officiis.</textarea>
+                Aspernatur aliquid, nesciunt excepturi similique ducimus veritatis voluptates omnis rerum aliquam deserunt? Quia autem eveniet, sequi alias, magni placeat dolor minus impedit possimus itaque maiores corporis. Veniam possimus impedit officiis.</p>
+                <textarea id="details_book_description_textarea" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium in possimus modi, soluta est officia a, ipsa corrupti iure porro exercitationem repudiandae vero ipsam ab alias magnam maiores quibusdam minus!
+                    Aspernatur dicta delectus expedita, rerum, voluptatum hic debitis quisquam omnis similique repudiandae ad corporis explicabo facilis reiciendis veniam sunt id tempore nesciunt provident unde amet magni. Pariatur maiores debitis voluptatum.
+                    Dicta hic consectetur voluptatem suscipit aliquam rerum amet dolorem placeat. Soluta, ipsum odio veniam fuga animi inventore numquam in, vitae perferendis et, consectetur omnis consequuntur. Labore, at. Eius, dolores. Placeat.
+                    Atque dolor quidem quod, ipsam eos quis, rerum incidunt corrupti vel obcaecati esse. At facere aliquid ab quaerat deserunt, cumque saepe officia debitis dolorum hic possimus unde labore laboriosam modi.
+                    Aspernatur aliquid, nesciunt excepturi similique ducimus veritatis voluptates omnis rerum aliquam deserunt? Quia autem eveniet, sequi alias, magni placeat dolor minus impedit possimus itaque maiores corporis. Veniam possimus impedit officiis.</textarea>
             </div>
 
             <div>
                 <p>Ссылка на изображение книги:</p>
-                <input type="text" id="details_book_img_url" placeholder="Ссылка на изображение книги" value="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg">
+                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg"> Ссылка</a>
+                <input type="text" id="details_book_img_url" placeholder="Ссылка на изображение книги" style="display:none;" value="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg/220px-%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B9_%D0%9B._%D0%9D._%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80%2C_%D0%A2._1._%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B8%D0%B7%D0%B4.1912%D0%B3%2C%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F.jpg">
             </div>
 
             <div>
                 <p>Статус книги:</p>
-                <input type="text" id="details_book_status" value="Пребывает у клиента до: 23.10.2022" disabled placeholder="Статус книги">
+                <p>Пребывает у клиента до: 23.10.2022</p>
+                <input type="text" id="details_book_status" style="display:none;" value="Пребывает у клиента до: 23.10.2022" disabled placeholder="Статус книги">
             </div>
             
         </div>
     </section>
-    <section id="details_control_section">
-        <button id="details_save_book">Сохранить данные о книге</button>
-        <button id="details_return_book">Вернуть книгу в библиотеку</button>
-        <button id="details_remove_book">Удалить книгу из библиотеки</button>
-    </section>
+    
 </body>
 </html>

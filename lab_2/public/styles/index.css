@@ -8,7 +8,7 @@
 body {
     min-height: 100vh;
     position: relative;
-    background-color: #3498db;
+    background-color: #fff;
 
     display: flex;
     flex-direction: column;
@@ -16,8 +16,12 @@ body {
 }
 
 #main_screen_headline {
-    color: #ecf0f1;
+    color: #3498db;
     margin: 30px 0;
+}
+
+#main_screen_headline:hover {
+    cursor:pointer;
 }
 
 #main_screen_headline i {
@@ -73,13 +77,35 @@ body {
 }
 
 #booklist_headline h3 {
-    color: #ecf0f1;
+    color: #3498db;
 }
 
 #booklist_headline_divider {
     box-sizing: border-box;
-    width: 85%;
+    width: 65%;
     height: 2px;
+    background-color: #3498db;
+}
+
+#add_new_book {
+    font-size: 18px;
+    width: 15%;
+    border: 1px solid #ecf0f1;
+    border-radius: 5px;
+    padding: 5px 0;
+    color:#3498db;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#add_new_book i {
+    color:#3498db;
+}
+
+#add_new_book:hover {
+    transition: .2s;
+    cursor: pointer;
     background-color: #ecf0f1;
 }
 
@@ -144,41 +170,7 @@ body {
     color: #e74c3c;
 }
 
-#add_new_book {
-    width: 20%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ecf0f1;
-    border-radius: 5px;
-}
 
-#add_new_book i {
-    width: 100px;
-    height: 100px;
-    background-color: #ecf0f1;
-    color:#3498db;
-    font-size: 5em;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-}
-
-#add_new_book:hover {
-    transition: .2s;
-    cursor: pointer;
-    background-color: #ecf0f1;
-}
-
-#add_new_book:hover i {
-    transition: .2s;
-    cursor: pointer;
-    background-color: #3498db;
-    color:#ecf0f1;
-}
 
 @media screen and (max-width: 320px) {
     #main_screen_headline {

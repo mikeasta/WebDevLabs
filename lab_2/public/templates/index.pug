@@ -30,7 +30,9 @@ html(lang="en")
             div(id="booklist_headline")
                 h3 Список книг
                 div(id="booklist_headline_divider")
-            
+                button(id="add_new_book") Добавить книгу
+                    i(class="fa-solid fa-plus")
+
             - const booklist = value
             
             ul(id="booklist")
@@ -42,9 +44,6 @@ html(lang="en")
                         - let str = ''
                         - if(item.status === 1) {str = "В наличии"} else { str = `Пребывает у клиента ${item.client} до ${item.due}`}
                         p(class=`book_status book_status_${item.status}`) #{str}
-
-                li(id="add_new_book")
-                    i(class="fa-solid fa-plus")
 
         script(src="../scripts/index.js" type="module")
         script(src="../scripts/client.js" type="module") 

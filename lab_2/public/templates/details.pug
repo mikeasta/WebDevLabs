@@ -18,33 +18,46 @@ html(lang="en")
         section(id="details_section")
             img(alt="" id="details_book_picture" src=book.image)
             div(id="details_text_section")
+                section(id="details_control_section") 
+                    button(id="details_save_book" style="display: none; color: #2ecc71;")
+                        i(class="fa-regular fa-floppy-disk") 
+                    button(id="details_edit_book")
+                        i(class="fa-solid fa-pen-to-square")
+                    button(id="details_borrow_book") 
+                        i(class="fa-regular fa-user")
+                    button(id="details_return_book") 
+                        i(class="fa-solid fa-house-user")
+                    button(id="details_remove_book" style="color: #e74c3c;") 
+                        i(class="fa-solid fa-trash")
                 div 
                     p Название книги:
-                    input(type="text" id="details_book_name" placeholder="Название книги" value=book.label)
+                    p(class="details_phantom_paragraphs") #{book.label}
+                    input(type="text" id="details_book_name" style="display:none;" placeholder="Название книги" value=book.label)
                 
                 div 
                     p Автор книги:
-                    input(type="text" id="details_book_author" placeholder="Автор книги" value=book.author)
+                    p(class="details_phantom_paragraphs") #{book.author}
+                    input(type="text" id="details_book_author" style="display:none;" placeholder="Автор книги" value=book.author)
                 
                 div 
                     p Дата издания:
-                    input(type="date" id="details_book_release_date" placeholder="Дата выпуска" value=book.release)
+                    - var releaseArray = book.release.split('-')
+                    p(class="details_phantom_paragraphs") #{`${releaseArray[2]}/${releaseArray[1]}/${releaseArray[0]}`}
+                    input(type="date" id="details_book_release_date" style="display:none;" placeholder="Дата выпуска" value=book.release)
                 
                 div
                     p Описание:
-                    textarea(id="details_book_description") #{book.description}
+                    p(class="details_phantom_paragraphs") #{book.description}
+                    textarea(id="details_book_description" style="display:none;") #{book.description}
 
                 div 
                     p Ссылка на изображение книги:
-                    input(type="text" id="details_book_img_url" placeholder="Ссылка на изображение книги" value=book.image)
+                    a(href=book.image class="details_phantom_paragraphs") Link
+                    input(type="text" id="details_book_img_url" style="display:none;" placeholder="Ссылка на изображение книги" value=book.image)
                 
                 div 
                     p Статус книги:
                     - let str = ''
                     - if(book.status === 1) {str = "В наличии"} else { str = `Пребывает у клиента ${book.client} до ${book.due}`}
-                    input(type="text" id="details_book_status" value=str disabled placeholder="Статус книги")
-
-        section(id="details_control_section") 
-            button(id="details_save_book") Сохранить данные о книге
-            button(id="details_return_book") Вернуть книгу в библиотеку
-            button(id="details_remove_book") Удалить книгу из библиотеки
+                    p(class="details_phantom_paragraphs") #{str}
+                    input(type="text" style="display:none;" id="details_book_status" value=str disabled placeholder="Статус книги")
