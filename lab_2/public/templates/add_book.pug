@@ -23,8 +23,8 @@ html(lang="en")
                     input(type="text" id="add_book_author" placeholder="Автор книги")
 
                 div 
-                    p Дата издания (Месяц/День/Год):
-                    input(type="text" id="add_book_release" placeholder="Дата выпуска (только дата)")
+                    p Дата издания (День/Месяц/Год):
+                    input(type="date" id="add_book_release" placeholder="Дата выпуска (только дата)")
                 
                 div 
                     p Описание:
@@ -36,3 +36,6 @@ html(lang="en")
         
         section(id="add_control_section")
             button(id="add_save_book") Сохранить данные о книге
+        
+        script(src="../scripts/add_book.js" type="module")
+        script(src="../scripts/client.js" type="module") 

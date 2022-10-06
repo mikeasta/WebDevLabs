@@ -37,6 +37,9 @@ export const deleteBook = async book_id => {
 export const updateBook = async book => {
     let response = await fetch(url + "/api/update_book", {
         method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({book})
     })
     return await response.json()
@@ -49,6 +52,9 @@ export const updateBook = async book => {
 export const createNewBook = async book => {
     let response = await fetch(url + "/api/create_new_book", {
         method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({book})
     })
     return await response.json()
