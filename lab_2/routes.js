@@ -1,6 +1,7 @@
 // Router initialization
 const express = require('express')
 const router  = express.Router()
+const fs = require('fs');
 
 // Loading database data
 let database = require('./database.json')
@@ -113,7 +114,9 @@ router.delete('/api/delete_book/:book_id', (req, res, next) => {
  * @route GET /
  * @desc  Initial page (with booklist)
  */
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    database = JSON.parse(fs.readFileSync('./database.json'))
+
     res.render('index', {
         value: database.books
     })

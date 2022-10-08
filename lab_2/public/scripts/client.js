@@ -65,9 +65,8 @@ export const createNewBook = async book => {
  * @route GET /
  * @desc  Index page
  */
-export const indexPage = async () => {
-    localStorage["booklist"] = JSON.stringify(getBooklist())
-    window.location = url + "/"
+export const indexPage = () => {
+    window.location.href = url + "/"
 }
 
 /**
@@ -77,7 +76,7 @@ export const indexPage = async () => {
 export const detailsPage = async book_id => {
     const book = await getBook(book_id)
     localStorage['currentBook'] = JSON.stringify(book)
-    window.location = url + "/book_details/" + book_id
+    window.location.href = url + "/book_details/" + book_id 
 }
 
 /**
@@ -85,5 +84,5 @@ export const detailsPage = async book_id => {
  * @desc  Add new book page
  */
 export const addNewBookPage = async () => {
-    window.location = url + "/add_new_book"
+    window.location.href = url + "/add_new_book"
 }
