@@ -118,6 +118,7 @@ body {
 }
 
 .book_card {
+    box-sizing: border-box;
     width: 20%;
     height: 300px;
     box-sizing: border-box;
@@ -130,6 +131,7 @@ body {
 
     margin-right: 5%;
     margin-bottom: 5%;
+    padding: 10px;
 }
 
 .book_card:nth-child(4n+4) {

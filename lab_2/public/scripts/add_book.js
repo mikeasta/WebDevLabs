@@ -15,10 +15,7 @@ const saveBtn          = document.getElementById('add_save_book')
 
 // ? Event Handlers
 // Root page
-headline.addEventListener('click', () => {
-    console.log('boo')
-    indexPage()
-})    
+headline.addEventListener('click', indexPage)    
 
 // Saving new book
 saveBtn.addEventListener('click', async () => {
@@ -42,4 +39,6 @@ saveBtn.addEventListener('click', async () => {
     }
 
     await createNewBook(book)
+    alert('New book created')
+    indexPage()
 })

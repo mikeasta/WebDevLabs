@@ -66,6 +66,7 @@ export const createNewBook = async book => {
  * @desc  Index page
  */
 export const indexPage = async () => {
+    localStorage["booklist"] = JSON.stringify(getBooklist())
     window.location = url + "/"
 }
 
@@ -74,6 +75,8 @@ export const indexPage = async () => {
  * @desc Special book details page
  */
 export const detailsPage = async book_id => {
+    const book = await getBook(book_id)
+    localStorage['currentBook'] = JSON.stringify(book)
     window.location = url + "/book_details/" + book_id
 }
 

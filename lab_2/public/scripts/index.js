@@ -1,5 +1,10 @@
 // ? Import all funcs
-import { indexPage, detailsPage, addNewBookPage } from "./client.js"
+import { 
+    indexPage,
+    detailsPage, 
+    addNewBookPage, 
+    getBook
+} from "./client.js"
 
 // ? Import DOM elements
 const headline      = document.getElementById('main_screen_headline')
@@ -15,8 +20,8 @@ new_book_card.addEventListener('click', addNewBookPage)
 
 // Book details page
 book_cards.forEach(htmlCard => {
-    htmlCard.addEventListener('click', () => {
-        const id = htmlCard.id.split('book_id#')[1]
+    htmlCard.addEventListener('click', async () => {
+        const id   = htmlCard.id.split('book_id#')[1]
         detailsPage(id)
     })
 })

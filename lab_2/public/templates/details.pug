@@ -58,6 +58,19 @@ html(lang="en")
                 div 
                     p Статус книги:
                     - let str = ''
-                    - if(book.status === 1) {str = "В наличии"} else { str = `Пребывает у клиента ${book.client} до ${book.due}`}
+                    - let b = book.due.split('-')
+                    - if(book.status === 1) {str = "В наличии"} else { str = `Пребывает у клиента ${book.client} до ${b[2]}/${b[1]}/${b[0]}`}
                     p(class="details_phantom_paragraphs") #{str}
                     input(type="text" style="display:none;" id="details_book_status" value=str disabled placeholder="Статус книги")
+
+        dialog(id="borrow_to_client")
+            form(method="dialog")
+                p Введите данные клиента:
+                label Имя клиента:
+                    input(type="text" id="borrow_client" required)
+                label Дата возврата:
+                    input(type="date" id="borrow_due" required)
+                button(id="borrow_book") Отдать книгу
+
+        script(src="../scripts/details.js" type="module")
+        script(src="../scripts/client.js" type="module") 

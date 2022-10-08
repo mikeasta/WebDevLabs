@@ -42,7 +42,8 @@ html(lang="en")
                         p(class="book_label") #{item.label}
                         p(class="book_author") #{item.author}
                         - let str = ''
-                        - if(item.status === 1) {str = "В наличии"} else { str = `Пребывает у клиента ${item.client} до ${item.due}`}
+                        - let b = item.due.split('-')
+                        - if(item.status === 1) {str = "В наличии"} else { str = `Пребывает у клиента ${item.client} до ${b[2]}/${b[1]}/${b[0]}`}
                         p(class=`book_status book_status_${item.status}`) #{str}
 
         script(src="../scripts/index.js" type="module")

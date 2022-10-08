@@ -128,8 +128,21 @@ body {
     background:none;
 }
 
+#borrow_to_client form {
+    display: flex;
+    flex-direction: column;
+}
 
+#borrow_to_client form * {
+    margin: 10px;
+}
 
+#borrow_to_client {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 @media screen and (max-width: 320px) {
     #main_screen_headline {
