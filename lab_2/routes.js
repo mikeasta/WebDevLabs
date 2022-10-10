@@ -115,7 +115,9 @@ router.delete('/api/delete_book/:book_id', (req, res, next) => {
  * @desc  Initial page (with booklist)
  */
 router.get('/', async (req, res) => {
-    database = JSON.parse(fs.readFileSync('./database.json'))
+    // If ill need to load database from json after page reload
+    // uncomment that row
+    //database = JSON.parse(fs.readFileSync('./database.json'))
 
     res.render('index', {
         value: database.books
