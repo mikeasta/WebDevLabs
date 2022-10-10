@@ -100,7 +100,7 @@ body {
 }
 
 @media screen and (max-width: 320px) {
-    #main_screen_headline {
+    #add_book_screen_headline {
         text-align: center;
         font-size: 16px;
     }

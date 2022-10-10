@@ -205,4 +205,12 @@ body {
         width: 100%;
     }
 
+    #booklist_headline {
+        flex-direction: column;
+    }
+
+    #booklist_headline_divider {
+        width: 100%;
+        margin: 10px;
+    }
 }

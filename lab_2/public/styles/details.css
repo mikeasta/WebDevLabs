@@ -145,13 +145,16 @@ body {
 }
 
 @media screen and (max-width: 320px) {
-    #main_screen_headline {
+    #details_screen_headline {
         text-align: center;
         font-size: 16px;
     }
 
+    
     #details_section {
         width: 80%;
+        flex-direction: column;
+        align-items: center;
     }
 
     #details_section img {
@@ -161,6 +164,7 @@ body {
 
     #details_text_section {
         font-size: 10px;
+        width: 90%;
     }
 
     #details_text_section input {
@@ -176,8 +180,8 @@ body {
 
     #details_control_section {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: space-around;
     }
 
     #details_control_section button {
