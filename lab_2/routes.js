@@ -59,6 +59,8 @@ router.put('/api/update_book', (req, res, next) => {
         database.books = [...database.books.slice(0, index), book, ...database.books.slice(index+1) ]
     }
 
+    let data = JSON.stringify(database)
+    fs.writeFileSync('./database.json', data); 
     res.send(database.books)
 }) 
 
@@ -76,6 +78,8 @@ router.post('/api/create_new_book', (req, res, next) => {
 
     book.id = ++database.latest_id
     database.books.push(book)
+    let data = JSON.stringify(database)
+    fs.writeFileSync('./database.json', data); 
     res.send(database)
 })
 
@@ -102,6 +106,8 @@ router.delete('/api/delete_book/:book_id', (req, res, next) => {
 
     if (index != -1) {
         database.books = [...database.books.slice(0, index), ...database.books.slice(index+1)]
+        let data = JSON.stringify(database)
+        fs.writeFileSync('./database.json', data); 
         res.send(database)
     } else {
         res.send(`Page not found: required book not found.`)
@@ -117,7 +123,7 @@ router.delete('/api/delete_book/:book_id', (req, res, next) => {
 router.get('/', async (req, res) => {
     // If ill need to load database from json after page reload
     // uncomment that row
-    //database = JSON.parse(fs.readFileSync('./database.json'))
+    database = JSON.parse(fs.readFileSync('./database.json'))
 
     res.render('index', {
         value: database.books
