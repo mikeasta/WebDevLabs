@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="https://kit.fontawesome.com/cb7794a450.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Social media</title>
+</head>
+<body>
+    <header id="common_header">
+        <a href="" id="common_header_profile_link">Профиль</a>
+        <a href="" id="common_header_control_panel_link">Панель управления пользователями</a>
+    </header>
+
+    <main id="profile_main">
+        <div id="profile_content_wrapper">
+            <section id="profile_content_header">
+                <h2>
+                    Данные пользователя
+                </h2>
+                <div id="profile_content_header_buttons">
+                    <button type="button" class="btn btn-primary" id="profile_edit_user">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>  
+                    <button type="button" class="btn btn-danger" id="profile_ban_user">
+                        <i class="fa-solid fa-ban"></i>
+                    </button>  
+                </div>
+            </section>
+    
+            <section id="profile_card">
+                <img src="https://i.scdn.co/image/ab67616d0000b2731b7f345c199c6d1e26f1073f" alt="user_img" id="profile_user_img">
+                <div id="profile_card_text_content">
+                    <p id="profile_username">
+                        Имя: <b>Асташёнок Михаил Сергеевич</b>
+                    </p>
+                    <p id="profile_birthdate">
+                        Дата рождения: <b>19.11.2002</b>
+                    </p>
+                    <p id="profile_role">
+                        Роль: <b>Администратор</b>
+                    </p>
+                    <p id="profile_email">
+                        Электронная почта: <b>thenaitrise@gmail.com</b>
+                    </p>
+                    <p id="profile_status">
+                        Статус: <b>Подтвержденый, активный</b>
+                    </p>
+                    <p id="profile_id">
+                        Идентификатор: <b>341eRy</b>
+                    </p>
+            </section>
+
+            <section id="profile_wall">
+                <div id="profile_wall_header">
+                    <h4>Новости</h4>
+                    <h4>Друзья</h4>
+                </div>
+
+                <section id="profile_posts" >
+                    <div class="profile_post">
+                        <img src="https://i.scdn.co/image/ab67616d0000b2731b7f345c199c6d1e26f1073f" alt="post profile img" class="post_profile_img">
+                        <div class="profile_post_text_section">
+                            <div class="profile_post_header">
+                                <p class="profile_post_username">Асташенок Михаил Сергеевич</p>
+                                <div class="profile_post_control">
+                                    <p>16.10.2022 12:06pm</p>
+                                    <button type="button" class="btn btn-primary">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-danger">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="profile_post_text">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde laboriosam ullam id voluptatem veritatis similique aperiam vitae aliquam tempore distinctio harum ipsa rerum, impedit molestiae repellat vel ut? Quaerat, dolorem!
+                                Dicta velit rem natus minima adipisci aliquid dolores debitis qui illum temporibus harum sunt, quisquam laborum? Tempore, vitae labore possimus corporis et quia magni quo, harum alias saepe debitis fuga.
+                                Quod dicta consequatur, nemo unde dolores commodi doloribus fuga, atque numquam saepe adipisci assumenda eos tempora libero fugit delectus ratione voluptatibus et. Qui quisquam in aliquam fuga. Et, fugit iusto!
+                                Animi necessitatibus odit maxime beatae, officiis praesentium obcaecati odio autem, ducimus deleniti atque saepe est dignissimos maiores magnam alias rem suscipit quae. Fugit possimus rem autem nesciunt, soluta a incidunt.
+                                Fugit debitis rerum, expedita repellat nihil quasi rem sint doloremque! Quia aperiam, tempora incidunt neque culpa reprehenderit quasi, deleniti saepe consequuntur asperiores eius inventore temporibus facere nostrum suscipit consectetur adipisci!
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="profile_friends" style="display: none">
+                    <table class="table" id="profile_friends_table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Имя</th>
+                                <th scope="col">Дата рождения</th>
+                                <th scope="col">Роль</th>
+                                <th scope="col">Статус</th>
+                                <th scope="col">Электронная почта</th>
+                                <th scope="col">Кнопки взаимодействия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="table_user_name" scope="row">Асташёнок Михаил Сергеевич</th>
+                                <td class="table_user_birth_date" scope="">19.11.2002</td>
+                                <td class="table_user_role" scope="">Администратор</td>
+                                <td class="table_user_access_status" scope="">Подтвержден</td>
+                                <td class="table_user_email" scope="">thenaitrise@gmail.com</td>
+                                <td class="table_user_interaction_buttons" scope="">
+                                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>                                
+                                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-circle-info"></i></button>
+                                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-ban"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="table_user_name" scope="row">Асташёнок Михаил Сергеевич</th>
+                                <td class="table_user_birth_date" scope="">19.11.2002</td>
+                                <td class="table_user_role" scope="">Администратор</td>
+                                <td class="table_user_access_status" scope="">Подтвержден</td>
+                                <td class="table_user_email" scope="">thenaitrise@gmail.com</td>
+                                <td class="table_user_interaction_buttons" scope="">
+                                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>                                
+                                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-circle-info"></i></button>
+                                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-ban"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="table_user_name" scope="row">Асташёнок Михаил Сергеевич</th>
+                                <td class="table_user_birth_date" scope="">19.11.2002</td>
+                                <td class="table_user_role" scope="">Администратор</td>
+                                <td class="table_user_access_status" scope="">Подтвержден</td>
+                                <td class="table_user_email" scope="">thenaitrise@gmail.com</td>
+                                <td class="table_user_interaction_buttons" scope="">
+                                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>                                
+                                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-circle-info"></i></button>
+                                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-ban"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="table_user_name" scope="row">Асташёнок Михаил Сергеевич</th>
+                                <td class="table_user_birth_date" scope="">19.11.2002</td>
+                                <td class="table_user_role" scope="">Администратор</td>
+                                <td class="table_user_access_status" scope="">Подтвержден</td>
+                                <td class="table_user_email" scope="">thenaitrise@gmail.com</td>
+                                <td class="table_user_interaction_buttons" scope="">
+                                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>                                
+                                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-circle-info"></i></button>
+                                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-ban"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </section>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
