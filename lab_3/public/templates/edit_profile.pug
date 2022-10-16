@@ -9,6 +9,10 @@ html(lang="en")
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
         title Social Media 
     body 
+    
+        - const access = value.access 
+        - const user   = value.user 
+
         header(id="common_header")
             a(href="" id="common_header_profile_link") Профиль
             a(href="" id="common_header_control_panel_link") Панель управления пользователями
@@ -27,7 +31,7 @@ html(lang="en")
                 
                 section(id="edit_profile_card")
                     div(id="edit_profile_img_section")
-                        img(src="https://i.scdn.co/image/ab67616d0000b2731b7f345c199c6d1e26f1073f" alt="" id="edit_profile_img")
+                        img(src=user.img alt="" id="edit_profile_img")
                         div(id="edit_profile_img_control")
                             button(type="button" class="btn btn-danger") Удалить
                                 i(class="fa-solid fa-trash-can")
@@ -38,13 +42,13 @@ html(lang="en")
                         div(class="profile_edit_info_column")
                             div(class="form-group")
                                 label(for="InputUsername") Имя пользователя
-                                input(type="text" class="form-control" id="InputUsername" placeholder="Введите имя")
+                                input(type="text" value=user.name class="form-control" id="InputUsername" placeholder="Введите имя")
                             div(class="form-group")
                                 label(for="InputBirthdate") Дата рождения
-                                input(type="date" class="form-control" id="InputBirthdate" placeholder="Enter email")
+                                input(type="date" value=user.birth class="form-control" id="InputBirthdate" placeholder="Enter email")
                             div(class="form-group")
                                 label(for="InputRole") Роль
-                                select(class="form-control" id="InputRole")
+                                select(value=user.role class="form-control" id="InputRole")
                                     option Администратор
                                     option Пользователь
                                     option Гость
@@ -52,16 +56,16 @@ html(lang="en")
                         div(class="profile_edit_info_column")
                             div(class="form-group")
                                 label(for="InputEmail") Электронная почта
-                                input(type="email" class="form-control" id="InputEmail" placeholder="Введите электронную почту")
+                                input(type="email" value=user.email class="form-control" id="InputEmail" placeholder="Введите электронную почту")
                             div(class="form-group")    
                                 label(for="InputStatus") Статус
-                                select(class="form-control" id="InputStatus")
+                                select(class="form-control" value=user.status id="InputStatus")
                                     option Подтвержден
                                     option Не подтвержден
                                     option Заблокирован
                             div(class="form-group")
                                 label(for="InputId") Идентификатор пользователя
-                                input(disabled type="text" value="341eRy" class="form-control" id="InputId" placeholder="Enter email")
+                                input(disabled type="text" value=user.id class="form-control" id="InputId" placeholder="Enter email")
         
         script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
