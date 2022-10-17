@@ -16,8 +16,8 @@ server.set('view engine', 'pug')
 server.set('views', __dirname + "/public/templates")
 
 // API Router included
-server.use('/api/users', require('./routes/api/users'))
-server.use('/api/posts', require('./routes/api/posts'))
+// server.use('/api/users', require('./routes/api/users'))
+// server.use('/api/posts', require('./routes/api/posts'))
 server.use('/', require("./routes/render"))
 
 // Port defining

@@ -31,18 +31,19 @@ html(lang="en")
                             th(scope="col") Кнопки взаимодействия
                     tbody
                         each user in users
-                            th(class="table_user_name" scope="row")  #{user.name}
-                            td(class="table_user_birth_date" scope="")  #{user.birth}
-                            td(class="table_user_role" scope="")  #{user.role}
-                            td(class="table_user_access_status" scope="")  #{user.status}
-                            td(class="table_user_email" scope="")  #{user.email}
-                            td(class="table_user_interaction_buttons" scope="")
-                                button(type="button" class="btn btn-primary")
-                                    i(class="fa-solid fa-pen")
-                                button(type="button" class="btn btn-primary")
-                                    i(class="fa-solid fa-circle-info")
-                                button(type="button" class="btn btn-danger")
-                                    i(class="fa-solid fa-ban")
+                            tr
+                                th(class="table_user_name" scope="row")  #{user.name}
+                                td(class="table_user_birth_date" scope="")  #{user.birth}
+                                td(class="table_user_role" scope="")  #{user.role}
+                                td(class="table_user_access_status" scope="")  #{user.status}
+                                td(class="table_user_email" scope="")  #{user.email}
+                                td(class="table_user_interaction_buttons" scope="")
+                                    button(type="button" class="btn btn-primary user_interaction_btn")
+                                        i(class="fa-solid fa-pen")
+                                    button(type="button" class="btn btn-primary user_interaction_btn")
+                                        i(class="fa-solid fa-circle-info")
+                                    button(type="button" class="btn btn-danger user_interaction_btn")
+                                        i(class="fa-solid fa-ban")
 
         script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")

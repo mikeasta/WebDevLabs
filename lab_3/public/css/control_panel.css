@@ -40,3 +40,7 @@ body {
     font-size: 24px;
     margin-bottom: 20px;
 }
+
+.user_interaction_btn {
+    margin-right: 10px;
+}
