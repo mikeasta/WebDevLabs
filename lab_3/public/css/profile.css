@@ -46,6 +46,10 @@ body {
     justify-content: space-between;
 }
 
+#profile_content_header_buttons button {
+    margin-right: 10px;
+}
+
 #profile_card {
     display: flex;
     align-items: center;
@@ -105,7 +109,7 @@ body {
 }
 
 .profile_post_text_section {
-    width: 88%;
+    width: 90%;
     align-self: flex-start;
 }
 
@@ -116,8 +120,10 @@ body {
 
 .profile_post_control {
     display: flex;
-    width: 18%;
-    justify-content: space-between;
+}
+.profile_post_control p,
+.profile_post_control button {
+    margin-right: 10px;
 }
 
 .profile_post_username {

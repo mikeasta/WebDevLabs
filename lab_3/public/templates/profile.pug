@@ -17,7 +17,7 @@ html(lang="en")
 
         header(id="common_header")
             a(href="" id="common_header_profile_link") Профиль
-            a(href="" id="common_header_control_panel_link") Панель управления пользователями
+            a(href="/control_panel" id="common_header_control_panel_link") Панель управления пользователями
         
         main(id="profile_main")
             div(id="profile_content_wrapper")
@@ -77,18 +77,19 @@ html(lang="en")
                                     th(scope="col") Кнопки взаимодействия
                             tbody 
                                 each user in user_friends
-                                    th(class="table_user_name" scope="row")  #{user.name}
-                                    td(class="table_user_birth_date" scope="")  #{user.birth}
-                                    td(class="table_user_role" scope="")  #{user.role}
-                                    td(class="table_user_access_status" scope="")  #{user.access}
-                                    td(class="table_user_email" scope="")  #{user.email}
-                                    td(class="table_user_interaction_buttons" scope="")
-                                        button(type="button" class="btn btn-primary")
-                                            i(class="fa-solid fa-pen")
-                                        button(type="button" class="btn btn-primary")
-                                            i(class="fa-solid fa-circle-info")
-                                        button(type="button" class="btn btn-danger")
-                                            i(class="fa-solid fa-ban")
+                                    tr
+                                        th(class="table_user_name" scope="row")  #{user.name}
+                                        td(class="table_user_birth_date" scope="")  #{user.birth}
+                                        td(class="table_user_role" scope="")  #{user.role}
+                                        td(class="table_user_access_status" scope="")  #{user.access}
+                                        td(class="table_user_email" scope="")  #{user.email}
+                                        td(class="table_user_interaction_buttons" scope="")
+                                            button(type="button" class="btn btn-primary")
+                                                i(class="fa-solid fa-pen")
+                                            button(type="button" class="btn btn-primary")
+                                                i(class="fa-solid fa-circle-info")
+                                            button(type="button" class="btn btn-danger")
+                                                i(class="fa-solid fa-ban")
 
 
 
