@@ -49,9 +49,9 @@ html(lang="en")
                             div(class="form-group")
                                 label(for="InputRole") Роль
                                 select(value=user.role class="form-control" id="InputRole")
-                                    option Администратор
-                                    option Пользователь
-                                    option Гость
+                                    option(value="admin") Администратор
+                                    option(value="user") Пользователь
+                                    option(value="guest") Гость
                         
                         div(class="profile_edit_info_column")
                             div(class="form-group")
@@ -60,9 +60,9 @@ html(lang="en")
                             div(class="form-group")    
                                 label(for="InputStatus") Статус
                                 select(class="form-control" value=user.status id="InputStatus")
-                                    option Подтвержден
-                                    option Не подтвержден
-                                    option Заблокирован
+                                    option(value="confirmed") Подтвержден
+                                    option(value="unconfirmed") Не подтвержден
+                                    option(value="banned") Заблокирован
                             div(class="form-group")
                                 label(for="InputId") Идентификатор пользователя
                                 input(disabled type="text" value=user.id class="form-control" id="InputId" placeholder="Enter email")
