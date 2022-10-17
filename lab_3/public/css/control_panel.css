@@ -44,3 +44,7 @@ body {
 .user_interaction_btn {
     margin-right: 10px;
 }
+
+.control_panel_username {
+    color: #000;
+}

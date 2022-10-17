@@ -56,7 +56,7 @@ html(lang="en")
                                 img(src=user.img alt="post profile img" class="post_profile_img")
                                 div(class="profile_post_text_section")
                                     div(class="profile_post_header")
-                                        p(class="profile_post_username") #{post.author}
+                                        a(href=`/profile/${post.user_id}` class="profile_post_username") #{post.author}
                                         div(class="profile_post_control")
                                             p #{post.date}
                                             button(type="button" class="btn btn-primary")
@@ -78,7 +78,8 @@ html(lang="en")
                             tbody 
                                 each user in user_friends
                                     tr
-                                        th(class="table_user_name" scope="row")  #{user.name}
+                                        th(class="table_user_name" scope="row")  
+                                            a(href=`/profile/${user.id}` class="user_friends_username") #{user.name}
                                         td(class="table_user_birth_date" scope="")  #{user.birth}
                                         td(class="table_user_role" scope="")  #{user.role}
                                         td(class="table_user_access_status" scope="")  #{user.access}

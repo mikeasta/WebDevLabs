@@ -128,8 +128,13 @@ body {
 
 .profile_post_username {
     font-weight: 700;
+    color: #000;
 }
 
 .profile_post_username:hover {
     cursor: pointer;
+}
+
+.user_friends_username {
+    color: #000;
 }
