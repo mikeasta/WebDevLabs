@@ -39,8 +39,9 @@ html(lang="en")
                                 td(class="table_user_access_status" scope="")  #{user.status}
                                 td(class="table_user_email" scope="")  #{user.email}
                                 td(class="table_user_interaction_buttons" scope="")
-                                    button(type="button" class="btn btn-primary user_interaction_btn")
-                                        i(class="fa-solid fa-pen")
+                                    a(href=`/edit_profile/${user.id}`)
+                                        button(type="button" class="btn btn-primary user_interaction_btn")
+                                            i(class="fa-solid fa-pen")
                                     button(type="button" class="btn btn-primary user_interaction_btn")
                                         i(class="fa-solid fa-circle-info")
                                     button(type="button" class="btn btn-danger user_interaction_btn")

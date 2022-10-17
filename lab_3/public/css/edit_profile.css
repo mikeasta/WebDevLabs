@@ -81,3 +81,6 @@ body {
     margin-left: 50px;
 }
 
+#edit_profile_content_header_buttons button {
+    margin-right: 10px;
+}

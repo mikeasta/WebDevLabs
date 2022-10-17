@@ -34,7 +34,7 @@ router.get('/control_panel', async (req, res) => {
 })
 
 /**
- * @route GET/profile/:user_id
+ * @route GET /profile/:user_id
  * @desc  Special user page
  */
 router.get('/profile/:user_id', async (req, res) => {
@@ -50,6 +50,12 @@ router.get('/profile/:user_id', async (req, res) => {
         }
     })
 
+    // If there is no user with provided id
+    if (!user) {
+        res.status(404)
+        res.end('User not found') 
+    }
+
     // Retrieve user's posts
     let posts = database.posts.filter(item => {
         return item.user_id == user_id
@@ -64,4 +70,48 @@ router.get('/profile/:user_id', async (req, res) => {
         }
     })
 })
+
+/**
+ * @route GET /edit_profile/:user_id
+ * @desc  Edit special profile page
+ */
+router.get('/edit_profile/:user_id', async (req, res) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
+
+    // Retrieve current user
+    const user_id = req.params.user_id
+    let user;
+
+    database.users.forEach(item => {
+        if (item.id == user_id) {
+            user = item
+        }
+    })
+
+    // If there is no user with provided id
+    if (!user) {
+        res.status(404)
+        res.end('User not found') 
+    }
+
+    // Convert date from dd/mm/yyyy to yyyy-mm-dd 
+    let DI = require("../utils/date_interactions")
+    user.birth = new DI().slashToInverted(user.birth)
+
+    res.render('edit_profile', {
+        value: {
+            access: true,
+            user: user
+        }
+    })
+})
+
+
+// Not found result
+router.get('*', (req, res, next) => {
+    res.status(404)
+    res.end('Page not found')
+})
+
+
 module.exports = router

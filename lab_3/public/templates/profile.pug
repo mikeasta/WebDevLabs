@@ -24,8 +24,9 @@ html(lang="en")
                 section(id="profile_content_header")
                     h2 Данные пользователя
                     div(id="profile_content_header_buttons")
-                        button(type="button" class="btn btn-primary" id="profile_edit_user")
-                            i(class="fa-solid fa-pen")
+                        a(href=`/edit_profile/${user.id}`)
+                            button(type="button" class="btn btn-primary" id="profile_edit_user")
+                                i(class="fa-solid fa-pen")
                         button(type="button" class="btn btn-danger" id="profile_ban_user")
                             i(class="fa-solid fa-ban")
                     

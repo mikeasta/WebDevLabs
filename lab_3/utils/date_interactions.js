@@ -1,11 +1,19 @@
-export const slashToDotDate = date => {
-    return date.split("/").join(".")
+class DataInteractor {
+    slashToDotDate = date => {
+        return date.split("/").join(".")
+    }
+    
+    dotToSlashDate = date => {
+        return date.split(".").join("/")
+    }
+    
+    invertedToSlash = date => {
+        return date.split("-").reverse().join("/")
+    }
+
+    slashToInverted = date => {
+        return date.split('/').reverse().join('-')
+    }
 }
 
-export const dotToSlashDate = date => {
-    return date.split(".").join("/")
-}
-
-export const invertedToSlash = date => {
-    return date.split("-").reverse().join("/")
-}
+module.exports = DataInteractor

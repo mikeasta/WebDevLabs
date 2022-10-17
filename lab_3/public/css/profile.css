@@ -138,3 +138,8 @@ body {
 .user_friends_username {
     color: #000;
 }
+
+#profile_content_header_buttons a,
+#profile_content_header_buttons a:hover {
+    color: #fff
+}
