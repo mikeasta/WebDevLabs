@@ -143,3 +143,7 @@ body {
 #profile_content_header_buttons a:hover {
     color: #fff
 }
+
+.profile_wall_header_active {
+    color: #3498db;
+}
