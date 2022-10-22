@@ -51,7 +51,9 @@ export const editUser = async (user, user_id) => {
  * @desc  Ban special user
  */
 export const banUser = async user_id => {
-    let response = await fetch(url + "/api/users/ban_user/" + user_id)
+    let response = await fetch(url + "/api/users/ban_user/" + user_id, {
+        method: "PUT",
+    })
     return await response.json()
 }
 
@@ -85,4 +87,30 @@ export const getPost = async post_id => {
         method: "DELETE"
     })
     return await response.json()
+}
+
+
+// * PAGING
+/**
+ * @route GET /
+ * @desc  Index page
+ */
+ export const indexPage = () => {
+    window.location.href = url + "/"
+}
+
+/**
+ * @route GET /control_panel
+ * @desc  Index page
+ */
+export const controlPanelPage = () => {
+    window.location.href = url + "/control_panel"
+}
+
+/**
+ * @route GET /profile/:user_id
+ * @desc  Index page
+ */
+export const profilePage = user_id => {
+    window.location.href = url + "/profile/" + user_id
 }
