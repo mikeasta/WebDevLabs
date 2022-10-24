@@ -7,7 +7,7 @@ const server  = express()
 
 // HTTPS setup
 var privateKey  = fs.readFileSync('certificate/server.key', 'utf8');
-var certificate = fs.readFileSync('certificate/server.crt', 'utf8');
+var certificate = fs.readFileSync('certificate/server.csr', 'utf8');
 
 // Init Middleware 
 // This middleware gives us oportunity to 
@@ -30,11 +30,11 @@ server.use('/', require("./routes/render"))
 // Port defining
 const PORT = process.env.PORT || 5000
 
-const httpServer = http.createServer(app);
+const httpServer = http.createServer(server);
 const httpsServer = https.createServer({
     key: privateKey,
     cert: certificate
-}, app);
+}, server);
 
 httpServer.listen(PORT + 1)
 httpsServer.listen(PORT)
