@@ -1,6 +1,13 @@
 // Server initialization
+const fs = require("fs")
+const http = require("http")
+const https = require("https")
 const express = require('express')
 const server  = express()
+
+// HTTPS setup
+var privateKey  = fs.readFileSync('certificate/server.key', 'utf8');
+var certificate = fs.readFileSync('certificate/server.crt', 'utf8');
 
 // Init Middleware 
 // This middleware gives us oportunity to 
@@ -23,7 +30,11 @@ server.use('/', require("./routes/render"))
 // Port defining
 const PORT = process.env.PORT || 5000
 
-// Server start-up
-server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer({
+    key: privateKey,
+    cert: certificate
+}, app);
+
+httpServer.listen(PORT + 1)
+httpsServer.listen(PORT)
