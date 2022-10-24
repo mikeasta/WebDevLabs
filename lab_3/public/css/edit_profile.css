@@ -74,7 +74,7 @@ body {
 }
 
 #edit_profile_img_control button {
-    width: 125px;
+    width: 100%;
     margin-top: 10px;
 }
 
