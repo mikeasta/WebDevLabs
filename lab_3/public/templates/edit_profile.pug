@@ -34,9 +34,9 @@ html(lang="en")
                     div(id="edit_profile_img_section")
                         img(src=user.img alt="" id="edit_profile_img")
                         div(id="edit_profile_img_control")
-                            button(type="button" class="btn btn-danger") Удалить
+                            button(type="button" class="btn btn-danger" id="delete_image") Удалить
                                 i(class="fa-solid fa-trash-can")
-                            button(type="button" class="btn btn-primary") Загрузить
+                            button(type="button" class="btn btn-primary" id="load_image") Загрузить
                                 i(class="fa-solid fa-upload")
                     
                     div(id="profile_edit_info")
@@ -67,6 +67,7 @@ html(lang="en")
                             div(class="form-group")
                                 label(for="InputId") Идентификатор пользователя
                                 input(disabled type="text" value=user.id class="form-control" id="InputId" placeholder="Enter email")
+        
         
         script(src="../scripts/client.js" type="module")
         script(src="../scripts/edit_profile.js" type="module")

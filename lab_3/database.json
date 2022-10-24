@@ -1,1 +1,1 @@
-{"users":[],"posts":[{"author":"Асташёнок Михаил","img":"https://i.scdn.co/image/ab67616d0000b2731b7f345c199c6d1e26f1073f","date":"19/11/2021","text":"lorem ipsum","id":"qwe123rty","user_id":"23er52de4d"}]}
+{"users":[{"name":"Асташёнок Михаил","birth":"2002-11-21","role":"guest","status":"banned","email":"email@gmail.com","id":"23er52de4d","img":"https://cdn-icons-png.flaticon.com/512/149/149071.png","friends":[]}],"posts":[]}
