@@ -68,8 +68,14 @@ body {
     align-items: center;
 }
 
+#edit_profile_img_control {
+    display: flex;
+    flex-direction: column;
+}
+
 #edit_profile_img_control button {
     width: 125px;
+    margin-top: 10px;
 }
 
 #profile_edit_info {
