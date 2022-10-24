@@ -1,4 +1,4 @@
-import {banUser, deletePost, profilePage} from "./client.js"
+import {banUser, deletePost} from "./client.js"
 
 // Current profile ban
 $(".ban_btn")

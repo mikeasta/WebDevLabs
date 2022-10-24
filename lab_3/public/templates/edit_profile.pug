@@ -7,6 +7,7 @@ html(lang="en")
         link(rel="stylesheet" href="../css/edit_profile.css")
         script(src="https://kit.fontawesome.com/cb7794a450.js" crossorigin="anonymous")
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+        script(src="../scripts/jquery.js" type="module")
         title Social Media 
     body 
     
@@ -22,11 +23,11 @@ html(lang="en")
                 section(id="edit_profile_content_header")
                     h2 Редактирование данных пользователя
                     div(id="edit_profile_content_header_buttons")
-                        button(type="button" class="btn btn-success" id="profile_save_edit")
+                        button(type="button" class="btn btn-success save_btn" id=`profile_save_edit#${user.id}`)
                             i(class="fa-solid fa-floppy-disk")
-                        button(type="button" class="btn btn-danger" id="profile_ban_user")
+                        button(type="button" class="btn btn-danger ban_btn" id=`profile_ban_user#${user.id}`)
                             i(class="fa-solid fa-ban")
-                        button(type="button" class="btn btn-danger" id="profile_ban_user")
+                        button(type="button" class="btn btn-danger dlt_btn" id=`profile_delete_user#${user.id}`)
                             i(class="fa-solid fa-trash-can")
                 
                 section(id="edit_profile_card")
@@ -49,9 +50,9 @@ html(lang="en")
                             div(class="form-group")
                                 label(for="InputRole") Роль
                                 select(value=user.role class="form-control" id="InputRole")
-                                    option(value="admin") Администратор
-                                    option(value="user") Пользователь
-                                    option(value="guest") Гость
+                                    option(value="admin" selected=(user.role == "admin")) Администратор
+                                    option(value="user" selected=(user.role == "user")) Пользователь
+                                    option(value="guest" selected=(user.role == "guest")) Гость
                         
                         div(class="profile_edit_info_column")
                             div(class="form-group")
@@ -59,14 +60,16 @@ html(lang="en")
                                 input(type="email" value=user.email class="form-control" id="InputEmail" placeholder="Введите электронную почту")
                             div(class="form-group")    
                                 label(for="InputStatus") Статус
-                                select(class="form-control" value=user.status id="InputStatus")
-                                    option(value="confirmed") Подтвержден
-                                    option(value="unconfirmed") Не подтвержден
-                                    option(value="banned") Заблокирован
+                                select(class="form-control" id="InputStatus")
+                                    option(value="confirmed" selected=(user.status == "confirmed")) Подтвержден
+                                    option(value="unconfirmed" selected=(user.status == "unconfirmed")) Не подтвержден
+                                    option(value="banned" selected=(user.status == "banned")) Заблокирован
                             div(class="form-group")
                                 label(for="InputId") Идентификатор пользователя
                                 input(disabled type="text" value=user.id class="form-control" id="InputId" placeholder="Enter email")
         
+        script(src="../scripts/client.js" type="module")
+        script(src="../scripts/edit_profile.js" type="module")
         script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")

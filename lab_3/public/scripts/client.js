@@ -114,3 +114,11 @@ export const controlPanelPage = () => {
 export const profilePage = user_id => {
     window.location.href = url + "/profile/" + user_id
 }
+
+/**
+ * @route GET /profile/:user_id
+ * @desc  Index page
+ */
+ export const editProfilePage = user_id => {
+    window.location.href = url + "/edit_profile/" + user_id
+}
