@@ -1,4 +1,4 @@
-import { editUser, deleteUser, banUser, controlPanelPage, editProfilePage} from "./client.js"
+import { editUser, deleteUser, banUser, controlPanelPage, editProfilePage, uploadPhoto} from "./client.js"
 
 // Ban user
 $(".ban_btn")
@@ -44,6 +44,7 @@ $(".save_btn")
         editProfilePage(id)
     })
 
+// Deletes profile avatar (changing to standart one)
 $("#delete_image")
     .on("click", async function () {
         $("#edit_profile_img").attr("src", "https://cdn-icons-png.flaticon.com/512/149/149071.png")
@@ -65,10 +66,20 @@ $("#delete_image")
             img
         }
 
-        console.log(user)
-
         await editUser(user, id)
         editProfilePage(id)
     })
 
-    
+$("#load_image")
+    .on("click", async function () {
+        // Import image path
+        const img = $("#load_image_input").val()
+
+        // Check if input is empty 
+        if (!img) return
+
+        // Upload new photo
+        const id = $("#InputId").val()
+        await uploadPhoto(id, img)
+        editProfilePage(id)
+    })

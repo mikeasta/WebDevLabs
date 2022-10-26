@@ -108,6 +108,37 @@ router.put("/ban_user/:user_id", async (req, res) => {
     res.send(database.users)
 })
 
+/**
+ * @route PUT /api/users/upload_photo/:user_id
+ * @desc  Upload special user new profile avatar
+ */
+router.put("/upload_photo/:user_id", async (req, res) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
+
+    // Retrieve user data
+    const user_id = req.params.user_id
+
+    // Check if user with user_id exists
+    let user_index = -1
+    database.users.forEach((user, index) => {
+        if (user.id == user_id) user_index = index
+    })
+
+    if (user_index == -1) {
+        res.status(404)
+        res.send("User not found")
+    }
+
+    let user = database.users[user_index]
+
+    user.img= req.body.img
+
+    // Save new data
+    database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
+    let data = JSON.stringify(database)
+    fs.writeFileSync('database.json', data); 
+    res.send(database.users)
+})
 
 /**
  * @route DELETE /api/users/delete_user/:user_id

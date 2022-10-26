@@ -47,6 +47,21 @@ export const editUser = async (user, user_id) => {
 }
 
 /**
+ *  @route PUT /api/users/upload_photo/:user_id
+ *  @desc  Upload special user new profile avatar
+ */
+export const uploadPhoto = async (user_id, img) => {
+    let response = await fetch(url + "/api/users/upload_photo/" + user_id, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({img})
+    })
+    return await response.json()
+}
+
+/**
  * @route PUT /api/users/ban_user/:user_id
  * @desc  Ban special user
  */
