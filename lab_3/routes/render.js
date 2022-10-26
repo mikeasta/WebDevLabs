@@ -4,6 +4,7 @@ const fs = require('fs');
 
 let database;
 
+
 // * PUG DRAW FUNCS
 /**
  * @route GET /
@@ -11,9 +12,7 @@ let database;
  */
 router.get('/', async (req, res) => {
 
-    res.render('index', {
-        value: {}
-    })
+    res.render('index')
 })
 
 /**
@@ -66,7 +65,8 @@ router.get('/profile/:user_id', async (req, res) => {
     // If there is no user with provided id
     if (!user) {
         res.status(404)
-        res.end('User not found') 
+        res.render('not_found')
+        return
     }
 
     // Preprocess data
@@ -127,7 +127,7 @@ router.get('/edit_profile/:user_id', async (req, res) => {
     // If there is no user with provided id
     if (!user) {
         res.status(404)
-        res.end('User not found') 
+        res.render('not_found')
     }
 
     // Convert date from dd/mm/yyyy to yyyy-mm-dd 
@@ -146,7 +146,7 @@ router.get('/edit_profile/:user_id', async (req, res) => {
 // Not found result
 router.get('*', (req, res, next) => {
     res.status(404)
-    res.end('Page not found')
+    res.render('not_found')
 })
 
 

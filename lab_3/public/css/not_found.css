@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+}
+
+#common_header {
+    height: 80px;
+    width: 100%;
+    background-color: #34495e;
+
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+}
+
+#common_header a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin: 0 30px;
+}
+
+#not_found_main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#not_found_content_wrapper {
+    width: 80%;
+    margin-top: 40px;
+}
