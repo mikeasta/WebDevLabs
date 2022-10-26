@@ -147,3 +147,7 @@ body {
 .profile_wall_header_active {
     color: #3498db;
 }
+
+.user_interaction_btn {
+    margin-right: 10px;
+}

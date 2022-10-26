@@ -13,7 +13,7 @@ html(lang="en")
 
         - const access       = value.access 
         - const user         = value.user 
-        - const user_friends = value.user_friends 
+        - const user_friends = value.user_friends
         - const user_posts   = value.user_posts
 
         header(id="common_header")
@@ -59,7 +59,7 @@ html(lang="en")
                                 img(src=user.img alt="post profile img" class="post_profile_img")
                                 div(class="profile_post_text_section")
                                     div(class="profile_post_header")
-                                        a(href=`/profile/${post.user_id}` class="profile_post_username") #{post.author}
+                                        a(href=`/profile/${post.user_id}` class="profile_post_username") #{user.name}
                                         div(class="profile_post_control")
                                             p #{post.date}
                                             button(type="button" class="btn btn-danger delete_post_btn" id=`deletePost#${post.id}`)
@@ -83,16 +83,16 @@ html(lang="en")
                                             a(href=`/profile/${user.id}` class="user_friends_username") #{user.name}
                                         td(class="table_user_birth_date" scope="")  #{user.birth}
                                         td(class="table_user_role" scope="")  #{user.role}
-                                        td(class="table_user_access_status" scope="")  #{user.access}
+                                        td(class="table_user_access_status" scope="")  #{user.status}
                                         td(class="table_user_email" scope="")  #{user.email}
                                         td(class="table_user_interaction_buttons" scope="")
                                             a(href=`/edit_profile/${user.id}`)
-                                                button(type="button" class="btn btn-primary")
+                                                button(type="button" class="btn btn-primary user_interaction_btn")
                                                     i(class="fa-solid fa-pen")
                                             a(href=`/profile/${user.id}`)
-                                                button(type="button" class="btn btn-primary")
+                                                button(type="button" class="btn btn-primary user_interaction_btn")
                                                     i(class="fa-solid fa-circle-info")
-                                            button(type="button" class="btn btn-danger ban_btn" id=`banUser#${user.id}`)
+                                            button(type="button" class="btn btn-danger ban_btn user_interaction_btn" id=`banUser#${user.id}`)
                                                 i(class="fa-solid fa-ban")
 
 

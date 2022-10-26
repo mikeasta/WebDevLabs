@@ -163,6 +163,19 @@ router.delete("/delete_user/:user_id", async (req, res) => {
 
     // Save new data
     database.users = [...database.users.slice(0, user_index), ...database.users.slice(user_index+1)]
+
+    // Delete all user posts
+    database.posts = database.posts.filter(post => {
+        return post.user_id != user_id
+    })
+
+    // Delete this user from all friend lists
+    database.users.forEach(user => {
+        user.friends = user.friends.filter(friend_id => {
+            return friend_id != user_id
+        })
+    })
+
     let data = JSON.stringify(database)
     fs.writeFileSync('database.json', data); 
     res.send(database.users)

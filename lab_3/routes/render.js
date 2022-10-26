@@ -61,11 +61,14 @@ router.get('/profile/:user_id', async (req, res) => {
         return item.user_id == user_id
     })
 
+    // Retrieve user's friends
+    let friends = user.friends.map(friend_id => database.users.filter( user => user.id == friend_id)[0])
+
     res.render('profile', {
         value: {
             access: true,
             user: user,
-            user_friends: [],
+            user_friends: friends,
             user_posts: posts 
         }
     })
