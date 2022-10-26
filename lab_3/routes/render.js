@@ -25,10 +25,23 @@ router.get('/control_panel', async (req, res) => {
     // uncomment that row
     database = JSON.parse(fs.readFileSync('database.json'))
 
+    let DI = require("../utils/date_interactions")
+    let SP = require("../utils/string_preprocessor")
+    let di = new DI()
+    let sp = new SP()
+
+    let users = database.users
+
+    users.forEach(user => {
+        user.birth = di.invertedToSlash(user.birth)
+        user.role = sp.getRole(user.role)
+        user.status = sp.getStatus(user.status)
+    })
+
     res.render('control_panel', {
         value: {
             access: true,
-            users: database.users
+            users: users
         }
     })
 })
@@ -56,6 +69,16 @@ router.get('/profile/:user_id', async (req, res) => {
         res.end('User not found') 
     }
 
+    // Preprocess data
+    let DI = require("../utils/date_interactions")
+    let SP = require("../utils/string_preprocessor")
+    let di = new DI()
+    let sp = new SP()
+
+    user.birth = di.invertedToSlash(user.birth)
+    user.role = sp.getRole(user.role)
+    user.status = sp.getStatus(user.status)
+
     // Retrieve user's posts
     let posts = database.posts.filter(item => {
         return item.user_id == user_id
@@ -64,6 +87,16 @@ router.get('/profile/:user_id', async (req, res) => {
     // Retrieve user's friends
     let friends = user.friends.map(friend_id => database.users.filter( user => user.id == friend_id)[0])
 
+    friends.forEach(user => {
+        user.birth = di.invertedToSlash(user.birth)
+        user.role = sp.getRole(user.role)
+        user.status = sp.getStatus(user.status)
+    })
+
+    posts.forEach(post => {
+        post.date = di.invertedToSlash(post.date)
+    })
+    
     res.render('profile', {
         value: {
             access: true,

@@ -134,6 +134,6 @@ export const profilePage = user_id => {
  * @route GET /profile/:user_id
  * @desc  Index page
  */
- export const editProfilePage = user_id => {
+export const editProfilePage = user_id => {
     window.location.href = url + "/edit_profile/" + user_id
 }
