@@ -12,14 +12,10 @@ const access = {
     "unconfirmed": "Неподтвержден"
 }
 
+// Class that converts data to representable string
 class StringPreprocessor {
-    getRole = role => {
-        return roles[role]
-    }
-
-    getStatus = status => {
-        return access[status]
-    }
+    getRole   = role   => roles[role]
+    getStatus = status => access[status]
 }
 
 module.exports = StringPreprocessor

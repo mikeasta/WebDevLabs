@@ -11,9 +11,10 @@ let database;
  * @desc  Index page
  */
 router.get('/', async (req, res) => {
-
+    res.status(200)
     res.render('index')
 })
+
 
 /**
  * @route GET /control_panel
@@ -37,6 +38,8 @@ router.get('/control_panel', async (req, res) => {
         user.status = sp.getStatus(user.status)
     })
 
+    // Render
+    res.status(200)
     res.render('control_panel', {
         value: {
             access: true,
@@ -44,6 +47,7 @@ router.get('/control_panel', async (req, res) => {
         }
     })
 })
+
 
 /**
  * @route GET /profile/:user_id
@@ -57,9 +61,7 @@ router.get('/profile/:user_id', async (req, res) => {
     let user;
 
     database.users.forEach(item => {
-        if (item.id == user_id) {
-            user = item
-        }
+        if (item.id == user_id) user = item
     })
 
     // If there is no user with provided id
@@ -75,21 +77,20 @@ router.get('/profile/:user_id', async (req, res) => {
     let di = new DI()
     let sp = new SP()
 
-    user.birth = di.invertedToSlash(user.birth)
-    user.role = sp.getRole(user.role)
+    user.birth  = di.invertedToSlash(user.birth)
+    user.role   = sp.getRole(user.role)
     user.status = sp.getStatus(user.status)
 
     // Retrieve user's posts
-    let posts = database.posts.filter(item => {
-        return item.user_id == user_id
-    })
+    let posts = database.posts.filter(item => item.user_id == user_id)
 
     // Retrieve user's friends
     let friends = user.friends.map(friend_id => database.users.filter( user => user.id == friend_id)[0])
 
+    // Preprocess data
     friends.forEach(user => {
-        user.birth = di.invertedToSlash(user.birth)
-        user.role = sp.getRole(user.role)
+        user.birth  = di.invertedToSlash(user.birth)
+        user.role   = sp.getRole(user.role)
         user.status = sp.getStatus(user.status)
     })
 
@@ -97,6 +98,9 @@ router.get('/profile/:user_id', async (req, res) => {
         post.date = di.invertedToSlash(post.date)
     })
     
+
+    // Render
+    res.status(200)
     res.render('profile', {
         value: {
             access: true,
@@ -106,6 +110,7 @@ router.get('/profile/:user_id', async (req, res) => {
         }
     })
 })
+
 
 /**
  * @route GET /edit_profile/:user_id
@@ -119,9 +124,7 @@ router.get('/edit_profile/:user_id', async (req, res) => {
     let user;
 
     database.users.forEach(item => {
-        if (item.id == user_id) {
-            user = item
-        }
+        if (item.id == user_id) user = item
     })
 
     // If there is no user with provided id
@@ -134,6 +137,8 @@ router.get('/edit_profile/:user_id', async (req, res) => {
     let DI = require("../utils/date_interactions")
     user.birth = new DI().slashToInverted(user.birth)
 
+    // Render
+    res.status(200)
     res.render('edit_profile', {
         value: {
             access: true,

@@ -13,6 +13,7 @@ let database;
  */
 router.get("/get_all_posts", async (req, res) => {
     database = JSON.parse(fs.readFileSync('database.json'))
+    res.status(200)
     res.send(database.posts)
 })
 
@@ -37,6 +38,7 @@ router.get("/get_post/:post_id", async (req, res) => {
         res.send("Post not found")
     }
 
+    res.status(200)
     res.send(found)
 })
 
@@ -66,6 +68,7 @@ router.delete("/delete_post/:post_id", async (req, res) => {
     database.posts = [...database.posts.slice(0, post_index), ...database.posts.slice(post_index+1)]
     let data = JSON.stringify(database)
     fs.writeFileSync('database.json', data); 
+    res.status(200)
     res.send(database.posts)
 })
 

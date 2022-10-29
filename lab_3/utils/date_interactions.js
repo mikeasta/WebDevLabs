@@ -1,3 +1,4 @@
+// Converts data to different forms
 class DataInteractor {
     slashToDotDate = date => {
         return date.split("/").join(".")

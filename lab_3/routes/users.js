@@ -11,6 +11,7 @@ let database;
  */
 router.get("/get_all_users", async (req, res) => {
     database = JSON.parse(fs.readFileSync('database.json'))
+    res.status(200)
     res.send(database.users)
 })
 
@@ -35,6 +36,7 @@ router.get("/get_user/:user_id", async (req, res) => {
         res.send("User not found")
     }
 
+    res.status(200)
     res.send(found)
 })
 
@@ -73,6 +75,7 @@ router.put("/edit_user/:user_id", async (req, res) => {
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
     fs.writeFileSync('database.json', data); 
+    res.status(200)
     res.send(database.users)
 })
 
@@ -105,6 +108,7 @@ router.put("/ban_user/:user_id", async (req, res) => {
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
     fs.writeFileSync('database.json', data); 
+    res.status(200)
     res.send(database.users)
 })
 
@@ -137,6 +141,7 @@ router.put("/upload_photo/:user_id", async (req, res) => {
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
     fs.writeFileSync('database.json', data); 
+    res.status(200)
     res.send(database.users)
 })
 
@@ -178,6 +183,7 @@ router.delete("/delete_user/:user_id", async (req, res) => {
 
     let data = JSON.stringify(database)
     fs.writeFileSync('database.json', data); 
+    res.status(200)
     res.send(database.users)
 })
 
@@ -187,5 +193,6 @@ router.get('*', (req, res, next) => {
     res.status(404)
     res.end('Page not found')
 })
+
 
 module.exports = router
