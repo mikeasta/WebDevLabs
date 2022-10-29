@@ -6,15 +6,6 @@ const babel     = require("gulp-babel");
 const uglify    = require("gulp-uglify");
 const fse       = require('fs-extra');
 
-// Copying bin folder
-try {
-    console.log("Bin folder: ");
-    fse.copySync("./src/bin", "./dist_gulp/bin", { overwrite: true });
-    console.log('Success!');
-} catch (err) {
-    console.error(err)
-}
-
 // Copying public folders
 try {
     console.log("Public/certificate folder: ");
@@ -24,6 +15,7 @@ try {
     console.error(err)
 }
 
+
 try {
     console.log("Routes folder: ");
     fse.copySync("./routes", "./dist_gulp/routes", { overwrite: true });
@@ -32,6 +24,8 @@ try {
     console.error(err)
 }
 
+
+// Utils folder import
 try {
     console.log("Utils folder: ");
     fse.copySync("./utils", "./dist_gulp/utils", { overwrite: true });
@@ -40,6 +34,8 @@ try {
     console.error(err)
 }
 
+
+// App file import
 try {
     console.log("Server.js: ");
     fse.copySync("./server.js", "./dist_gulp/server.js", { overwrite: true });
@@ -48,6 +44,8 @@ try {
     console.error(err)
 }
 
+
+// Database import
 try {
     console.log("Database.json: ");
     fse.copySync("./database.json", "./dist_gulp/database.json", { overwrite: true });

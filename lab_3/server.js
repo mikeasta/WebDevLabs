@@ -1,6 +1,5 @@
 // Server initialization
 const fs = require("fs")
-const http = require("http")
 const https = require("https")
 const express = require('express')
 const server  = express()
@@ -16,8 +15,8 @@ server.use("/scripts", express.static(__dirname + '/public/scripts'))
 server.use("/certificate", express.static(__dirname + '/public/certificate'))
 
 // Including PUG drawer engine 
-server.set('view engine', 'pug')
 server.set('views', __dirname + "/public/views")
+server.set('view engine', 'pug')
 
 // API Router included
 server.use('/api/users', require('./routes/users'))

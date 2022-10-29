@@ -12,8 +12,8 @@ html(lang="en")
         title Social Media 
     body 
 
-        - const access = value.access 
-        - const users  = value.users 
+        - const access = value ? value.access: null
+        - const users  = value ? value.users: []
 
         header(id="common_header")
             a(href="" id="common_header_profile_link") Профиль

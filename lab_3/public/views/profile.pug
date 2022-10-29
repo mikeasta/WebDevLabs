@@ -12,10 +12,10 @@ html(lang="en")
         title Social Media 
     body 
 
-        - const access       = value.access 
-        - const user         = value.user 
-        - const user_friends = value.user_friends
-        - const user_posts   = value.user_posts
+        - const access       = value ? value.access : null
+        - const user         = value ? value.user : { name:"", birth: "", id: "", role: "", status: "", email: "", img: ""}
+        - const user_friends = value ? value.user_friends : []
+        - const user_posts   = value ? value.user_posts : []
 
         header(id="common_header")
             a(href="" id="common_header_profile_link") Профиль
