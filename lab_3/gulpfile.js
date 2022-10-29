@@ -17,16 +17,8 @@ try {
 
 // Copying public folders
 try {
-    console.log("Public/images folder: ");
-    fse.copySync("./src/public/images", "./dist_gulp/public/images", { overwrite: true });
-    console.log('Success!');
-} catch (err) {
-    console.error(err)
-}
-
-try {
-    console.log("Public/json folder: ");
-    fse.copySync("./src/public/json", "./dist_gulp/public/json", { overwrite: true });
+    console.log("Public/certificate folder: ");
+    fse.copySync("./public/certificate", "./dist_gulp/public/certificate", { overwrite: true });
     console.log('Success!');
 } catch (err) {
     console.error(err)
@@ -34,15 +26,31 @@ try {
 
 try {
     console.log("Routes folder: ");
-    fse.copySync("./src/routes_webpack", "./dist_gulp/routes", { overwrite: true });
+    fse.copySync("./routes", "./dist_gulp/routes", { overwrite: true });
     console.log('Success!');
 } catch (err) {
     console.error(err)
 }
 
 try {
-    console.log("App.mjs: ");
-    fse.copySync("./src/app.mjs", "./dist_gulp/app.mjs", { overwrite: true });
+    console.log("Utils folder: ");
+    fse.copySync("./utils", "./dist_gulp/utils", { overwrite: true });
+    console.log('Success!');
+} catch (err) {
+    console.error(err)
+}
+
+try {
+    console.log("Server.js: ");
+    fse.copySync("./server.js", "./dist_gulp/server.js", { overwrite: true });
+    console.log('Success!');
+} catch (err) {
+    console.error(err)
+}
+
+try {
+    console.log("Database.json: ");
+    fse.copySync("./database.json", "./dist_gulp/database.json", { overwrite: true });
     console.log('Success!');
 } catch (err) {
     console.error(err)
@@ -50,16 +58,16 @@ try {
 
 paths = {
     less: {
-        src: "src/public/stylesheets/*.less",
-        dest: "dist_gulp/public/stylesheets"
+        src: "public/less/*.less",
+        dest: "dist_gulp/public/less"
     },
     pug: {
-        src: "src/views/*.pug",
+        src: "public/views/*.pug",
         dest: "dist_gulp/views"
     },
     js: {
-        src: "src/public/javascripts/*.js",
-        dest: "dist_gulp/public/javascripts"
+        src: "public/scripts/*.js",
+        dest: "dist_gulp/public/scripts"
     }
 }
 

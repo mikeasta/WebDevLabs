@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "clean_webpack": "rm -rf dist_webpack",
+    "clean_gulp": "rm -rf dist_gulp",
+    "webpack_build": "npm run clean_webpack && webpack",
+    "webpack_prod": "node dist_webpack/bin/www.mjs",
+    "gulp_build": "npm run clean_gulp && gulp",
+    "gulp_prod": "node dist_gulp/bin/www.mjs gulp"
   },
   "author": "",
   "license": "ISC",
