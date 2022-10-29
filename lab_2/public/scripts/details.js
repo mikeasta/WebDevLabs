@@ -63,7 +63,7 @@ headline.addEventListener('click', indexPage)
 removeBtn.addEventListener('click', () => {
     const book_id = document.location.pathname.split('/').slice(-1)[0]
     deleteBook(book_id)
-    alert(`Book with id ${book_id} removed.`)
+    alert(`Book with id '${book_id}' removed.`)
     indexPage()
 })
 

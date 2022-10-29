@@ -12,8 +12,7 @@ html(lang="en")
             i(class="fa-solid fa-book")
         h2(id="details_headline") Подробности о книге
 
-        -
-            var book = value
+        - var book = value || {release: "", due: ""}
 
         section(id="details_section")
             img(alt="" id="details_book_picture" src=book.image)

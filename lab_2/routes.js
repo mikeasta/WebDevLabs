@@ -3,8 +3,10 @@ const express = require('express')
 const router  = express.Router()
 const fs = require('fs');
 
+
 // Loading database data
 let database = require('./database.json')
+
 
 // * DATABASE CONTROL SYSTEM ROUTES
 /**
@@ -21,13 +23,10 @@ router.get('/api/get_booklist', (req, res, next) => {
  * @desc  Returns special book from database
  */
 router.get('/api/get_book/:book_id', (req, res, next) => {
-    // Check if book_id is NaN
-    if (isNaN(Number(req.params.book_id))) 
-        res.send(`Page not found: invalid book id`)
     
     // Look for book
     const books = database.books
-    const book  = books.find(item => item.id === Number(req.params.book_id))
+    const book  = books.find(item => item.id === req.params.book_id)
     res.send(book)
 })
 
@@ -70,13 +69,14 @@ router.put('/api/update_book', (req, res, next) => {
  * @desc  Creates new book
  */
 router.post('/api/create_new_book', (req, res, next) => {
+
     let book = req.body.book
 
     // Check if book raw paremeter exists
     if (!book) 
         res.send(`Page not found: invalid book data`)
 
-    book.id = ++database.latest_id
+    book.id = Math.random().toString(36).slice(2, 15)
     database.books.push(book)
     let data = JSON.stringify(database)
     fs.writeFileSync('./database.json', data); 
@@ -89,11 +89,7 @@ router.post('/api/create_new_book', (req, res, next) => {
  * @desc  Deletes special book.
  */
 router.delete('/api/delete_book/:book_id', (req, res, next) => {
-    const book_id_num = Number(req.params.book_id)
-
-    // Check if book_id is NaN
-    if (isNaN(book_id_num)) 
-        res.send(`Page not found: invalid book id`)
+    const book_id_num = req.params.book_id
 
     let index = -1;
 
@@ -135,7 +131,7 @@ router.get('/', async (req, res) => {
  * @route GET /add_new_book
  * @desc  Add new book page
  */
-router.get('/add_new_book', (req, res) => {
+router.get('/add_new_book', async (req, res) => {
     res.render('add_book')
 })
 
@@ -144,29 +140,29 @@ router.get('/add_new_book', (req, res) => {
  * @route GET /book_details/:book_id
  * @desc  Special book details page
  */
-router.get('/book_details/:book_id', (req, res) => {
+router.get('/book_details/:book_id', async (req, res) => {
     let index = -1
 
     // Look for special book
     database.books.forEach((book, idx) => {
-        if (book.id == req.params.book_id) {
-            index = idx
-        }
+        if (book.id == req.params.book_id) index = idx
     })
 
     // Check if book exists
-    if (index === -1) {
+    if (index === -1) 
         res.send(`Page not found: required book not found.`)
-    }
+
+
+    let book = database.books[index]
 
     res.render('details', {
-        value: database.books[index]
+        value: book
     })
 }) 
 
 
 // Not found result
-router.get('*', (req, res, next) => {
+router.get('*', async (req, res, next) => {
     res.status(404)
     res.end('Page not found')
 })
