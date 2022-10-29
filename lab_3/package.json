@@ -9,9 +9,9 @@
     "clean_webpack": "rm -rf dist_webpack",
     "clean_gulp": "rm -rf dist_gulp",
     "webpack_build": "npm run clean_webpack && webpack",
-    "webpack_prod": "node dist_webpack/bin/www.mjs",
+    "webpack_prod": "node dist_webpack/server.js",
     "gulp_build": "npm run clean_gulp && gulp",
-    "gulp_prod": "node dist_gulp/bin/www.mjs gulp"
+    "gulp_prod": "node dist_gulp/server.js gulp"
   },
   "author": "",
   "license": "ISC",

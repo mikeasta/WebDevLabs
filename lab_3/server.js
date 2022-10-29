@@ -12,7 +12,7 @@ server.use(express.json({ extended: false }));
 
 
 // Defining folders with static files
-server.use("/less", express.static(__dirname + '/public/less'))
+server.use("/stylesheets", express.static(__dirname + '/public/stylesheets'))
 server.use("/scripts", express.static(__dirname + '/public/scripts'))
 server.use("/certificate", express.static(__dirname + '/public/certificate'))
 

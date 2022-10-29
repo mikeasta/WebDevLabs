@@ -56,8 +56,8 @@ try {
 
 paths = {
     less: {
-        src: "public/less/*.less",
-        dest: "dist_gulp/public/less"
+        src: "public/stylesheets/*.less",
+        dest: "dist_gulp/public/stylesheets"
     },
     pug: {
         src: "public/views/*.pug",
