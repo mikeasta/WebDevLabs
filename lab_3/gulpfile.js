@@ -18,7 +18,7 @@ try {
 
 try {
     console.log("Routes folder: ");
-    fse.copySync("./routes", "./dist_gulp/routes", { overwrite: true });
+    fse.copySync("./build/routes", "./dist_gulp/routes", { overwrite: true });
     console.log('Success!');
 } catch (err) {
     console.error(err)
@@ -64,7 +64,7 @@ paths = {
         dest: "dist_gulp/views"
     },
     js: {
-        src: "public/scripts/*.js",
+        src: "build/scripts/*.js",
         dest: "dist_gulp/public/scripts"
     }
 }
