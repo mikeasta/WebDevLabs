@@ -1,9 +1,9 @@
 const express = require("express")
 const router  = express.Router()
 const fs = require('fs');
+const path = require('path')
 
 let database;
-
 
 // * PUG DRAW FUNCS
 /**
@@ -12,7 +12,7 @@ let database;
  */
 router.get('/', async (req, res) => {
     res.status(200)
-    res.render('index')
+    res.sendFile(path.join(__dirname, "../public/views/index.html"))
 })
 
 
@@ -40,12 +40,13 @@ router.get('/control_panel', async (req, res) => {
 
     // Render
     res.status(200)
-    res.render('control_panel', {
-        value: {
-            access: true,
-            users: users
-        }
-    })
+    res.sendFile(path.join(__dirname, "../public/views/control_panel.html"))
+    // res.render('control_panel', {
+    //     value: {
+    //         access: true,
+    //         users: users
+    //     }
+    // })
 })
 
 
@@ -101,14 +102,15 @@ router.get('/profile/:user_id', async (req, res) => {
 
     // Render
     res.status(200)
-    res.render('profile', {
-        value: {
-            access: true,
-            user: user,
-            user_friends: friends,
-            user_posts: posts 
-        }
-    })
+    res.sendFile(path.join(__dirname, "../public/views/profile.html"))
+    // res.render('profile', {
+    //     value: {
+    //         access: true,
+    //         user: user,
+    //         user_friends: friends,
+    //         user_posts: posts 
+    //     }
+    // })
 })
 
 
@@ -139,19 +141,21 @@ router.get('/edit_profile/:user_id', async (req, res) => {
 
     // Render
     res.status(200)
-    res.render('edit_profile', {
-        value: {
-            access: true,
-            user: user
-        }
-    })
+    res.sendFile(path.join(__dirname, "../public/views/edit_profile.html"))
+    // res.render('edit_profile', {
+    //     value: {
+    //         access: true,
+    //         user: user
+    //     }
+    // })
 })
 
 
 // Not found result
 router.get('*', (req, res, next) => {
     res.status(404)
-    res.render('not_found')
+    res.sendFile(path.join(__dirname, "../public/views/not_found.html"))
+    // res.render('not_found')
 })
 
 

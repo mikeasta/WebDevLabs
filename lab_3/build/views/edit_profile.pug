@@ -1,0 +1,78 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet/less" type="text/css" href="../stylesheets/edit_profile.css")
+        script(src="https://cdn.jsdelivr.net/npm/less")
+        script(src="https://kit.fontawesome.com/cb7794a450.js" crossorigin="anonymous")
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+        script(src="../scripts/jquery.js" type="module")
+        title Social Media 
+    body 
+    
+        - const access = value ? value.access : null
+        - const user   = value ? value.user : { name:"", birth: "", id: "", role: "", status: "", email: "", img: ""}
+
+        header(id="common_header")
+            a(href="" id="common_header_profile_link") Профиль
+            a(href="/control_panel" id="common_header_control_panel_link") Панель управления пользователями
+        
+        main(id="edit_profile_main")
+            div(id="edit_profile_content_wrapper")
+                section(id="edit_profile_content_header")
+                    h2 Редактирование данных пользователя
+                    div(id="edit_profile_content_header_buttons")
+                        button(type="button" class="btn btn-success save_btn" id=`profile_save_edit#${user.id}`)
+                            i(class="fa-solid fa-floppy-disk")
+                        button(type="button" class="btn btn-danger ban_btn" id=`profile_ban_user#${user.id}`)
+                            i(class="fa-solid fa-ban")
+                        button(type="button" class="btn btn-danger dlt_btn" id=`profile_delete_user#${user.id}`)
+                            i(class="fa-solid fa-trash-can")
+                
+                section(id="edit_profile_card")
+                    div(id="edit_profile_img_section")
+                        img(src=user.img alt="" id="edit_profile_img")
+                        div(id="edit_profile_img_control")
+                            input(type="text" placeholder="Enter image URL" class="btn btn-primary" id="load_image_input") 
+                            button(type="button" class="btn btn-primary" id="load_image") Загрузить фото 
+                                i(class="fa-solid fa-upload")
+                            button(type="button" class="btn btn-danger" id="delete_image") Удалить фото 
+                                i(class="fa-solid fa-trash-can")
+                    
+                    div(id="profile_edit_info")
+                        div(class="profile_edit_info_column")
+                            div(class="form-group")
+                                label(for="InputUsername") Имя пользователя
+                                input(type="text" value=user.name class="form-control" id="InputUsername" placeholder="Введите имя")
+                            div(class="form-group")
+                                label(for="InputBirthdate") Дата рождения
+                                input(type="date" value=user.birth class="form-control" id="InputBirthdate" placeholder="Enter email")
+                            div(class="form-group")
+                                label(for="InputRole") Роль
+                                select(value=user.role class="form-control" id="InputRole")
+                                    option(value="admin" selected=(user.role == "admin")) Администратор
+                                    option(value="user" selected=(user.role == "user")) Пользователь
+                                    option(value="guest" selected=(user.role == "guest")) Гость
+                        
+                        div(class="profile_edit_info_column")
+                            div(class="form-group")
+                                label(for="InputEmail") Электронная почта
+                                input(type="email" value=user.email class="form-control" id="InputEmail" placeholder="Введите электронную почту")
+                            div(class="form-group")    
+                                label(for="InputStatus") Статус
+                                select(class="form-control" id="InputStatus")
+                                    option(value="confirmed" selected=(user.status == "confirmed")) Подтвержден
+                                    option(value="unconfirmed" selected=(user.status == "unconfirmed")) Не подтвержден
+                                    option(value="banned" selected=(user.status == "banned")) Заблокирован
+                            div(class="form-group")
+                                label(for="InputId") Идентификатор пользователя
+                                input(disabled type="text" value=user.id class="form-control" id="InputId" placeholder="Enter email")
+        
+        
+        script(src="../scripts/client.js" type="module")
+        script(src="../scripts/edit_profile.js" type="module")
+        script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
