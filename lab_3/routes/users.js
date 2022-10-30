@@ -4,7 +4,6 @@ const fs = require('fs');
 
 let database;
 
-
 /**
  * @route GET /api/users/get_all_users
  * @desc  Getting all users route

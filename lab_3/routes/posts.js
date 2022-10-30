@@ -4,9 +4,6 @@ const fs = require('fs');
 
 let database;
 
-
-// ...
-
 /**
  * @route GET /api/posts/get_all_posts
  * @desc  Gets all posts
@@ -16,7 +13,6 @@ router.get("/get_all_posts", async (req, res) => {
     res.status(200)
     res.send(database.posts)
 })
-
 
 /**
  * @route GET /api/posts/get_post/:post_id

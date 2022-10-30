@@ -1,4 +1,4 @@
-const {src, dest, series, parallel} = require("gulp");
+const {src, dest, parallel} = require("gulp");
 const less      = require("gulp-less");
 const clean_css = require("gulp-clean-css");
 const pug       = require("gulp-pug");
@@ -54,6 +54,7 @@ try {
     console.error(err)
 }
 
+
 paths = {
     less: {
         src: "public/stylesheets/*.less",
@@ -69,6 +70,7 @@ paths = {
     }
 }
 
+
 function build_less()
 {
     return src(paths.less.src)
@@ -77,12 +79,14 @@ function build_less()
         .pipe(dest(paths.less.dest));
 }
 
+
 function build_pug()
 {
     return src(paths.pug.src)
         .pipe(pug())
         .pipe(dest(paths.pug.dest));
 }
+
 
 function build_js()
 {
@@ -91,5 +95,6 @@ function build_js()
         .pipe(uglify())
         .pipe(dest(paths.js.dest));
 }
+
 
 exports.default = parallel(build_less, build_pug, build_js)

@@ -4,7 +4,6 @@ const fs = require('fs');
 
 let database;
 
-
 // * PUG DRAW FUNCS
 /**
  * @route GET /
