@@ -17,7 +17,7 @@ try {
 // Routes import
 try {
     console.log("Routes folder: ");
-    fse.copySync("./build/routes", "./dist_webpack/routes", { overwrite: true });
+    fse.copySync("./public/build/routes", "./dist_webpack/routes", { overwrite: true });
     console.log('Success!');
 } catch (err) {
     console.error(err)
@@ -53,24 +53,22 @@ try {
     console.error(err)
 }
 
-
 const pages = fs.readdirSync("./public/build/views").filter(name => name.endsWith(".pug"))
-
 
 module.exports = {
     externals: [nodeExternals()],
     mode: "development",
     devtool: false,
     entry: {
-        index:        "./public/webpack_scripts/index.js",
-        not_found:    "./public/webpack_scripts/not_found.js",
-        profile:      "./public/webpack_scripts/profile.js",
-        edit_profile: "./public/webpack_scripts/edit_profile.js",
-        control_panel:"./public/webpack_scripts/control_panel.js",
+        index:          "./public/webpack_scripts/index.js",
+        not_found:      "./public/webpack_scripts/not_found.js",
+        profile:        "./public/webpack_scripts/profile.js",
+        edit_profile:   "./public/webpack_scripts/edit_profile.js",
+        control_panel:  "./public/webpack_scripts/control_panel.js",
     },
     output: {
-        path: path.join(__dirname, "/dist_webpack"),
-        filename: "./public/scripts/[name].js"
+        path: path.resolve(__dirname, "dist_webpack"),
+        filename: "./public/scripts/[name].js",
     },
     module: {
         rules: [
@@ -101,11 +99,19 @@ module.exports = {
         ]
     },
     plugins: [
-        ...pages.map(file => new HtmlWebpackPlugin({
-            template: `./public/build/views/${file}`,
-            filename: `./views/${file.replace(/\.pug/, '.html')}`,
-            inject: 'body',
-            chunks: [file.replace(/\.pug/, "")]
-        }))
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
+        ...pages.map(file => {
+            console.log(file)
+
+            return new HtmlWebpackPlugin({
+                template: `./public/build/views/${file}`,
+                filename: `./public/views/${file.replace(/\.pug/, '.html')}`,
+                inject: 'body',
+                chunks: [file.replace(/\.pug/, "")]
+            })
+        })
     ]
 }
