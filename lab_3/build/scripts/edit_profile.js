@@ -20,16 +20,14 @@ $(document)
         // Ban user
         $(".ban_btn")
             .on("click", async function () {
-                const user_id = $(this).attr("id").split("profile_ban_user#")[1]
-                await banUser(user_id)
-                editProfilePage(user_id)
+                await banUser(user.id)
+                editProfilePage(user.id)
         })
     
         // Delete user
         $(".dlt_btn")
             .on("click", async function () {
-                const user_id = $(this).attr("id").split("profile_delete_user#")[1]
-                await deleteUser(user_id)
+                await deleteUser(user.id)
                 controlPanelPage()
         })
     
@@ -52,8 +50,6 @@ $(document)
                     status,
                     img
                 }
-            
-                console.log(user)
             
                 await editUser(user, id)
                 editProfilePage(id)
@@ -94,9 +90,8 @@ $(document)
                 if (!img) return
             
                 // Upload new photo
-                const id = $("#InputId").val()
-                await uploadPhoto(id, img)
-                editProfilePage(id)
+                await uploadPhoto(user.id, img)
+                editProfilePage(user.id)
         })
 })
 
