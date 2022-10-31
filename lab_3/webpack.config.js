@@ -53,7 +53,7 @@ try {
     console.error(err)
 }
 
-const pages = fs.readdirSync("./public/build/views").filter(name => name.endsWith(".pug"))
+const pages = fs.readdirSync("./public/build/webpack_views").filter(name => name.endsWith(".pug"))
 
 module.exports = {
     externals: [nodeExternals()],
@@ -100,7 +100,7 @@ module.exports = {
     },
     plugins: [
         ...pages.map(file => new HtmlWebpackPlugin({
-                template: `./public/build/views/${file}`,
+                template: `./public/build/webpack_views/${file}`,
                 filename: `./public/views/${file.replace(/\.pug/, '.html')}`,
                 inject: 'body',
                 chunks: [file.replace(/\.pug/, "")]

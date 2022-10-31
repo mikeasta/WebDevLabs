@@ -61,7 +61,7 @@ paths = {
         dest: "dist_gulp/public/stylesheets"
     },
     pug: {
-        src: "public/build/views/*.pug",
+        src: "public/build/gulp_views/*.pug",
         dest: "dist_gulp/public/views"
     },
     js: {
