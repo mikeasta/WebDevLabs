@@ -99,19 +99,12 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
-        }),
-        ...pages.map(file => {
-            console.log(file)
-
-            return new HtmlWebpackPlugin({
+        ...pages.map(file => new HtmlWebpackPlugin({
                 template: `./public/build/views/${file}`,
                 filename: `./public/views/${file.replace(/\.pug/, '.html')}`,
                 inject: 'body',
                 chunks: [file.replace(/\.pug/, "")]
             })
-        })
+        )
     ]
 }
