@@ -23,19 +23,20 @@ router.get("/get_post/:post_id", async (req, res) => {
     const post_id = req.params.post_id
 
     // Check if post with post_id exists
-    let found;
+    let foundPost;
 
     database.posts.forEach(post => {
-        if (post.id == post_id) found = post
+        if (post.id == post_id) 
+            foundPost = post
     })
 
-    if (!found) {
+    if (!foundPost) {
         res.status(404)
         res.send("Post not found")
     }
 
     res.status(200)
-    res.send(found)
+    res.send(foundPost)
 })
 
 
@@ -51,6 +52,7 @@ router.delete("/delete_post/:post_id", async (req, res) => {
 
     // Check if post with post_id exists
     let post_index = -1
+
     database.posts.forEach((post, index) => {
         if (post.id == post_id) post_index = index
     })
@@ -61,9 +63,10 @@ router.delete("/delete_post/:post_id", async (req, res) => {
     }
 
     // Save new data
-    database.posts = [...database.posts.slice(0, post_index), ...database.posts.slice(post_index+1)]
+    database.posts = [...database.posts.slice(0, post_index), ...database.posts.slice(post_index + 1)]
     let data = JSON.stringify(database)
     fs.writeFileSync('database.json', data); 
+
     res.status(200)
     res.send(database.posts)
 })

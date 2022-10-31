@@ -24,19 +24,19 @@ router.get("/get_user/:user_id", async (req, res) => {
     const user_id = req.params.user_id
 
     // Check if user with user_id exists
-    let found;
+    let foundUser;
 
     database.users.forEach(user => {
-        if (user.id == user_id) found = user
+        if (user.id == user_id) foundUser = user
     })
 
-    if (!found) {
+    if (!foundUser) {
         res.status(404)
         res.send("User not found")
     }
 
     res.status(200)
-    res.send(found)
+    res.send(foundUser)
 })
 
 
@@ -53,8 +53,10 @@ router.put("/edit_user/:user_id", async (req, res) => {
 
     // Check if user with user_id exists
     let user_index = -1
+
     database.users.forEach((user, index) => {
-        if (user.id == user_id) user_index = index
+        if (user.id == user_id) 
+            user_index = index
     })
 
     if (user_index == -1) {
@@ -74,8 +76,9 @@ router.put("/edit_user/:user_id", async (req, res) => {
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
     fs.writeFileSync('database.json', data); 
+
     res.status(200)
-    res.send(database.users)
+    res.send(user)
 })
 
 
@@ -91,8 +94,10 @@ router.put("/ban_user/:user_id", async (req, res) => {
 
     // Check if user with user_id exists
     let user_index = -1
+
     database.users.forEach((user, index) => {
-        if (user.id == user_id) user_index = index
+        if (user.id == user_id) 
+            user_index = index
     })
 
     if (user_index == -1) {
@@ -106,10 +111,12 @@ router.put("/ban_user/:user_id", async (req, res) => {
     // Save new data
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
-    fs.writeFileSync('database.json', data); 
+    fs.writeFileSync('database.json', data);
+
     res.status(200)
-    res.send(database.users)
+    res.send(user)
 })
+
 
 /**
  * @route PUT /api/users/upload_photo/:user_id
@@ -123,8 +130,10 @@ router.put("/upload_photo/:user_id", async (req, res) => {
 
     // Check if user with user_id exists
     let user_index = -1
+
     database.users.forEach((user, index) => {
-        if (user.id == user_id) user_index = index
+        if (user.id == user_id) 
+            user_index = index
     })
 
     if (user_index == -1) {
@@ -140,8 +149,9 @@ router.put("/upload_photo/:user_id", async (req, res) => {
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
     fs.writeFileSync('database.json', data); 
+
     res.status(200)
-    res.send(database.users)
+    res.send(user)
 })
 
 /**
@@ -156,8 +166,10 @@ router.delete("/delete_user/:user_id", async (req, res) => {
 
     // Check if user with user_id exists
     let user_index = -1
+
     database.users.forEach((user, index) => {
-        if (user.id == user_id) user_index = index
+        if (user.id == user_id) 
+            user_index = index
     })
 
     if (user_index == -1) {
@@ -169,19 +181,17 @@ router.delete("/delete_user/:user_id", async (req, res) => {
     database.users = [...database.users.slice(0, user_index), ...database.users.slice(user_index+1)]
 
     // Delete all user posts
-    database.posts = database.posts.filter(post => {
-        return post.user_id != user_id
-    })
+    database.posts = database.posts.filter(post => post.user_id != user_id)
 
     // Delete this user from all friend lists
     database.users.forEach(user => {
-        user.friends = user.friends.filter(friend_id => {
-            return friend_id != user_id
-        })
+        user.friends = user.friends.filter(friend_id => friend_id != user_id)
     })
 
+    // Save data
     let data = JSON.stringify(database)
     fs.writeFileSync('database.json', data); 
+    
     res.status(200)
     res.send(database.users)
 })

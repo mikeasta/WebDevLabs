@@ -1,4 +1,12 @@
-import { editUser, deleteUser, banUser, controlPanelPage, editProfilePage, uploadPhoto} from "./client.js"
+import { 
+    editUser, 
+    deleteUser, 
+    banUser, 
+    controlPanelPage, 
+    editProfilePage, 
+    uploadPhoto
+} from "./client.js"
+
 
 // Ban user
 $(".ban_btn")
@@ -38,11 +46,10 @@ $(".save_btn")
             img
         }
 
-        console.log(user)
-
         await editUser(user, id)
         editProfilePage(id)
     })
+
 
 // Deletes profile avatar (changing to standart one)
 $("#delete_image")

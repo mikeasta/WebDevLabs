@@ -4,6 +4,7 @@ const fs = require('fs');
 
 let database;
 
+
 // * PUG DRAW FUNCS
 /**
  * @route GET /
@@ -32,8 +33,8 @@ router.get('/control_panel', async (req, res) => {
     let users = database.users
 
     users.forEach(user => {
-        user.birth = di.invertedToSlash(user.birth)
-        user.role = sp.getRole(user.role)
+        user.birth  = di.invertedToSlash(user.birth)
+        user.role   = sp.getRole(user.role)
         user.status = sp.getStatus(user.status)
     })
 
@@ -60,7 +61,8 @@ router.get('/profile/:user_id', async (req, res) => {
     let user;
 
     database.users.forEach(item => {
-        if (item.id == user_id) user = item
+        if (item.id == user_id) 
+            user = item
     })
 
     // If there is no user with provided id
@@ -123,7 +125,8 @@ router.get('/edit_profile/:user_id', async (req, res) => {
     let user;
 
     database.users.forEach(item => {
-        if (item.id == user_id) user = item
+        if (item.id == user_id) 
+            user = item
     })
 
     // If there is no user with provided id

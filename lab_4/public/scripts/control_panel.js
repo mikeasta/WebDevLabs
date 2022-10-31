@@ -1,4 +1,4 @@
-import {banUser} from "./client.js"
+import { banUser } from "./client.js"
 
 $(".ban_btn")
     .on("click", async function() {

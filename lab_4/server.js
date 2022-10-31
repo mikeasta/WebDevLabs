@@ -1,6 +1,6 @@
 // Server initialization
-const fs      = require("fs")
-const https   = require("https")
+const fs      = require('fs')
+const https   = require('https')
 const express = require('express')
 const server  = express()
 
@@ -9,18 +9,18 @@ const server  = express()
 server.use(express.json({ extended: false }));
 
 // Defining folders with static files
-server.use("/stylesheets", express.static(__dirname + '/public/stylesheets'))
-server.use("/scripts",     express.static(__dirname + '/public/scripts'))
-server.use("/certificate", express.static(__dirname + '/public/certificate'))
+server.use('/stylesheets', express.static(__dirname + '/public/stylesheets'))
+server.use('/scripts',     express.static(__dirname + '/public/scripts'))
+server.use('/certificate', express.static(__dirname + '/public/certificate'))
 
 // Including PUG drawer engine 
-server.set('views', __dirname + "/public/views")
+server.set('views', __dirname + '/public/views')
 server.set('view engine', 'pug')
 
 // API Router included
 server.use('/api/users', require('./routes/users'))
 server.use('/api/posts', require('./routes/posts'))
-server.use('/',          require("./routes/render"))
+server.use('/',          require('./routes/render'))
 
 // Port defining
 const PORT = process.env.PORT || 5000

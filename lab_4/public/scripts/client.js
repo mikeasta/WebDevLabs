@@ -38,9 +38,7 @@ export const deleteUser = async user_id => {
 export const editUser = async (user, user_id) => {
     let response = await fetch(url + "/api/users/edit_user/" + user_id, {
         method: "PUT",
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({user})
     })
     return await response.json()
@@ -53,9 +51,7 @@ export const editUser = async (user, user_id) => {
 export const uploadPhoto = async (user_id, img) => {
     let response = await fetch(url + "/api/users/upload_photo/" + user_id, {
         method: "PUT",
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({img})
     })
     return await response.json()
