@@ -43,13 +43,15 @@ $(document)
 
             $("#table_body").append($(user_html))
         })
+
+        // Ban user btn
+        $(".ban_btn")
+            .on("click", async function() {
+                const user_id = $(this).attr("id").split("banUser#")[1]
+                await banUser(user_id)
+                location.reload()
+        })
 })
 
 
-// Ban user btn
-$(".ban_btn")
-    .on("click", async function() {
-        const user_id = $(this).attr("id").split("banUser#")[1]
-        await banUser(user_id)
-        location.reload()
-    })
+
