@@ -1,0 +1,164 @@
+@full_width: 100%;
+@content_width: 80%;
+
+@background_color: #ecf0f1;
+@font_color: #34495e;
+@highlight_color: #3498db;
+
+.dark_font {
+    color:#000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    width: @full_width;
+}
+
+#common_header {
+    height: 80px;
+    width: @full_width;
+    background-color: @font_color;
+
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+
+    a {
+        color: @background_color;
+        text-decoration: none;
+        margin: 0 30px;
+    }
+}
+
+
+#profile_main {
+    width: @full_width;
+    display: flex;
+    justify-content: center;
+}
+
+#profile_content_wrapper {
+    width: @content_width;
+    margin-top: 40px;
+}
+
+#profile_content_header {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+        font-weight: 500;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+}
+
+#profile_content_header_buttons button {
+    margin-right: 10px;
+}
+
+#profile_card {
+    display: flex;
+    align-items: center;
+    background-color: @background_color;
+    margin-top: 20px;
+    padding: 10px 0;
+    height: 300px;
+}
+
+#profile_user_img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin: 0 50px;
+}
+
+#profile_wall {
+    width: @full_width;
+    margin-top: 40px;
+}
+
+#profile_wall_header {
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid @font_color;
+
+    h4 {
+        margin-right: 50px;
+    }
+
+    h4:hover {
+        cursor:pointer;
+    }
+} 
+
+#profile_posts {
+    width: @full_width;
+    margin-top: 30px;
+}
+
+.profile_post {
+    background-color: @background_color;
+    padding: 10px 0;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.post_profile_img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 0 30px;
+}
+
+.profile_post_text_section {
+    width: 90%;
+    align-self: flex-start;
+}
+
+.profile_post_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile_post_control {
+    display: flex;
+
+    p, button {
+        margin-right: 10px;
+    }
+}
+
+.profile_post_username {
+    font-weight: 700;
+    .dark_font();
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.user_friends_username {
+    .dark_font();
+}
+
+#profile_content_header_buttons {
+    a, a:hover {
+        color: #fff;
+    }
+}
+
+.profile_wall_header_active {
+    color: @highlight_color;
+}
+
+.user_interaction_btn {
+    margin-right: 10px;
+}
