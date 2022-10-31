@@ -90,6 +90,13 @@ $(document)
         })
 
         // Current profile ban
+        $(".profile_ban_btn")
+            .on("click", async function() {
+                const user_id = $(this).attr("id").split("banUser#")[1]
+                await banUser(user_id)
+                location.reload()
+        })
+
         $(".ban_btn")
             .on("click", async function() {
                 const user_id = $(this).attr("id").split("banUser#")[1]
