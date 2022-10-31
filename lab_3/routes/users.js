@@ -62,7 +62,7 @@ router.put("/edit_user/:user_id", async (req, res) => {
         res.send("User not found")
     }
 
-    let user = database.users[user_index]
+    let user    = database.users[user_index]
     user.name   = new_user_data.name
     user.birth  = new_user_data.birth
     user.role   = new_user_data.role

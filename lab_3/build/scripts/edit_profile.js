@@ -1,4 +1,22 @@
-import { editUser, deleteUser, banUser, controlPanelPage, editProfilePage, uploadPhoto} from "./client.js"
+import { editUser, deleteUser, banUser, controlPanelPage, editProfilePage, uploadPhoto, getUser} from "./client.js"
+
+$(document)
+    .ready( async function () {
+        // Getting user id
+        const user_id = document.location.href.split("/").slice(-1)
+        
+        // Getting user info
+        const user = await getUser(user_id)
+
+        // Changing DOM-elements properties
+        $("#edit_profile_img").attr("src", user.img)
+        $("#InputUsername").val(user.name)
+        $("#InputBirthdate").val(user.birth)
+        $("#InputRole").val(user.role)
+        $("#InputEmail").val(user.email)
+        $("#InputStatus").val(user.status)
+        $("#InputId").val(user.id)
+})
 
 // Ban user
 $(".ban_btn")

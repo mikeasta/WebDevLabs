@@ -21,6 +21,34 @@ export const getUser = async user_id => {
 }
 
 /**
+ * @route GET /api/get_profile/:user_id
+ * @desc  Returns special user by id
+ */
+ export const getProfile = async user_id => {
+    let response = await fetch(url + "/api/users/get_profile/" + user_id)
+    return await response.json()
+}
+
+
+/**
+ * @route GET /api/get_user_friends/:user_id
+ * @desc  Returns special user friends by id
+ */
+ export const getUserFriends = async user_id => {
+    let response = await fetch(url + "/api/users/get_user_friends/" + user_id)
+    return await response.json()
+}
+
+/**
+ * @route GET /api/get_user_posts/:user_id
+ * @desc  Returns special user posts by id
+ */
+ export const getUserPosts = async user_id => {
+    let response = await fetch(url + "/api/users/get_user_posts/" + user_id)
+    return await response.json()
+}
+
+/**
  * @route DELETE /api/users/delete_user/:user_id
  * @desc  Deletes user from database
  */
