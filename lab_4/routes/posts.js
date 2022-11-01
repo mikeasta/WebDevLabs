@@ -72,6 +72,35 @@ router.delete("/delete_post/:post_id", async (req, res) => {
 })
 
 
+/**
+ * @route POST /api/posts/create_post
+ * @desc  Create new post
+ */
+router.post("/create_post", async (req, res) => {
+    // Retrieve data
+    database = JSON.parse(fs.readFileSync('database.json'))
+    const post_data = req.body.post
+
+    // Generate post id
+    const generateUUID = require("../utils/uuid")
+    const post_id      = generateUUID()
+
+    // Create new post
+    const post = {
+        date: new Date().toLocaleDateString("en-ca"),
+        text: post_data.text,
+        id: post_id,
+        user_id: post_data.user_id
+    }
+
+    database.posts.push(post)
+    let data = JSON.stringify(database)
+    fs.writeFileSync('database.json', data); 
+    res.status(200)
+    return res.send(post)
+})
+
+
 // Not found result
 router.get('*', (req, res, next) => {
     res.status(404)

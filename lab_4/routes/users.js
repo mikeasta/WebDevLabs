@@ -236,6 +236,60 @@ router.delete("/delete_user/:user_id", async (req, res) => {
 })
 
 
+/**
+ * @route PUT /api/users/delete_friend
+ * @desc  Delete friend
+ */
+router.put("/delete_friend", async (req, res) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
+    const ids = req.body.ids
+    const user_id_1 = ids[0]
+    const user_id_2 = ids[1]
+
+    database.users.forEach(user => {
+        if (user_id_1 == user.id) 
+            user.friends = user.friends.filter(id => id != user_id_2)
+        
+        if (user_id_2 == user.id) 
+            user.friends = user.friends.filter(id => id != user_id_1)
+    })
+
+    // Save data
+    let data = JSON.stringify(database)
+    fs.writeFileSync('database.json', data); 
+    
+    res.status(200)
+    res.send(database.users)
+})
+
+
+/**
+ * @route PUT /api/users/add_friend
+ * @desc  Add friend
+ */
+router.put("/add_friend", async (req, res) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
+    const ids = req.body.ids
+    const user_id_1 = ids[0]
+    const user_id_2 = ids[1]
+
+    database.users.forEach(user => {
+        if (user_id_1 == user.id) 
+            user.friends.push(user_id_2)
+        
+        if (user_id_2 == user.id) 
+            user.friends.push(user_id_1)
+    })
+
+    // Save data
+    let data = JSON.stringify(database)
+    fs.writeFileSync('database.json', data); 
+    
+    res.status(200)
+    res.send(database.users)
+})
+
+
 // Not found result
 router.get('*', (req, res, next) => {
     res.status(404)
