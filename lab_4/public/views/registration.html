@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet/less" type="text/css" href="../stylesheets/registration.less">
+    <script src="https://cdn.jsdelivr.net/npm/less"></script>
+    <script(src="https://kit.fontawesome.com/cb7794a450.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Social Media</title>
+</head>
+<body>
+    <header id="common_header">
+            <a href="/" id="common_header_index_page_link">Главная </a> 
+            <a href="" id="common_header_profile_link"> Авторизация </a> 
+    </header>
+
+    <main id="registration_main">
+        <div id="registration_content_wrapper">
+            <section id="registration_content_header">
+                <h2> Регистрация нового пользователя</h2>
+            </section>
+
+            <section id="registration_content_form">
+                <label for="registrationName">Имя:</label>
+                <input type="text" id="registrationName"/>
+                <label for="registrationBirthdate">Дата рождения:</label>
+                <input type="date" id="registrationBirthdate"/>
+                <label for="registrationEmail">Электронная почта:</label>
+                <input type="email" id="registrationEmail"/>
+                <label for="registrationPassword">Пароль</label>
+                <input type="password" id="registrationPassword"/>
+                
+                <button type="button" class="btn btn-primary" id="registrationButton">Зарегистрироваться</button>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>
