@@ -22,6 +22,11 @@ html(lang="en")
             div(id="index_content_wrapper")
                 h1 Добро пожаловать на сайт
                 p Для демонстрации лабораторной работы №4 зарегистрируйтесь в социальной сети или авторизуйтесь со своего аккаунта
+                section(id="index_auth_buttons")
+                    a(href="/registration" id="common_header_login_page_link")
+                        button(type="button" class="btn btn-primary") Регистрация
+                    a(href="/login" id="common_header_login_page_link")
+                        button(type="button" class="btn btn-primary") Авторизация
         
         script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")

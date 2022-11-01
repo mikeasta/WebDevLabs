@@ -20,6 +20,7 @@ server.set('view engine', 'pug')
 // API Router included
 server.use('/api/users', require('./routes/users'))
 server.use('/api/posts', require('./routes/posts'))
+server.use('/api/auth',  require('./routes/auth'))
 server.use('/',          require('./routes/render'))
 
 // Port defining

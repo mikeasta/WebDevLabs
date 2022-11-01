@@ -219,6 +219,9 @@ router.delete("/delete_user/:user_id", async (req, res) => {
     // Delete all user posts
     database.posts = database.posts.filter(post => post.user_id != user_id)
 
+    // Delete user password 
+    database.passwords = database.passwords.filter(pass => pass.id != user_id)
+    
     // Delete this user from all friend lists
     database.users.forEach(user => {
         user.friends = user.friends.filter(friend_id => friend_id != user_id)

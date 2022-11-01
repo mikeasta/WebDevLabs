@@ -34,12 +34,20 @@ body {
     width: @full_width;
     display: flex;
     justify-content: center;
-}
 
-#index_content_wrapper {
-    width: @content_width;
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    #index_content_wrapper {
+        width: @content_width;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #index_auth_buttons {
+            display: flex;
+
+            button {
+                margin-left: 10px;
+            }
+        }
+    }
 }
