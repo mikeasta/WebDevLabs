@@ -4,7 +4,8 @@ import {
     banUser, 
     controlPanelPage, 
     editProfilePage, 
-    uploadPhoto
+    uploadPhoto,
+    confirmUser
 } from "./client.js"
 
 
@@ -16,6 +17,13 @@ $(".ban_btn")
         editProfilePage(user_id)
     })
 
+// Confirm user
+$(".confirm_btn")
+    .on("click", async function () {
+        const user_id = $(this).attr("id").split("profile_confirm_user#")[1]
+        await confirmUser(user_id)
+        editProfilePage(user_id)
+    })  
 
 // Delete user
 $(".dlt_btn")

@@ -50,6 +50,8 @@ html(lang="en")
                                     a(href=`/profile/${user.id}`)
                                         button(type="button" class="btn btn-primary user_interaction_btn")
                                             i(class="fa-solid fa-circle-info")
+                                    button(type="button" class="btn btn btn-success user_interaction_btn confirm_btn" id=`confirmUser#${user.id}`)
+                                        i(class="fa-sharp fa-solid fa-check")
                                     button(type="button" class="btn btn-danger user_interaction_btn ban_btn" id=`banUser#${user.id}`)
                                         i(class="fa-solid fa-ban")
 

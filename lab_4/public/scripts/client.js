@@ -68,6 +68,17 @@ export const banUser = async user_id => {
     return await response.json()
 }
 
+/**
+ * @route PUT /api/users/confirm_user/:user_id
+ * @desc  Confirm special user
+ */
+ export const confirmUser = async user_id => {
+    let response = await fetch(url + "/api/users/confirm_user/" + user_id, {
+        method: "PUT",
+    })
+    return await response.json()
+}
+
 
 // ? POST (message)
 

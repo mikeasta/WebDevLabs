@@ -1,6 +1,7 @@
 import {
     banUser, 
-    deletePost
+    deletePost,
+    confirmUser
 } from "./client.js"
 
 
@@ -12,6 +13,13 @@ $(".ban_btn")
         location.reload()
     })
 
+// Confirm user
+$(".confirm_btn")
+    .on("click", async function() {
+        const user_id = $(this).attr("id").split("confirmUser#")[1]
+        await confirmUser(user_id)
+        location.reload()
+    })
 
 // Switching profile wall
 $("#profile_wall_header_posts")
