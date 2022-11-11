@@ -30,13 +30,13 @@ html(lang="en")
                     h2 Данные пользователя
                     div(id="profile_content_header_buttons")
                         a(href=`/edit_profile/${user.id}`)
-                            button(type="button" class="btn btn-primary" id="profile_edit_user")
+                            button(type="button" class="btn btn-primary header-btn" id="profile_edit_user" data-title="Редактировать")
                                 i(class="fa-solid fa-pen")
                         
-                        button(type="button" class="btn btn btn-success confirm_btn" id=`confirmUser#${user.id}`)
+                        button(type="button" class="btn btn btn-success confirm_btn header-btn" id=`confirmUser#${user.id}` data-title="Подтвердить")
                             i(class="fa-sharp fa-solid fa-check")
 
-                        button(type="button" class="btn btn-danger ban_btn" id=`banUser#${user.id}`)
+                        button(type="button" class="btn btn-danger ban_btn header-btn" id=`banUser#${user.id}` data-title="Заблокировать")
                             i(class="fa-solid fa-ban")
 
                     

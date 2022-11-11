@@ -3,6 +3,7 @@
 
 @background_color: #ecf0f1;
 @font_color: #34495e;
+@highlight_color: #3498db;
 
 * {
     margin: 0;
@@ -97,4 +98,17 @@ body {
     button {
         margin-right: 10px;
     }
+}
+
+.header-btn:hover::after {
+    content: attr(data-title); 
+    position: absolute; 
+    right: 12%; top: 8%; 
+    z-index: 1; 
+    background: @highlight_color; 
+    color: @background_color;
+    font-family: Arial, sans-serif; 
+    font-size: 20px; 
+    padding: 5px 10px; 
+    border-radius: 5px;
 }

@@ -162,3 +162,16 @@ body {
 .user_interaction_btn {
     margin-right: 10px;
 }
+
+.header-btn:hover::after {
+    content: attr(data-title); 
+    position: absolute; 
+    right: 10%; top: 8%; 
+    z-index: 1; 
+    background: @highlight_color; 
+    color: @background_color;
+    font-family: Arial, sans-serif; 
+    font-size: 20px; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+}
