@@ -3,7 +3,10 @@ import {
     indexPage,
     detailsPage, 
     addNewBookPage,
-    getBooklist
+    getBooklist,
+    filterInLibrary,
+    filterWithClient,
+    filterDueExpired
 } from "./client.js"
 
 // ? Import radios and filter btn
@@ -17,6 +20,7 @@ const filterBtn       = document.getElementById("filter_btn")
 const headline    = document.getElementById('main_screen_headline')
 const bookCards   = Array.prototype.slice.call(document.getElementsByClassName('book_card'))
 const newBookCard = document.getElementById('add_new_book')
+const bookList    = document.getElementById("booklist")
 
 // ? Event handlers
 // Root page
@@ -33,81 +37,43 @@ bookCards.forEach(htmlCard => {
     })
 })
 
-// filter
+// Filter
 filterBtn.addEventListener('click', async () => {
-    if (allBooksRadio.checked) {
-        bookCards.forEach(htmlCard => {
-            htmlCard.style.display = "flex"
-        })
-    } else {
-        // Hide all bookcards
-        let booklist = await getBooklist()
-        bookCards.forEach(htmlCard => {
-            htmlCard.style.display = "none"
-        })
+    // Clean booklist
+    bookList.innerHTML = ""
 
+    // Create Booklist list
+    let books = []
+
+    // Check if correct radio checked
+    if (allBooksRadio.checked)        books = await getBooklist()
+    else if (inLibraryRadio.checked)  books = await filterInLibrary()
+    else if (withClientRadio.checked) books = await filterWithClient()
+    else if (dueIsOverRadio.checked)  books = await filterDueExpired()
+
+    // Fill list with books
+    books.forEach(book => {
+        let str = ''
+        let b = book.due.split('-')
+        if(book.status === 1) {str = "В наличии"} else { str = `Пребывает у клиента ${book.client} до ${b[2]}/${b[1]}/${b[0]}`}
         
-        if (inLibraryRadio.checked) {
-            // In library filter
-            let inLibrary = []
-            booklist.forEach(book => {
-                if (book.status == 1) {
-                    inLibrary.push(book.id)
-                }
-            })
+        let element = 
+        `<li class="book_card" id='book_id#${book.id}'>` +
+            `<img class="book_img" src=${book.image} alt=""></img>` +
+            "<p class='book_label'>" + book.label + "</p>" +
+            "<p class='book_author'>" + book.author + "</p>" +
+            `<p class='book_status book_status_${book.status}'>` + str +
+        '</li>'
 
-            bookCards.forEach(htmlCard => {
-                const id = Number(htmlCard.id.split('book_id#')[1])
-                if (inLibrary.includes(id)) {
-                    htmlCard.style.display = "flex"
-                }
-            })
-        } else if (withClientRadio.checked) {
-            // With client filter
-            let withClient = []
-            booklist.forEach(book => {
-                if (book.status == 2) {
-                    withClient.push(book.id)
-                }
-            })
+        bookList.innerHTML += element
+    })
 
-            bookCards.forEach(htmlCard => {
-                const id = Number(htmlCard.id.split('book_id#')[1])
-                if (withClient.includes(id)) {
-                    htmlCard.style.display = "flex"
-                }
-            })
-        } else if (dueIsOverRadio.checked) {
-            // First of all, lets get all status-2 books
-            // With client filter
-            let withClientBooks = []
-            booklist.forEach(book => {
-                if (book.status == 2) {
-                    withClientBooks.push(book)
-                }
-            })
-
-            // Then lets filter by due date
-            let dueIsOver = []
-            withClientBooks.forEach(book => {
-                const date    = new Date();
-                const curTime = date.getTime()
-
-                const dueDate = new Date(book.due)
-                const dueTime = dueDate.getTime()
-
-                // Due is over
-                if (curTime > dueTime) {
-                    dueIsOver.push(book.id)
-                }
-            })
-
-            bookCards.forEach(htmlCard => {
-                const id = Number(htmlCard.id.split('book_id#')[1])
-                if (dueIsOver.includes(id)) {
-                    htmlCard.style.display = "flex"
-                }
-            })
-        }
-    }
+    // Update event listeners
+    bookCards   = Array.prototype.slice.call(document.getElementsByClassName('book_card'))
+    bookCards.forEach(htmlCard => {
+        htmlCard.addEventListener('click', () => {
+            const id = htmlCard.id.split('book_id#')[1]
+            detailsPage(id)
+        })
+    })
 })

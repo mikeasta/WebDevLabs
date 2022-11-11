@@ -14,6 +14,7 @@ let database = require('./database.json')
  * @desc  Loads whole booklist from database
  */
 router.get('/api/get_booklist', (req, res, next) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
     res.send(database.books)
 })
 
@@ -23,7 +24,8 @@ router.get('/api/get_booklist', (req, res, next) => {
  * @desc  Returns special book from database
  */
 router.get('/api/get_book/:book_id', (req, res, next) => {
-    
+    database = JSON.parse(fs.readFileSync('database.json'))
+
     // Look for book
     const books = database.books
     const book  = books.find(item => item.id === req.params.book_id)
@@ -36,6 +38,7 @@ router.get('/api/get_book/:book_id', (req, res, next) => {
  * @desc  Updates special book. If book doesnt exist in DB, creates it
  */
 router.put('/api/update_book', (req, res, next) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
     let book = req.body.book
 
     // Check if book raw paremeter exists
@@ -69,7 +72,7 @@ router.put('/api/update_book', (req, res, next) => {
  * @desc  Creates new book
  */
 router.post('/api/create_new_book', (req, res, next) => {
-
+    database = JSON.parse(fs.readFileSync('database.json'))
     let book = req.body.book
 
     // Check if book raw paremeter exists
@@ -89,6 +92,7 @@ router.post('/api/create_new_book', (req, res, next) => {
  * @desc  Deletes special book.
  */
 router.delete('/api/delete_book/:book_id', (req, res, next) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
     const book_id_num = req.params.book_id
 
     let index = -1;
@@ -108,6 +112,54 @@ router.delete('/api/delete_book/:book_id', (req, res, next) => {
     } else {
         res.send(`Page not found: required book not found.`)
     }
+})
+
+
+// * FILTERS
+/**
+ * @route GET /filter/in_library
+ * @desc  Get all books which are curently in library
+ */
+ router.get('/filter/in_library', async (req, res) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
+
+    let data = database.books.filter( book => book.status === 1)
+    res.send(data)
+})
+
+
+/**
+ * @route GET /filter/with_client
+ * @desc  Get all books which are with client
+ */
+ router.get('/filter/with_client', async (req, res) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
+
+    let data = database.books.filter( book => book.status === 2)
+    res.send(data)
+})
+
+
+/**
+ * @route GET /filter/due_expired
+ * @desc  Get all books which are with client
+ */
+ router.get('/filter/due_expired', async (req, res) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
+
+    let data = database.books.filter( book => book.status === 2)
+    data = data.filter( book => {
+        const date    = new Date();
+        const curTime = date.getTime()
+
+        const dueDate = new Date(book.due)
+        const dueTime = dueDate.getTime()
+
+        // Due is over
+        return curTime > dueTime
+    })
+
+    res.send(data)
 })
 
 
@@ -141,6 +193,7 @@ router.get('/add_new_book', async (req, res) => {
  * @desc  Special book details page
  */
 router.get('/book_details/:book_id', async (req, res) => {
+    database = JSON.parse(fs.readFileSync('database.json'))
     let index = -1
 
     // Look for special book

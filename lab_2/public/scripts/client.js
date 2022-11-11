@@ -60,6 +60,36 @@ export const createNewBook = async book => {
     return await response.json()
 }
 
+
+// * FILTERS
+/**
+ * @route GET /filter/in_library
+ * @desc  In library filter
+ */
+ export const filterInLibrary = async () => {
+    let response = await fetch(url + "/filter/in_library")
+    return await response.json()
+}
+
+/**
+ * @route GET /filter/with_client
+ * @desc  With client filter
+ */
+ export const filterWithClient = async () => {
+    let response = await fetch(url + "/filter/with_client")
+    return await response.json()
+}
+
+/**
+ * @route GET /filter/due_expired
+ * @desc  With client filter
+ */
+ export const filterDueExpired = async () => {
+    let response = await fetch(url + "/filter/due_expired")
+    return await response.json()
+}
+
+
 // * PAGE REQUESTS
 /**
  * @route GET /
