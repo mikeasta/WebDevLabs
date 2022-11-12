@@ -7,16 +7,6 @@ let database;
 
 // * PUG DRAW FUNCS
 /**
- * @route GET /
- * @desc  Index page
- */
-router.get('/', async (req, res) => {
-    res.status(200)
-    res.render('index')
-})
-
-
-/**
  * @route GET /control_panel
  * @desc  Control page
  */
