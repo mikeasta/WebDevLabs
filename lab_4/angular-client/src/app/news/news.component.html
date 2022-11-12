@@ -1,16 +1,8 @@
-<header id="common_header">
-    <a href="/" id="common_header_index_page_link">Главная </a> 
-    <a href="" id="common_header_profile_link"> Профиль </a> 
-    <a href="" id="common_header_news_link"> Новости </a> 
-    <a href="" id="common_header_friends_link"> Друзья </a> 
-    <a href="/control_panel" id="common_header_control_panel_link"> Панель управления пользователями </a> 
-</header>
-
 <main id="news_main">
     <div id="news_content_wrapper">
         <section id="news_content_header">
             <h2>Новости</h2>
-            <button type="button" class="btn btn-primary">Создать новость</button>
+            <button type="button" class="btn btn-primary" (click)="navigateToCreateNewsPage()">Создать новость</button>
         </section>
         
         <section id="news_posts">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router) { }
+
+  navigateToCreateNewsPage() {
+    this._router.navigate(["/create_news"])
+  }
 
   ngOnInit(): void {
   }

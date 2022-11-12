@@ -8,9 +8,15 @@ import { NewsComponent } from './news/news.component';
 import { FriendsComponent } from './friends/friends.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateNewsComponent } from './create-news/create-news.component';
+import { IndexComponent } from './index/index.component';
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent }
+  { path: '', component: IndexComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'friends', component: FriendsComponent },
+  { path: 'create_news', component: CreateNewsComponent },
 ]
 
 @NgModule({
@@ -20,7 +26,8 @@ const appRoutes: Routes = [
     LoginComponent,
     NewsComponent,
     FriendsComponent,
-    CreateNewsComponent
+    CreateNewsComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
