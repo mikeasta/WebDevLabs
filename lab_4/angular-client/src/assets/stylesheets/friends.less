@@ -30,49 +30,51 @@ body {
     }
 }
 
-#login_main {
+#friends_main {
     width: @full_width;
     display: flex;
     justify-content: center;
 }
 
-#login_content_wrapper {
+#friends_content_wrapper {
     width: @content_width;
     margin-top: 40px;
 
-    #login_content_header {
+    #friends_content_header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        // padding-bottom: 15px;
+        // border-bottom: 1px solid @font_color;
     
         h2 {
             font-weight: 500;
             font-size: 24px;
-            margin-bottom: 20px;
         }
-    }
-
-    #login_content_form {
-        width: @full_width;
-        background-color: @background_color;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 15px 0;
 
         input {
-            border: none;
-            background: none;
-
-            outline-color: @font_color;
-            width: 350px;
-            height: 45px;
-            background-color: #dfe6e9;
-            margin-bottom: 20px;
+            height: 38px;
+            margin-right: 15px;
+            width: 300px;
             padding: 0 5px;
         }
 
-        #loginBirthdate {
-            text-align: center;
+        button {
+            width: 300px;
         }
+
+        div {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    #friends_list_section {
+        margin-top: 20px;   
     }
 }
