@@ -1,0 +1,80 @@
+@full_width: 100%;
+@content_width: 80%;
+
+@background_color: #ecf0f1;
+@font_color: #34495e;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    width: @full_width;
+}
+
+#common_header {
+    height: 80px;
+    width: @full_width;
+    background-color: @font_color;
+
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+
+    a {
+        color: @background_color;
+        text-decoration: none;
+        margin: 0 30px;
+    }
+}
+
+#friends_main {
+    width: @full_width;
+    display: flex;
+    justify-content: center;
+}
+
+#friends_content_wrapper {
+    width: @content_width;
+    margin-top: 40px;
+
+    #friends_content_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // padding-bottom: 15px;
+        // border-bottom: 1px solid @font_color;
+    
+        h2 {
+            font-weight: 500;
+            font-size: 24px;
+        }
+
+        input {
+            height: 38px;
+            margin-right: 15px;
+            width: 300px;
+            padding: 0 5px;
+        }
+
+        button {
+            width: 300px;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    #friends_list_section {
+        margin-top: 20px;   
+    }
+}
