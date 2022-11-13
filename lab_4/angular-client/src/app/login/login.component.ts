@@ -37,9 +37,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
 			'https://localhost:5000/api/auth/login', 
 			{ user },
 			{ headers}
-			).subscribe( data => {
-				console.log(data)
-				alert(data)
-			})
+			).subscribe( 
+				data => {
+					alert(data)
+				},
+				error => alert(error.error)
+			)
 	}
 }

@@ -58,7 +58,7 @@ router.post("/register", async (req, res) => {
  * @route POST /api/auth/login
  * @desc  Login user
  */
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
     // Retrieve data
     database = JSON.parse(fs.readFileSync('database.json'))
     const login_data = req.body.user

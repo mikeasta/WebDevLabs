@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   	selector: 'app-registration',
@@ -14,7 +15,8 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
 	@ViewChild("registrationPassword") regPassword: ElementRef
 
   	constructor(
-		private http: HttpClient
+		private http: HttpClient,
+		private router: Router
 	) { }
 
   	ngOnInit(): void {}	
@@ -40,8 +42,8 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
 			"https://localhost:5000/api/auth/register",
 			{user},
 			{headers}
-		).subscribe( data => {
-			console.log(data)
-		})
+		).subscribe( 
+			data => this.router.navigate(["/login"]), 
+			error => alert(error.error))
 	}
 }
