@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -11,6 +12,7 @@ import { CreateNewsComponent } from './create-news/create-news.component';
 import { IndexComponent } from './index/index.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { AppRoutingModule } from './app-routing.module';
     NewsComponent,
     FriendsComponent,
     CreateNewsComponent,
-    IndexComponent
+    IndexComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   exports: [AppRoutingModule],
   providers: [],

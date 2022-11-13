@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 <a href="https://localhost:5000/profile/squirtleID001" id="common_header_profile_link">Профиль</a>
 <a routerLink="/news" id="common_header_news_link">Новости</a>
 <a routerLink="/friends" id="common_header_friends_link">Друзья</a>
-<a href="https://localhost:5000/control_panel" id="common_header_control_panel_link">Панель управления пользователями</a>
+<a href="https://localhost:5000/control_panel" id="common_header_control_panel_link">Панель администрирования</a>
 </header>
 <router-outlet></router-outlet>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -4,7 +4,7 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet/less" type="text/css" href="../stylesheets/edit_profile.less")\
+        link(rel="stylesheet/less" type="text/css" href="../stylesheets/edit_profile.less")
         link(rel="icon" type="image/x-icon" href="favicon.ico")
         script(src="https://cdn.jsdelivr.net/npm/less")
         script(src="https://kit.fontawesome.com/bafe0e5c59.js" crossorigin="anonymous")
@@ -17,11 +17,8 @@ html(lang="en")
         - const user   = value ? value.user : { name:"", birth: "", id: "", role: "", status: "", email: "", img: ""}
 
         header(id="common_header")
-            a(href="http://localhost:4200" id="common_header_index_page_link") Главная
-            a(href="/profile/squirtleID001" id="common_header_profile_link") Профиль
-            a(href="http://localhost:4200/news" id="common_header_news_link") Новости
-            a(href="http://localhost:4200/friends" id="common_header_friends_link") Друзья
-            a(href="/control_panel" id="common_header_control_panel_link") Панель управления пользователями
+            a(href="http://localhost:4200" id="common_header_index_page_link") Вернуться в социальную сеть
+            a(href="/control_panel" id="common_header_control_panel_link") Список пользователей
         
         main(id="edit_profile_main")
             div(id="edit_profile_content_wrapper")

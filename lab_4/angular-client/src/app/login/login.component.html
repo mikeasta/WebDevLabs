@@ -1,16 +1,16 @@
 <main id="login_main">
-<div id="login_content_wrapper">
-    <section id="login_content_header">
-        <h2> Авторизация</h2>
-    </section>
-
-    <section id="login_content_form">
-        <label for="loginEmail">Почта:</label>
-        <input type="email" id="loginEmail"/>
-        <label for="loginPassword">Пароль</label>
-        <input type="password" id="loginPassword"/>
-        
-        <button type="button" class="btn btn-primary" id="loginButton">Авторизоваться</button>
-    </section>
-</div>
-</main>
+    <div id="login_content_wrapper">
+        <section id="login_content_header">
+            <h2> Авторизация</h2>
+        </section>
+    
+        <section id="login_content_form">
+            <label for="loginEmail">Почта:</label>
+            <input type="email" #loginEmail/>
+            <label for="loginPassword">Пароль</label>
+            <input type="password" #loginPassword/>
+            
+            <button type="button" class="btn btn-primary" id="loginButton" (click)="signIn()">Авторизоваться</button>
+        </section>
+    </div>
+    </main>

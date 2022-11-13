@@ -7,6 +7,7 @@ import { NewsComponent } from './news/news.component';
 import { FriendsComponent } from './friends/friends.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { IndexComponent } from './index/index.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
     { 
@@ -33,6 +34,14 @@ const appRoutes: Routes = [
       path: 'create_news', 
       component: CreateNewsComponent 
     },
+    {
+      path: '404',
+      component: NotFoundComponent
+    },
+    {
+      path: '**',
+      redirectTo: '/404'
+    }
   ]
 
 @NgModule({

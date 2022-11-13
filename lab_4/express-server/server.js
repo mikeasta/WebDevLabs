@@ -2,11 +2,15 @@
 const fs      = require('fs')
 const https   = require('https')
 const express = require('express')
+const cors    = require('cors')
 const server  = express()
 
 // Init Middleware: This middleware gives us oportunity to 
 // read req.body data in more comfortable json object
 server.use(express.json({ extended: false }));
+
+// CORS setup
+server.use(cors())
 
 // Defining folders with static files
 server.use('/stylesheets', express.static(__dirname + '/public/stylesheets'))

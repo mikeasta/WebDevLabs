@@ -1,8 +1,10 @@
 const express = require("express")
 const router  = express.Router()
-const fs = require('fs');
+const fs      = require('fs');
+
 
 let database;
+
 
 /**
  * @route POST /api/auth/register
@@ -50,8 +52,10 @@ router.post("/register", async (req, res) => {
     return res.send(user)
 })
 
+
+
 /**
- * @route GET /api/auth/login
+ * @route POST /api/auth/login
  * @desc  Login user
  */
 router.get("/login", async (req, res) => {

@@ -1,8 +1,10 @@
 const express = require("express")
 const router  = express.Router()
-const fs = require('fs');
+const fs      = require('fs');
+
 
 let database;
+
 
 /**
  * @route GET /api/posts/get_all_posts
@@ -13,6 +15,7 @@ router.get("/get_all_posts", async (req, res) => {
     res.status(200)
     res.send(database.posts)
 })
+
 
 /**
  * @route GET /api/posts/get_post/:post_id
@@ -83,13 +86,12 @@ router.post("/create_post", async (req, res) => {
 
     // Generate post id
     const generateUUID = require("../utils/uuid")
-    const post_id      = generateUUID()
 
     // Create new post
     const post = {
         date: new Date().toLocaleDateString("en-ca"),
         text: post_data.text,
-        id: post_id,
+        id: generateUUID(),
         user_id: post_data.user_id
     }
 

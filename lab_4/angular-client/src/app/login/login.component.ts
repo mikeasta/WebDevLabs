@@ -1,16 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.less']
 })
+export class LoginComponent implements OnInit, AfterViewInit {
+	@ViewChild('loginEmail') login_email: ElementRef;
+	@ViewChild('loginPassword') login_password: ElementRef;
 
-export class LoginComponent implements OnInit {
+  	constructor(
+		private http: HttpClient
+	) {
+  	}
 
-  constructor() { }
+  	ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
+	
+	ngAfterViewInit() {}
 
+	// Login user
+	async signIn() {
+		// Create login body
+		const user: Object = {
+			email: 	  this.login_email.nativeElement.value,
+			password: this.login_password.nativeElement.value
+		}
+
+		// Define headers
+		const headers = { "Content-Type": "application/json"};
+
+		// HTTP login request
+		this.http.post(
+			'https://localhost:5000/api/auth/login', 
+			{ user },
+			{ headers}
+			).subscribe( data => {
+				console.log(data)
+				alert(data)
+			})
+	}
 }

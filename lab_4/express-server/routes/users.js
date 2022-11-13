@@ -1,8 +1,10 @@
 const express = require("express")
 const router  = express.Router()
-const fs = require('fs');
+const fs      = require('fs');
+
 
 let database;
+
 
 /**
  * @route GET /api/users/get_all_users
@@ -189,6 +191,7 @@ router.put("/upload_photo/:user_id", async (req, res) => {
     res.status(200)
     res.send(user)
 })
+
 
 /**
  * @route DELETE /api/users/delete_user/:user_id

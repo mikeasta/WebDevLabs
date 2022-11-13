@@ -6,15 +6,15 @@
 
     <section id="registration_content_form">
         <label for="registrationName">Имя:</label>
-        <input type="text" id="registrationName"/>
+        <input type="text" #registrationName/>
         <label for="registrationBirthdate">Дата рождения:</label>
-        <input type="date" id="registrationBirthdate"/>
+        <input type="date" #registrationBirthdate/>
         <label for="registrationEmail">Электронная почта:</label>
-        <input type="email" id="registrationEmail"/>
+        <input type="email" #registrationEmail/>
         <label for="registrationPassword">Пароль</label>
-        <input type="password" id="registrationPassword"/>
+        <input type="password" #registrationPassword/>
         
-        <button type="button" class="btn btn-primary" id="registrationButton">Зарегистрироваться</button>
+        <button type="button" class="btn btn-primary" #registrationButton (click)="registerUser()">Зарегистрироваться</button>
     </section>
 </div>
 </main>
