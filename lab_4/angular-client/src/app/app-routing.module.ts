@@ -8,11 +8,13 @@ import { FriendsComponent } from './friends/friends.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { IndexComponent } from './index/index.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthGuard } from './services/auth.guard';
+
 
 const appRoutes: Routes = [
     { 
       path: '', 
-      component: IndexComponent 
+      component: IndexComponent,
     },
     { 
       path: 'login', 
@@ -24,15 +26,18 @@ const appRoutes: Routes = [
     },
     { 
       path: 'news', 
-      component: NewsComponent 
+      component: NewsComponent,
+      canActivate: [AuthGuard]
     },
     { 
       path: 'friends', 
-      component: FriendsComponent 
+      component: FriendsComponent,
+      canActivate: [AuthGuard] 
     },
     { 
       path: 'create_news', 
-      component: CreateNewsComponent 
+      component: CreateNewsComponent,
+      canActivate: [AuthGuard] 
     },
     {
       path: '404',
