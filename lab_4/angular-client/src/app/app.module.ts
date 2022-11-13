@@ -10,14 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { IndexComponent } from './index/index.component';
 
-const appRoutes: Routes = [
-  { path: '', component: IndexComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'news', component: NewsComponent },
-  { path: 'friends', component: FriendsComponent },
-  { path: 'create_news', component: CreateNewsComponent },
-]
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -31,8 +24,9 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
+  exports: [AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
