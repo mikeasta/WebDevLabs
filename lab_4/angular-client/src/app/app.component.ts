@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   	template: `
   <header id="common_header">
 <a routerLink="" id="common_header_index_page_link"> Главная</a>
-<a href="https://localhost:5000/profile/squirtleID001" id="common_header_profile_link">Профиль</a>
+<a routerLink="/profile" id="common_header_profile_link">Профиль</a>
 <a routerLink="/news" id="common_header_news_link">Новости</a>
 <a routerLink="/friends" id="common_header_friends_link">Друзья</a>
 <a href="https://localhost:5000/control_panel" id="common_header_control_panel_link">Панель администрирования</a>

@@ -13,6 +13,8 @@ import { IndexComponent } from './index/index.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FriendsComponent,
     CreateNewsComponent,
     IndexComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

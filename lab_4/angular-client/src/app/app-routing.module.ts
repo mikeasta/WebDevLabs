@@ -9,6 +9,7 @@ import { CreateNewsComponent } from './create-news/create-news.component';
 import { IndexComponent } from './index/index.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './services/auth.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const appRoutes: Routes = [
@@ -37,6 +38,16 @@ const appRoutes: Routes = [
     { 
       path: 'create_news', 
       component: CreateNewsComponent,
+      canActivate: [AuthGuard] 
+    },
+    { 
+      path: 'profile', 
+      component: ProfileComponent,
+      canActivate: [AuthGuard] 
+    },
+    { 
+      path: 'profile/:user_id', 
+      component: ProfileComponent,
       canActivate: [AuthGuard] 
     },
     {

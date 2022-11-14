@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
 	@ViewChild('loginPassword') login_password: ElementRef;
 
   	constructor(
-		private http: HttpClient
+		private http: HttpClient,
+		private router: Router
 	) {
   	}
 
@@ -40,6 +42,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
 			).subscribe( 
 				data => {
 					alert(data)
+					localStorage.setItem("user", JSON.stringify(data))
+					this.router.navigate(["/profile"])
 				},
 				error => alert(error.error)
 			)
