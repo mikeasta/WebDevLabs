@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate
     // Check if there user info
     // in local storage (which means, that user logined)
     isAuth(): boolean {
-        return !!localStorage.getItem("user")
+        return !!sessionStorage.getItem("user")
     }
 
     // Check if user can use header routes

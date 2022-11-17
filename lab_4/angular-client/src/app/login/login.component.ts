@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 			).subscribe( 
 				data => {
 					alert(data)
-					localStorage.setItem("user", JSON.stringify(data))
+					sessionStorage.setItem("user", JSON.stringify(data))
 					this.router.navigate(["/profile"])
 				},
 				error => alert(error.error)

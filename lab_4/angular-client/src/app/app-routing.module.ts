@@ -10,6 +10,7 @@ import { IndexComponent } from './index/index.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './services/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 const appRoutes: Routes = [
@@ -48,6 +49,11 @@ const appRoutes: Routes = [
     { 
       path: 'profile/:user_id', 
       component: ProfileComponent,
+      canActivate: [AuthGuard] 
+    },
+    { 
+      path: 'edit_profile', 
+      component: EditProfileComponent,
       canActivate: [AuthGuard] 
     },
     {
