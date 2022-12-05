@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   	constructor(
 		private http: HttpClient,
-		private router: Router
+		private router: Router,
+		private auth_service : AuthService
 	) {
   	}
 
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 					alert(data)
 					sessionStorage.setItem("user", JSON.stringify(data))
 					this.router.navigate(["/profile"])
+					this.auth_service.user_logged();
 				},
 				error => alert(error.error)
 			)

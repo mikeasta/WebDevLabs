@@ -11,7 +11,7 @@ let database;
  * @desc  Getting all users route
  */
 router.get("/get_all_users", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
     res.status(200)
     res.send(database.users)
 })
@@ -22,7 +22,7 @@ router.get("/get_all_users", async (req, res) => {
  * @desc  Getting special user by id
  */
 router.get("/get_user/:user_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
     const user_id = req.params.user_id
 
     // Check if user with user_id exists
@@ -47,7 +47,7 @@ router.get("/get_user/:user_id", async (req, res) => {
  * @desc  Updates user info
  */
 router.put("/edit_user/:user_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
 
     // Retrieve user data
     let new_user_data = req.body.user
@@ -77,7 +77,7 @@ router.put("/edit_user/:user_id", async (req, res) => {
     // Save new data
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
-    fs.writeFileSync('database.json', data); 
+    fs.writeFileSync('express-server/database.json', data); 
 
     res.status(200)
     res.send(user)
@@ -89,7 +89,7 @@ router.put("/edit_user/:user_id", async (req, res) => {
  * @desc  Ban special user 
  */
 router.put("/ban_user/:user_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
 
     // Retrieve user data
     const user_id = req.params.user_id

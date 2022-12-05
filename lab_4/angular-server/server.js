@@ -16,7 +16,7 @@ app.use(express.json());
 const server  = require("http").createServer(app);
 
 // SocketIO setup
-const io      = require("socket.io")(
+const io = require("socket.io")(
     server,
     {
         cors: {
@@ -33,6 +33,14 @@ const io      = require("socket.io")(
     }
 )
 
-// Starting server, saving io to  the global
+
+io.on("connection", (socket) => { 
+	console.log("Connection socket")
+	socket.on("ping", () => {console.log("User connected!")})
+	socket.on("login", () => {console.log("User logined!")})
+
+})
+
+
+// Starting server
 server.listen(8000)
-global.io = io;

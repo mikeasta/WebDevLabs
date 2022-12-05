@@ -11,7 +11,7 @@ let database;
  * @desc  Gets all posts
  */
 router.get("/get_all_posts", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
     res.status(200)
     res.send(database.posts)
 })
@@ -22,7 +22,7 @@ router.get("/get_all_posts", async (req, res) => {
  * @desc  Get special post 
  */
 router.get("/get_post/:post_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
     const post_id = req.params.post_id
 
     // Check if post with post_id exists
@@ -48,7 +48,7 @@ router.get("/get_post/:post_id", async (req, res) => {
  * @desc  Deletes special post by id
  */
 router.delete("/delete_post/:post_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
 
     // Retrieve user id
     const post_id = req.params.post_id
@@ -68,7 +68,7 @@ router.delete("/delete_post/:post_id", async (req, res) => {
     // Save new data
     database.posts = [...database.posts.slice(0, post_index), ...database.posts.slice(post_index + 1)]
     let data = JSON.stringify(database)
-    fs.writeFileSync('database.json', data); 
+    fs.writeFileSync('express-server/database.json', data); 
 
     res.status(200)
     res.send(database.posts)
@@ -81,7 +81,7 @@ router.delete("/delete_post/:post_id", async (req, res) => {
  */
 router.post("/create_post", async (req, res) => {
     // Retrieve data
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
     const post_data = req.body.post
 
     // Generate post id
@@ -97,7 +97,7 @@ router.post("/create_post", async (req, res) => {
 
     database.posts.push(post)
     let data = JSON.stringify(database)
-    fs.writeFileSync('database.json', data); 
+    fs.writeFileSync('express-server/database.json', data); 
     res.status(200)
     return res.send(post)
 })
