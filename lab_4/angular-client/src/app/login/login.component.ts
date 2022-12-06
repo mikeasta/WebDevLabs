@@ -37,18 +37,29 @@ export class LoginComponent implements OnInit, AfterViewInit {
 		const headers = { "Content-Type": "application/json"};
 
 		// HTTP login request
-		this.http.post(
+		this.http.post<User>(
 			'https://localhost:5000/api/auth/login', 
 			{ user },
 			{ headers}
 			).subscribe( 
 				data => {
-					alert(data)
-					sessionStorage.setItem("user", JSON.stringify(data))
+					alert(data.id)
+					sessionStorage.setItem("user", JSON.stringify(data.id))
 					this.router.navigate(["/profile"])
 					this.auth_service.user_logged();
 				},
 				error => alert(error.error)
 			)
 	}
+}
+
+export interface User {
+	name: string,
+	birth: string,
+	role: string,
+	status: string,
+	email: string,
+	id: string,
+	img: string,
+	friends: [string]
 }

@@ -35,9 +35,9 @@ const io = require("socket.io")(
 
 
 io.on("connection", (socket) => { 
-	console.log("Connection socket")
-	socket.on("ping", () => {console.log("User connected!")})
-	socket.on("login", () => {console.log("User logined!")})
+	console.log("New session connected!")
+	socket.on("ping", () => {console.log("Login page opened!")})
+	socket.on("login", user_id => { console.log(`User ${user_id} logined!`) })
 
 })
 

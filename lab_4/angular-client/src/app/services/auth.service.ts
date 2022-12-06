@@ -16,7 +16,7 @@ export class AuthService {
 	}
 
 	user_logged() {
-		socket.emit("login");
+		socket.emit("login", sessionStorage.getItem("user"));
 	}
 
 }
