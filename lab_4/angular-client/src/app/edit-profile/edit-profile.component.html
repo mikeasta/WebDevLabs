@@ -3,23 +3,23 @@
         <section id="edit_profile_content_header">
             <h2> Редактирование данных пользователя </h2>
             <div id="edit_profile_content_header_buttons">
-                <button type="button" data-title="Сохранить" class="btn btn-success save_btn header-btn" id="profile_save_edit#${user.id}">
-                    <i class="fa-solid fa-floppy-disk"></i>
+                <button (click)="update_data()" type="button" data-title="Сохранить" class="btn btn-success save_btn header-btn" id="profile_save_edit#${user.id}">
+                    Сохранить
                 </button>
             </div>
         </section>
                 
         <section id="edit_profile_card">
             <div id="edit_profile_img_section">
-                <img src=user.img alt="" id="edit_profile_img">
+                <img src={{profile.img}} alt="" id="edit_profile_img">
                 <div id="edit_profile_img_control">
-                    <input type="text" placeholder="Enter image URL" class="btn btn-primary" id="load_image_input"> 
-                    <button type="button" class="btn btn-primary" id="load_image"> Загрузить фото 
-                        <i class="fa-solid fa-upload"></i>
+                    <input type="text" placeholder="Enter image URL" class="btn btn-primary" #load_image_input> 
+                    <!-- <button type="button" class="btn btn-primary" id="load_image"> 
+                        Загрузить фото 
                     </button> 
-                    <button type="button" class="btn btn-danger" id="delete_image">Удалить фото 
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button> 
+                    <button type="button" class="btn btn-danger" id="delete_image">
+                        Удалить фото 
+                    </button>  -->
                 </div>
             </div>
                     
@@ -27,15 +27,15 @@
                 <div class="profile_edit_info_column">
                     <div class="form-group">
                         <label for="InputUsername"> Имя пользователя </label>
-                        <input type="text" value=user.name class="form-control" id="InputUsername" placeholder="Введите имя">
+                        <input type="text" value={{profile.name}} class="form-control" #InputUsername placeholder="Введите имя">
                     </div>
                     <div class="form-group">
                         <label for="InputBirthdate"> Дата рождения </label>
-                        <input type="date" value=user.birth class="form-control" id="InputBirthdate" placeholder="Enter email">
+                        <input type="date" value={{profile.birth}} class="form-control" #InputBirthdate placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="InputRole"> Роль </label>
-                        <select disabled value=user.role class="form-control" id="InputRole">
+                        <select disabled value={{profile.role}} class="form-control" id="InputRole">
                             <option value="admin" selected="(user.role == 'admin')"> Администратор </option>
                             <option value="user" selected="(user.role == 'user')"> Пользователь </option>
                             <option value="guest" selected="(user.role == 'guest')"> Гость </option>
@@ -46,11 +46,11 @@
                 <div class="profile_edit_info_column">
                     <div class="form-group">
                         <label for="InputEmail"> Электронная почта </label>
-                        <input type="email" value=user.email class="form-control" id="InputEmail" placeholder="Введите электронную почту">
+                        <input type="email" value={{profile.email}} class="form-control" #InputEmail placeholder="Введите электронную почту">
                     </div>
                     <div class="form-group">   
                         <label for="InputStatus"> Статус </label>
-                        <select disabled class="form-control" id="InputStatus">
+                        <select disabled class="form-control" id="InputStatus" value={{profile.status}}>
                             <option value="confirmed" selected="(user.status == 'confirmed')"> Подтвержден </option>
                             <option value="unconfirmed" selected="(user.status == 'unconfirmed')"> Не подтвержден </option>
                             <option value="banned" selected="(user.status == 'banned')"> Заблокирован </option>
@@ -58,7 +58,7 @@
                     </div> 
                     <div class="form-group">
                         <label for="InputId"> Идентификатор пользователя </label>
-                        <input disabled type="text" value=user.id class="form-control" id="InputId" placeholder="Enter email">
+                        <input disabled type="text" value={{profile.id}} class="form-control" id="InputId" placeholder="Enter email">
                     </div>
                 </div>
             </div>
