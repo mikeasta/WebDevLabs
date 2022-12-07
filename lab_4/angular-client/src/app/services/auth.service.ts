@@ -12,7 +12,7 @@ export class AuthService {
 	}
 
 	subscribe() {
-		socket.emit("ping");
+		socket.emit("subscribe");
 	}
 
 	user_logged() {

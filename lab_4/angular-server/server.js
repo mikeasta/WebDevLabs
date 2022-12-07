@@ -34,11 +34,24 @@ const io = require("socket.io")(
 )
 
 
+// Sockets emit rules
 io.on("connection", (socket) => { 
 	console.log("New session connected!")
-	socket.on("ping", () => {console.log("Login page opened!")})
-	socket.on("login", user_id => { console.log(`User ${user_id} logined!`) })
 
+	// Login action
+	socket.on("login", user_id => { 
+		const uid = user_id.slice(1, -1); // User id without quotes
+		console.log(`User ${ uid } logined!`)
+		socket.user_id = uid;
+	})
+
+	// Posts action
+	socket.on("posts", async () => {
+		console.log(`Post get emmition from ${socket.user_id}`)
+	})
+
+	// User entering the site
+	socket.on("subscribe", () => console.log("New socket subscribed for updates!")) 
 })
 
 
