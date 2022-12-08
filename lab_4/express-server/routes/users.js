@@ -43,6 +43,53 @@ router.get("/get_user/:user_id", async (req, res) => {
 
 
 /**
+ * @route GET /api/users/get_user_friends/:user_id
+ * @desc  Returns user's friend list 
+ */
+router.get("/get_user_friends/:user_id", async (req, res) => {
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    const user_id = req.params.user_id
+
+    const cur_user = database.users.filter(user => user.id == user_id)[0]
+
+    const friends = database.users.filter(user => cur_user.friends.includes(user.id))
+
+    res.status(200)
+    res.send(friends)
+});
+
+
+/**
+ * @route PUT /api/users/new_friend/:user_id/:friend_id
+ * @desc  Gets new user
+ */
+router.put("/new_friend/:user_id/:friend_id", async (req, res) => {
+    const user_id   = req.params.user_id;
+    const friend_id = req.params.friend_id;
+
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+
+    const users = database.users.filter(user => (user.id == user_id) || (user.id == friend_id));
+
+    if (users.length < 2) {
+        res.status(404)
+        res.send("User not found")
+    }
+
+    database.users.forEach(user => {
+        if (user.id == user_id && !user.friends.includes(friend_id))
+            user.friends.push(friend_id);
+        
+        if (user.id == friend_id && !user.friends.includes(user_id))
+            user.friends.push(user_id);
+    })
+
+    let data = JSON.stringify(database)
+    fs.writeFileSync('express-server/database.json', data); 
+})
+
+
+/**
  * @route PUT /api/users/edit_user/:user_id
  * @desc  Updates user info
  */
