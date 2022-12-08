@@ -26,6 +26,7 @@ export class Post {
 export class DataService {
 
     posts = this.socket.fromEvent<Post[]>("posts");
+    friends = this.socket.fromEvent<User[]>("friends")
 
     constructor (
         private http: HttpClient,
@@ -35,5 +36,13 @@ export class DataService {
 
     get_posts() {
         this.socket.emit("posts");
+    }
+
+    get_friends() {
+        this.socket.emit("friends");
+    }
+
+    new_friend(friend_id: string) {
+        this.socket.emit("new_friend", friend_id);
     }
 }

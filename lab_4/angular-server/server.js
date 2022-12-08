@@ -48,6 +48,25 @@ io.on("connection", (socket) => {
 	// Posts action
 	socket.on("posts", async () => {
 		console.log(`Post get emmition from ${socket.user_id}`)
+
+		// Request & return
+		// ...
+	})
+
+	// Friends action 
+	socket.on("friends", async () => {
+		console.log(`Friends get emmition from ${socket.user_id}`)
+
+		// Request & return
+		// ...
+	})
+
+	// New friend action
+	socket.on("new_friend", async friend_id => {
+		console.log(`New friend emmition from ${socket.user_id} to ${friend_id}`)
+
+		// Request & return
+		// ...
 	})
 
 	// User entering the site
