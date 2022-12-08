@@ -103,6 +103,30 @@ router.post("/create_post", async (req, res) => {
 })
 
 
+/**
+ * @route GET /api/posts/get_relevant_posts/:user_id
+ * @desc  Get all posts attended to user
+ */
+router.get("/get_relevant_posts/:user_id", async (req, res) => {
+    // Retrieve data
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    
+    // Retrieve user id
+    const user_id = req.params.user_id;
+
+    // Current user
+    const user = database.users.filter(user => user.id == user_id)[0];
+
+    // Return relevant to user posts
+    const relevant_posts = database.posts.filter(
+        post => (post.user_id == user_id) || user.friends.includes(post.user_id)
+    )
+
+    res.status(200)
+    return res.send(relevant_posts)
+});
+
+
 // Not found result
 router.get('*', (req, res, next) => {
     res.status(404)
