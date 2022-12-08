@@ -15,6 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { FriendComponent } from './friend/friend.component';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     IndexComponent,
     NotFoundComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    FriendComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
