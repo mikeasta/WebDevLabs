@@ -90,6 +90,37 @@ router.put("/new_friend/:user_id/:friend_id", async (req, res) => {
 
 
 /**
+ * @route DELETE /api/users/remove_friend/:user_id/:friend_id
+ * @desc  Gets new user
+ */
+router.delete("/remove_friend/:user_id/:friend_id", async (req, res) => {
+    const user_id   = req.params.user_id;
+    const friend_id = req.params.friend_id;
+
+    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+
+    const users = database.users.filter(user => (user.id == user_id) || (user.id == friend_id));
+
+    if (users.length < 2) {
+        res.status(404)
+        res.send("User not found")
+    }
+
+    database.users.forEach(user => {
+        if (user.id == user_id)
+            user.friends = user.friends.filter(id => id != friend_id);
+        
+        if (user.id == friend_id)
+            user.friends =user.friends.filter(id => id != user_id);
+    })
+
+    console.log(database.users)
+    let data = JSON.stringify(database)
+    fs.writeFileSync('express-server/database.json', data); 
+})
+
+
+/**
  * @route PUT /api/users/edit_user/:user_id
  * @desc  Updates user info
  */

@@ -69,4 +69,16 @@ module.exports = class Controller {
 
 		return this.send_get_request(options)
 	}
+
+	remove_friend (user_id, friend_id) {
+		const options = {
+			host: this.host,
+			port: this.port,
+			path: `/api/users/remove_friend/${user_id}/${friend_id}`,
+			method: "DELETE",
+			rejectUnauthorized: false
+		};
+
+		return this.send_get_request(options)
+	}
 }

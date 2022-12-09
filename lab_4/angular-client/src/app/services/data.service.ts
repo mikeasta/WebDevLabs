@@ -48,4 +48,8 @@ export class DataService {
     new_friend(friend_id: string) {
         this.socket.emit("new_friend", friend_id, this.get_current_user_id());
     }
+
+    remove_friend(friend_id: string) {
+        this.socket.emit("remove_friend", friend_id, this.get_current_user_id());
+    }
 }
