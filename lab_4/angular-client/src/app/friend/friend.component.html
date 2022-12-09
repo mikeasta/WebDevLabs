@@ -1,6 +1,6 @@
 <tr>
     <th class="table_user_name" scope="row">
-        <a href='/profile/' class="control_panel_username">
+        <a href='/profile/{{user.id}}' class="control_panel_username">
             {{ user.name }}
         </a>
     </th>
@@ -10,7 +10,7 @@
     <td class="table_user_email" scope="">{{user.email}}</td>
     <td class="table_user_interaction_buttons" scope="">
         
-        <a href="/profile">
+        <a href="/profile/{{user.id}}">
             <button type="button" class="btn btn-primary user_interaction_btn">
                 Информация 
             </button>

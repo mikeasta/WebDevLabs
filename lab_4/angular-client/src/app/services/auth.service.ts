@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import { io, Socket } from 'socket.io-client'
+import { Socket } from "ngx-socket-io";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-	constructor() {
-		socket = io("http://localhost:8000");
-		this.subscribe();
+	constructor(
+		private socket: Socket
+	) {
 	}
 
 	subscribe() {
-		socket.emit("subscribe");
+		this.socket.emit("subscribe");
 	}
 
 	user_logged() {
-		socket.emit("login", sessionStorage.getItem("user"));
+		this.socket.emit("login", sessionStorage.getItem("user"));
 	}
 
 }

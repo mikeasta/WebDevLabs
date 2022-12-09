@@ -3,7 +3,8 @@ import { DataService, User } from '../services/data.service';
 
 @Component({
   	selector: 'tbody',
-  	templateUrl: './friend.component.html'
+  	templateUrl: './friend.component.html',
+	  styleUrls: ['./friend.component.less']
 })
 export class FriendComponent{
 
@@ -12,5 +13,4 @@ export class FriendComponent{
   	constructor(
 		private data: DataService
   	) { }
-
 }

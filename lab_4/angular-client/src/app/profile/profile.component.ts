@@ -12,19 +12,15 @@ import { User, DataService } from '../services/data.service';
 export class ProfileComponent implements OnInit {
 
   	profile: User = new User;
-	notCurrentUser: boolean;
+	currentUser: boolean;
 
   	constructor(
 		private http: HttpClient,
 		private route: ActivatedRoute,
-		private auth_service : AuthService,
-		private data_service: DataService
 	) {
-		console.log(this.route.snapshot.paramMap.get('user_id'))
-		this.notCurrentUser = Boolean(this.route.snapshot.paramMap.get('user_id'))
-
+		this.currentUser = !Boolean(this.route.snapshot.paramMap.get('user_id')) || 
+			(this.route.snapshot.paramMap.get('user_id') == String(sessionStorage.getItem("user")).slice(1, -1))
     	const user = this.route.snapshot.paramMap.get('user_id') || String(sessionStorage.getItem("user")).slice(1, -1)
-		console.log(user);
 
     	// HTTP login request
 		this.http.get<User>(
@@ -32,7 +28,6 @@ export class ProfileComponent implements OnInit {
 		)
         .subscribe( 
 		    data => {
-			    console.log(data)
                 this.profile = data;
 		    },
 		    error => alert(error.error)

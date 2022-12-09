@@ -26,8 +26,7 @@ module.exports = class {
         
         	// Login action
         	socket.on("login", user_id => { 
-        		const uid = user_id.slice(1, -1); // User id without quotes
-        		console.log(`User ${ uid } logined!`)
+        		const uid = user_id.slice(1, -1); 
         		socket.user_id = uid;
         	})
         
