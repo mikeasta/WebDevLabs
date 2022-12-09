@@ -46,7 +46,7 @@ module.exports = class Controller {
 		});
 	}
 
-    get_friends (id)  {
+    get_friends (id) {
         const options = {
 			host: this.host,
 			port: this.port,
@@ -57,4 +57,16 @@ module.exports = class Controller {
 
         return this.send_get_request(options)
     }
+
+	new_friend (user_id, friend_id) {
+		const options = {
+			host: this.host,
+			port: this.port,
+			path: `/api/users/new_friend/${user_id}/${friend_id}`,
+			method: "PUT",
+			rejectUnauthorized: false
+		};
+
+		return this.send_get_request(options)
+	}
 }

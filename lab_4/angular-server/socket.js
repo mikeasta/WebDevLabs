@@ -50,13 +50,9 @@ module.exports = class {
         	})
         
         	// New friend action
-        	socket.on("new_friend", async friend_id => {
-        		console.log(`New friend emmition from ${socket.user_id} to ${friend_id}`)
-            
-        		// Request & return
-        		// ...
-            
-        		return []
+        	socket.on("new_friend", async (friend_id, user_id) => {
+        		console.log(`New friend emmition from ${user_id} to ${friend_id}`)
+				await this.controller.new_friend(user_id, friend_id);    
         	})
         
         	// User entering the site
