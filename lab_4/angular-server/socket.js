@@ -44,15 +44,8 @@ module.exports = class {
         	})
         
         	// Friends action 
-        	socket.on("friends", async () => {
-				if (!socket.user_id) {
-					console.log("Unauthorized");
-					return;
-				}
-				
-        		console.log(`Friends get emmition from ${socket.user_id}`)
-				const friends = await this.controller.get_friends(socket.user_id)
-        		// Request & return
+        	socket.on("friends", async user_id => {
+				const friends = await this.controller.get_friends(user_id)
         		return socket.emit("friends", friends)
         	})
         

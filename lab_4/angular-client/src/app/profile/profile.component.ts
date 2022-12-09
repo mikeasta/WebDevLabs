@@ -17,10 +17,11 @@ export class ProfileComponent implements OnInit {
   	constructor(
 		private http: HttpClient,
 		private route: ActivatedRoute,
+		private data: DataService
 	) {
 		this.currentUser = !Boolean(this.route.snapshot.paramMap.get('user_id')) || 
-			(this.route.snapshot.paramMap.get('user_id') == String(sessionStorage.getItem("user")).slice(1, -1))
-    	const user = this.route.snapshot.paramMap.get('user_id') || String(sessionStorage.getItem("user")).slice(1, -1)
+			(this.route.snapshot.paramMap.get('user_id') == this.data.get_current_user_id())
+    	const user = this.route.snapshot.paramMap.get('user_id') || this.data.get_current_user_id()
 
     	// HTTP login request
 		this.http.get<User>(

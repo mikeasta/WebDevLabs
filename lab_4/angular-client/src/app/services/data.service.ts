@@ -33,15 +33,19 @@ export class DataService {
     ) {
     }
 
+    get_current_user_id () {
+        return String(sessionStorage.getItem("user")).slice(1, -1);
+    }
+
     get_posts() {
         this.socket.emit("posts");
     }
 
     get_friends() {
-        this.socket.emit("friends");
+        this.socket.emit("friends", this.get_current_user_id());
     }
 
     new_friend(friend_id: string) {
-        this.socket.emit("new_friend", friend_id);
+        this.socket.emit("new_friend", friend_id, this.get_current_user_id());
     }
 }
