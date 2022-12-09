@@ -10,7 +10,11 @@ const server  = express()
 server.use(express.json({ extended: false }));
 
 // CORS setup
-server.use(cors())
+const cors_options = {
+    "credentials": true,
+    "origin": true
+}
+server.use(cors(cors_options))
 
 // Defining folders with static files
 server.use('/stylesheets', express.static(__dirname + '/public/stylesheets'))

@@ -1,13 +1,13 @@
 <tr>
     <th class="table_user_name" scope="row">
-        <a href="/profile/" class="control_panel_username">
-            Асташёнок Михаил Сергеевич
+        <a href='/profile/' class="control_panel_username">
+            {{ user.name }}
         </a>
     </th>
-    <td class="table_user_birth_date" scope="">19/11/2002</td>
-    <td class="table_user_role" scope="">Администратор</td>
-    <td class="table_user_access_status" scope="">Подтвержден</td>
-    <td class="table_user_email" scope="">thenaitrise@gmail.com</td>
+    <td class="table_user_birth_date" scope="">{{user.birth}}</td>
+    <td class="table_user_role" scope="">{{user.role}}</td>
+    <td class="table_user_access_status" scope="">{{user.status}}</td>
+    <td class="table_user_email" scope="">{{user.email}}</td>
     <td class="table_user_interaction_buttons" scope="">
         
         <a href="/profile">

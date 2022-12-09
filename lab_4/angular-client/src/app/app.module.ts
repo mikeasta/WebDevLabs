@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -17,6 +18,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FriendComponent } from './friend/friend.component';
 import { PostComponent } from './post/post.component';
+
+const socket_io_config: SocketIoConfig = {
+	url: "https://localhost:8000", options: {withCredentials: true}
+};
 
 @NgModule({
   declarations: [
@@ -36,7 +41,8 @@ import { PostComponent } from './post/post.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SocketIoModule.forRoot(socket_io_config)
   ],
   exports: [AppRoutingModule],
   providers: [],

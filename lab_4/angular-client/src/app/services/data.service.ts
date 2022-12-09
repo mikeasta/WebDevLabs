@@ -3,14 +3,13 @@ import { Injectable } from "@angular/core";
 import { Socket } from "ngx-socket-io";
 
 export class User {
-	public id: number = 0;
+	public id: string;
 	public name: string = "";
 	public birth: string = "";
 	public email: string = "";
-	public img: string | null = null;
+	public img: string = "";
 	public role: string = "";
 	public status: string = "";
-    public friends: [string];
 }
 
 export class Post {
@@ -25,7 +24,7 @@ export class Post {
 })
 export class DataService {
 
-    posts = this.socket.fromEvent<Post[]>("posts");
+    posts   = this.socket.fromEvent<Post[]>("posts");
     friends = this.socket.fromEvent<User[]>("friends")
 
     constructor (
