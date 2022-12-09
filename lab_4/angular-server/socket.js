@@ -1,4 +1,5 @@
 const { Server } = require("socket.io");
+const Controller = require("./controller.js")
 
 module.exports = class {
 
@@ -10,12 +11,14 @@ module.exports = class {
             {
                 cors: {
                     origin: "http://localhost:4200",
-                    methods: ["GET", "POST", "OPTIONS"],
+                    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
                     credentials: true
                 }
             }
         )
 
+		this.controller = new Controller();
+		
         this.setup_sockets()
     }
 
@@ -42,10 +45,15 @@ module.exports = class {
         
         	// Friends action 
         	socket.on("friends", async () => {
+				if (!socket.user_id) {
+					console.log("Unauthorized");
+					return;
+				}
+				
         		console.log(`Friends get emmition from ${socket.user_id}`)
-            
+				const friends = await this.controller.get_friends(socket.user_id)
         		// Request & return
-        		// ...
+        		return socket.emit("friends", friends)
         	})
         
         	// New friend action
