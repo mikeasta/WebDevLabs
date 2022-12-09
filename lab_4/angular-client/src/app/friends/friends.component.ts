@@ -27,12 +27,10 @@ export class FriendsComponent implements OnInit, AfterViewInit {
 	ngAfterViewInit() {}
 
 	private async fetch_friends() {
-		console.log("Friend fetch");
 		this.data.get_friends()
 	}
 
 	new_friend () {
 		this.data.new_friend(this.friend_input.nativeElement.value)
-		this.data.get_friends()
 	}
 }
