@@ -114,7 +114,6 @@ router.delete("/remove_friend/:user_id/:friend_id", async (req, res) => {
             user.friends =user.friends.filter(id => id != user_id);
     })
 
-    console.log(database.users)
     let data = JSON.stringify(database)
     fs.writeFileSync('express-server/database.json', data); 
 })
