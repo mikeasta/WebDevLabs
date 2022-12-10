@@ -1,5 +1,1 @@
-{
-    "users": [],
-    "posts": [],
-    "passwords": []
-}
+{"users":[{"name":"1","birth":"0011-11-11","role":"user","status":"confirmed","email":"1","id":"zskj2wmk6i","friends":["xdgndko6ngj"],"img":"https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"},{"name":"2","birth":"0022-02-02","role":"user","status":"confirmed","email":"2","id":"xdgndko6ngj","friends":["zskj2wmk6i"],"img":"https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"}],"posts":[{"date":"2022-12-10","text":"123","id":"pv1q06lc0zb","user_id":"xdgndko6ngj"},{"date":"2022-12-10","text":"213","id":"q8cfjusy9ik","user_id":"zskj2wmk6i"}],"passwords":[{"id":"zskj2wmk6i","password":"1"},{"id":"xdgndko6ngj","password":"2"}]}

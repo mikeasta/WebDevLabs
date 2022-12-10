@@ -35,11 +35,13 @@ server.use('/',          require('./routes/render'))
 const PORT = process.env.PORT || 5000
 
 // HTTPS setup
-let key  = fs.readFileSync('express-server/public/certificate/server.key', 'utf8');
-let cert = fs.readFileSync('express-server/public/certificate/server.csr', 'utf8');
+let key  = fs.readFileSync(__dirname + '/public/certificate/server.key', 'utf8');
+let cert = fs.readFileSync(__dirname + '/public/certificate/server.csr', 'utf8');
 
 // HTTPS connection initialization
 const httpsServer = https.createServer({key, cert}, server);
 
 // Start-up the server
 httpsServer.listen(PORT)
+
+module.exports = httpsServer

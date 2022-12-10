@@ -11,7 +11,7 @@ let database;
  * @desc  Getting all users route
  */
 router.get("/get_all_users", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
     res.status(200)
     res.send(database.users)
 })
@@ -22,7 +22,7 @@ router.get("/get_all_users", async (req, res) => {
  * @desc  Getting special user by id
  */
 router.get("/get_user/:user_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
     const user_id = req.params.user_id
 
     // Check if user with user_id exists
@@ -47,7 +47,7 @@ router.get("/get_user/:user_id", async (req, res) => {
  * @desc  Returns user's friend list 
  */
 router.get("/get_user_friends/:user_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
     const user_id = req.params.user_id
 
     const cur_user = database.users.filter(user => user.id == user_id)[0]
@@ -67,7 +67,7 @@ router.put("/new_friend/:user_id/:friend_id", async (req, res) => {
     const user_id   = req.params.user_id;
     const friend_id = req.params.friend_id;
 
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
 
     const users = database.users.filter(user => (user.id == user_id) || (user.id == friend_id));
 
@@ -85,7 +85,7 @@ router.put("/new_friend/:user_id/:friend_id", async (req, res) => {
     })
 
     let data = JSON.stringify(database)
-    fs.writeFileSync('express-server/database.json', data); 
+    fs.writeFileSync(__dirname.slice(0, -7) + '/database.json', data); 
 })
 
 
@@ -97,7 +97,7 @@ router.delete("/remove_friend/:user_id/:friend_id", async (req, res) => {
     const user_id   = req.params.user_id;
     const friend_id = req.params.friend_id;
 
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
 
     const users = database.users.filter(user => (user.id == user_id) || (user.id == friend_id));
 
@@ -115,7 +115,7 @@ router.delete("/remove_friend/:user_id/:friend_id", async (req, res) => {
     })
 
     let data = JSON.stringify(database)
-    fs.writeFileSync('express-server/database.json', data); 
+    fs.writeFileSync(__dirname.slice(0, -7) + '/database.json', data); 
 })
 
 
@@ -124,7 +124,7 @@ router.delete("/remove_friend/:user_id/:friend_id", async (req, res) => {
  * @desc  Updates user info
  */
 router.put("/edit_user/:user_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
 
     // Retrieve user data
     let new_user_data = req.body.user
@@ -154,7 +154,7 @@ router.put("/edit_user/:user_id", async (req, res) => {
     // Save new data
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
-    fs.writeFileSync('express-server/database.json', data); 
+    fs.writeFileSync(__dirname.slice(0, -7) + '/database.json', data); 
 
     res.status(200)
     res.send(user)
@@ -166,7 +166,7 @@ router.put("/edit_user/:user_id", async (req, res) => {
  * @desc  Ban special user 
  */
 router.put("/ban_user/:user_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
 
     // Retrieve user data
     const user_id = req.params.user_id
@@ -190,7 +190,7 @@ router.put("/ban_user/:user_id", async (req, res) => {
     // Save new data
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
-    fs.writeFileSync('database.json', data);
+    fs.writeFileSync(__dirname.slice(0, -7) + 'database.json', data);
 
     res.status(200)
     res.send(user)
@@ -202,7 +202,7 @@ router.put("/ban_user/:user_id", async (req, res) => {
  * @desc  Confirm special user 
  */
  router.put("/confirm_user/:user_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + 'database.json'))
 
     // Retrieve user data
     const user_id = req.params.user_id
@@ -226,7 +226,7 @@ router.put("/ban_user/:user_id", async (req, res) => {
     // Save new data
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
-    fs.writeFileSync('database.json', data);
+    fs.writeFileSync(__dirname.slice(0, -7) + 'database.json', data);
 
     res.status(200)
     res.send(user)
@@ -238,7 +238,7 @@ router.put("/ban_user/:user_id", async (req, res) => {
  * @desc  Upload special user new profile avatar
  */
 router.put("/upload_photo/:user_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + 'database.json'))
 
     // Retrieve user data
     const user_id = req.params.user_id
@@ -263,7 +263,7 @@ router.put("/upload_photo/:user_id", async (req, res) => {
     // Save new data
     database.users = [...database.users.slice(0, user_index), user, ...database.users.slice(user_index+1)]
     let data = JSON.stringify(database)
-    fs.writeFileSync('database.json', data); 
+    fs.writeFileSync(__dirname.slice(0, -7) + 'database.json', data); 
 
     res.status(200)
     res.send(user)
@@ -275,7 +275,7 @@ router.put("/upload_photo/:user_id", async (req, res) => {
  * @desc  Deletes special user
  */
 router.delete("/delete_user/:user_id", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + 'database.json'))
 
     // Retrieve user id
     const user_id = req.params.user_id
@@ -309,7 +309,7 @@ router.delete("/delete_user/:user_id", async (req, res) => {
 
     // Save data
     let data = JSON.stringify(database)
-    fs.writeFileSync('database.json', data); 
+    fs.writeFileSync(__dirname.slice(0, -7) + 'database.json', data); 
     
     res.status(200)
     res.send(database.users)
@@ -321,7 +321,7 @@ router.delete("/delete_user/:user_id", async (req, res) => {
  * @desc  Delete friend
  */
 router.put("/delete_friend", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + 'database.json'))
     const ids = req.body.ids
     const user_id_1 = ids[0]
     const user_id_2 = ids[1]
@@ -336,7 +336,7 @@ router.put("/delete_friend", async (req, res) => {
 
     // Save data
     let data = JSON.stringify(database)
-    fs.writeFileSync('database.json', data); 
+    fs.writeFileSync(__dirname.slice(0, -7) + 'database.json', data); 
     
     res.status(200)
     res.send(database.users)
@@ -348,7 +348,7 @@ router.put("/delete_friend", async (req, res) => {
  * @desc  Add friend
  */
 router.put("/add_friend", async (req, res) => {
-    database = JSON.parse(fs.readFileSync('database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + 'database.json'))
     const ids = req.body.ids
     const user_id_1 = ids[0]
     const user_id_2 = ids[1]
@@ -363,7 +363,7 @@ router.put("/add_friend", async (req, res) => {
 
     // Save data
     let data = JSON.stringify(database)
-    fs.writeFileSync('database.json', data); 
+    fs.writeFileSync(__dirname.slice(0, -7) + 'database.json', data); 
     
     res.status(200)
     res.send(database.users)

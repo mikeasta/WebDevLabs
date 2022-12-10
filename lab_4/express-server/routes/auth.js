@@ -12,7 +12,7 @@ let database;
  */
 router.post("/register", async (req, res) => {
     // Retrieve data
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
     const new_user_data = req.body.user
 
     // Check if user with this email exists
@@ -46,7 +46,7 @@ router.post("/register", async (req, res) => {
     database.users.push(user)
     database.passwords.push(pass)
     let data = JSON.stringify(database)
-    fs.writeFileSync('express-server/database.json', data); 
+    fs.writeFileSync(__dirname.slice(0, -7)+ '/database.json', data); 
 
     res.status(200)
     return res.send(user)
@@ -60,7 +60,7 @@ router.post("/register", async (req, res) => {
  */
 router.post("/login", async (req, res) => {
     // Retrieve data
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
     const login_data = req.body.user
 
     // Check if user with entered email exist

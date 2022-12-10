@@ -14,7 +14,7 @@ let database;
 router.get('/control_panel', async (req, res) => {
     // If ill need to load database from json after page reload
     // uncomment that row
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
 
     let DI = require("../utils/date_interactions")
     let SP = require("../utils/string_preprocessor")
@@ -45,7 +45,7 @@ router.get('/control_panel', async (req, res) => {
  * @desc  Special user page
  */
 router.get('/profile/:user_id', async (req, res) => {
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
 
     // Retrieve current user
     const user_id = req.params.user_id
@@ -109,7 +109,7 @@ router.get('/profile/:user_id', async (req, res) => {
  * @desc  Edit special profile page
  */
 router.get('/edit_profile/:user_id', async (req, res) => {
-    database = JSON.parse(fs.readFileSync('express-server/database.json'))
+    database = JSON.parse(fs.readFileSync(__dirname.slice(0, -7) + '/database.json'))
 
     // Retrieve current user
     const user_id = req.params.user_id
