@@ -23,12 +23,19 @@ export class Post {
 })
 export class DataService {
 
-    posts   = this.socket.fromEvent<Post[]>("posts");
-    friends = this.socket.fromEvent<User[]>("friends");
+    posts    = this.socket.fromEvent<Post[]>("posts");
+    friends  = this.socket.fromEvent<User[]>("friends");
 
     constructor (
         private socket: Socket
     ) {
+        socket.on("update_friends", () => {
+            console.log("Need to update friends.")
+        })
+
+        socket.on("new_user", (user_id: string) => {
+            console.log(`User ${user_id} logged`)
+        })
     }
 
     get_current_user_id () {

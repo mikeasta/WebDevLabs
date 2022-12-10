@@ -31,6 +31,7 @@ module.exports = class {
         	socket.on("login", user_id => { 
         		const uid = user_id.slice(1, -1); 
         		socket.user_id = uid;
+				socket.broadcast.emit("new_user", user_id)
         	})
         
         	// Posts action
@@ -52,15 +53,14 @@ module.exports = class {
         	// New friend action
         	socket.on("new_friend", async (friend_id, user_id) => {
 				await this.controller.new_friend(user_id, friend_id); 
-				const friends = await this.controller.get_friends(user_id)
-        		return socket.emit("friends", friends)
+				socket.broadcast.emit("update_friends")
         	})
 
 			// Remove friend action
 			socket.on("remove_friend", async (friend_id, user_id) => {
 				await this.controller.remove_friend(user_id, friend_id);
-				const friends = await this.controller.get_friends(user_id)
-        		return socket.emit("friends", friends)
+				console.log("remove socket")
+				socket.broadcast.emit("update_friends")
 			})
         
         	// User entering the site
