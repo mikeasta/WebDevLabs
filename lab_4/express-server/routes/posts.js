@@ -127,6 +127,7 @@ router.get("/get_relevant_posts/:user_id", async (req, res) => {
         }
     })
 
+
     res.status(200)
     res.send(relevant_posts)
 });
