@@ -33,6 +33,5 @@ export class FriendsComponent implements OnInit, AfterViewInit {
 
 	new_friend () {
 		this.data.new_friend(this.friend_input.nativeElement.value)
-		this.data.get_friends()
 	}
 }

@@ -30,7 +30,7 @@ export class DataService {
         private socket: Socket
     ) {
         socket.on("update_friends", (bool: boolean) => {
-            console.log("Need to update friends.")
+            this.get_friends();
         })
 
         socket.on("new_user", (user_id: string) => {
@@ -42,19 +42,22 @@ export class DataService {
         return String(sessionStorage.getItem("user")).slice(1, -1);
     }
 
-    get_posts() {
-        this.socket.emit("posts");
-    }
-
     get_friends() {
         this.socket.emit("friends", this.get_current_user_id());
     }
 
     new_friend(friend_id: string) {
         this.socket.emit("new_friend", friend_id, this.get_current_user_id());
+        this.get_friends();
     }
 
     remove_friend(friend_id: string) {
         this.socket.emit("remove_friend", friend_id, this.get_current_user_id());
+        this.get_friends();
     }
+
+    get_posts() {
+        this.socket.emit("posts");
+    }
+
 }
