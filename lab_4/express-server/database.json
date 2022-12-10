@@ -1,1 +1,5 @@
-{"users":[{"name":"Name is not ready","birth":"0001-11-11","role":"admin","status":"confirmed","email":"1","id":"kraciwa6sx","friends":["ec553rnfcmm"],"img":"https://s.yimg.com/uu/api/res/1.2/BocMVdWbohlQQlVkcP451Q--~B/aD0zNTA7dz01ODA7YXBwaWQ9eXRhY2h5b24-/https://www.blogcdn.com/wow.joystiq.com/media/2011/02/illidan.jpg"},{"name":"2","birth":"","role":"user","status":"confirmed","email":"2","id":"ec553rnfcmm","friends":["kraciwa6sx"],"img":"https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"},{"name":"3","birth":"3333-03-31","role":"user","status":"confirmed","email":"3","id":"upfbchjhc4","friends":[],"img":"https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"}],"posts":[{"date":"2022-12-10","text":"123321213","id":"wnevxvkxq1a","user_id":"kraciwa6sx"},{"date":"2022-12-10","text":"321312dwqe","id":"mngmvr8s3l","user_id":"ec553rnfcmm"}],"passwords":[{"id":"kraciwa6sx","password":"1"},{"id":"ec553rnfcmm","password":"2"},{"id":"upfbchjhc4","password":"3"}]}
+{
+    "users": [],
+    "posts": [],
+    "passwords": []
+}

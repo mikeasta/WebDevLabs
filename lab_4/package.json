@@ -1,7 +1,4 @@
 {
-  "dependencies": {
-    "socket.io-client": "^4.5.4"
-  },
   "scripts": {
     "ang": "node angular-server/server.js",
     "exp": "node express-server/server.js"
