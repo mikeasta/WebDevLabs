@@ -51,7 +51,6 @@ module.exports = class {
         
         	// New friend action
         	socket.on("new_friend", async (friend_id, user_id) => {
-        		console.log(`New friend emmition from ${user_id} to ${friend_id}`)
 				await this.controller.new_friend(user_id, friend_id); 
 				const friends = await this.controller.get_friends(user_id)
         		return socket.emit("friends", friends)
@@ -59,7 +58,6 @@ module.exports = class {
 
 			// Remove friend action
 			socket.on("remove_friend", async (friend_id, user_id) => {
-				console.log(`Remove friend emmition from ${user_id} to ${friend_id}`)
 				await this.controller.remove_friend(user_id, friend_id);
 				const friends = await this.controller.get_friends(user_id)
         		return socket.emit("friends", friends)

@@ -16,6 +16,5 @@ export class FriendComponent{
 
 	remove_friend () {
 		this.data.remove_friend(this.user.id)
-		this.data.get_friends();
 	}
 }

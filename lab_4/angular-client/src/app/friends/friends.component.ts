@@ -19,6 +19,7 @@ export class FriendsComponent implements OnInit, AfterViewInit {
   	async ngOnInit(): Promise<void> {
 		this.data.friends.subscribe(friends => {
 			this.friends = friends;
+			console.log("new friend emmit")
 		})
 
 		this.fetch_friends();

@@ -1,14 +1,13 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Socket } from "ngx-socket-io";
 
 export class User {
-	public id: string;
-	public name: string = "";
-	public birth: string = "";
-	public email: string = "";
-	public img: string = "";
-	public role: string = "";
+	public id:     string = "";
+	public name:   string = "";
+	public birth:  string = "";
+	public email:  string = "";
+	public img:    string = "";
+	public role:   string = "";
 	public status: string = "";
 }
 
@@ -25,10 +24,9 @@ export class Post {
 export class DataService {
 
     posts   = this.socket.fromEvent<Post[]>("posts");
-    friends = this.socket.fromEvent<User[]>("friends")
+    friends = this.socket.fromEvent<User[]>("friends");
 
     constructor (
-        private http: HttpClient,
         private socket: Socket
     ) {
     }
