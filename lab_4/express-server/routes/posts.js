@@ -118,12 +118,17 @@ router.get("/get_relevant_posts/:user_id", async (req, res) => {
     const user = database.users.filter(user => user.id == user_id)[0];
 
     // Return relevant to user posts
-    const relevant_posts = database.posts.filter(
-        post => (post.user_id == user_id) || user.friends.includes(post.user_id)
-    )
+    const relevant_posts = database.posts.filter( post => { 
+        if ((post.user_id == user_id) || user.friends.includes(post.user_id)) {
+            const user = database.users.filter(u => u.id == post.user_id)[0]
+            post.user_name = user.name;
+            post.user_img  = user.img;
+            return post; 
+        }
+    })
 
     res.status(200)
-    return res.send(relevant_posts)
+    res.send(relevant_posts)
 });
 
 

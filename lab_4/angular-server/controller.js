@@ -81,4 +81,16 @@ module.exports = class Controller {
 
 		return this.send_get_request(options)
 	}
+
+	get_posts (id) {
+		const options = {
+			host: this.host,
+			port: this.port,
+			path: `/api/posts/get_relevant_posts/${id}`,
+			method: "GET",
+			rejectUnauthorized: false
+		};
+
+        return this.send_get_request(options)
+	}
 }

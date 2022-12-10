@@ -35,13 +35,10 @@ module.exports = class {
         	})
         
         	// Posts action
-        	socket.on("posts", async () => {
-        		console.log(`Post get emmition from ${socket.user_id}`)
-            
-        		// Request & return
-        		// ...
-            
-        		return []
+        	socket.on("posts", async user_id => {
+        		console.log(`Post get emmition from ${user_id}`)
+				const posts = await this.controller.get_posts(user_id)
+        		return socket.emit("posts", posts)
         	})
         
         	// Friends action 
@@ -59,7 +56,6 @@ module.exports = class {
 			// Remove friend action
 			socket.on("remove_friend", (friend_id, user_id) => {
 				this.controller.remove_friend(user_id, friend_id);
-				console.log("remove socket")
 				socket.broadcast.emit("update_friends", true)
 			})
         

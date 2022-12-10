@@ -10,7 +10,6 @@ export class FriendsComponent implements OnInit, AfterViewInit {
 	@ViewChild('friendAddInput') friend_input:  ElementRef;
 
     friends: User[] = [];
-   	user: User = new User;
 
   	constructor(
 		private data: DataService
@@ -19,7 +18,6 @@ export class FriendsComponent implements OnInit, AfterViewInit {
   	async ngOnInit(): Promise<void> {
 		this.data.friends.subscribe(friends => {
 			this.friends = friends;
-			console.log("new friend emmit")
 		})
 
 		this.fetch_friends();

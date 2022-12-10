@@ -12,10 +12,12 @@ export class User {
 }
 
 export class Post {
-    public date:    string = "";
-    public text:    string = "";
-    public id  :    string = "";
-    public user_id: string = "";
+    public date:      string = "";
+    public text:      string = "";
+    public id  :      string = "";
+    public user_id:   string = "";
+    public user_name: string = "";
+    public user_img:  string = "";
 }
 
 @Injectable({
@@ -57,7 +59,6 @@ export class DataService {
     }
 
     get_posts() {
-        this.socket.emit("posts");
+        this.socket.emit("posts", this.get_current_user_id());
     }
-
 }

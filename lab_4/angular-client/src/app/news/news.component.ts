@@ -1,20 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService, Post } from '../services/data.service';
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.less']
+  	selector: 'app-news',
+  	templateUrl: './news.component.html',
+  	styleUrls: ['./news.component.less']
 })
 export class NewsComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+	posts: Post[] = [];
 
-  navigateToCreateNewsPage() {
-    this._router.navigate(["/create_news"])
-  }
+  	constructor(
+		private router: Router,
+		private data: DataService
+	) { }
 
-  ngOnInit(): void {
-  }
+  	navigateToCreateNewsPage() {
+    	this.router.navigate(["/create_news"])
+  	}
 
+  	ngOnInit(): void {
+		this.data.posts.subscribe(posts => {
+			this.posts = posts;
+		})
+
+		this.fetch_posts();
+  	}
+
+	private async fetch_posts() {
+		this.data.get_posts();
+	}
 }
