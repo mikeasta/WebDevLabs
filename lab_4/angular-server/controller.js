@@ -93,4 +93,20 @@ module.exports = class Controller {
 
         return this.send_get_request(options)
 	}
+
+	new_post (post) {
+		const options = {
+			host: this.host,
+			port: this.port,
+			path: `/api/posts/create_post`,
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "application/json"
+			},
+			rejectUnauthorized: false
+		};
+
+		return this.send_post_request(options, { post })
+	}
 }

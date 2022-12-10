@@ -35,6 +35,10 @@ export class DataService {
             this.get_friends();
         })
 
+        socket.on("update_posts", (bool: boolean) => {
+            this.get_posts();
+        })
+
         socket.on("new_user", (user_id: string) => {
             console.log(`User ${user_id} logged`)
         })
@@ -60,5 +64,9 @@ export class DataService {
 
     get_posts() {
         this.socket.emit("posts", this.get_current_user_id());
+    }
+
+    new_post(post: Post) {
+        this.socket.emit("new_post", post);
     }
 }

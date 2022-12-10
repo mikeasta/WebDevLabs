@@ -41,6 +41,13 @@ module.exports = class {
         		return socket.emit("posts", posts)
         	})
         
+			// New post action
+			socket.on("new_post", post => {
+				console.log(`New post emmition from ${post.user_id}`)
+				this.controller.new_post(post);
+				socket.broadcast.emit("update_posts", true)
+			});
+
         	// Friends action 
         	socket.on("friends", async user_id => {
 				const friends = await this.controller.get_friends(user_id)

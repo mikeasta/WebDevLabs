@@ -3,14 +3,14 @@
         <section id="create_news_content_header">
             <h2>Редактор создания новости</h2>
             <div>
-                <button type="button" class="btn btn-success">Создать новость</button>
-                <button type="button" class="btn btn-danger">Отмена</button>
+                <button type="button" class="btn btn-success" (click)="create_post()">Создать новость</button>
+                <button type="button" class="btn btn-danger" (click)="return_to_news()">Отмена</button>
             </div>
         </section>
         
         <section id="create_news_area">
             <p>Текст сообщения:</p>
-            <textarea name="" id="" cols="30" rows="15"></textarea>
+            <textarea name="" id="" cols="30" rows="15" #createPostText></textarea>
             <p class="sup_prompt">*для того, чтобы сделать текст жирным или задать курсив, можно применить соответствующие html-элементы.</p>
         </section>
     </div>
