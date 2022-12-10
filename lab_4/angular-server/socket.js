@@ -53,14 +53,14 @@ module.exports = class {
         	// New friend action
         	socket.on("new_friend", async (friend_id, user_id) => {
 				await this.controller.new_friend(user_id, friend_id); 
-				socket.broadcast.emit("update_friends")
+				socket.broadcast.emit("update_friends", true)
         	})
 
 			// Remove friend action
 			socket.on("remove_friend", async (friend_id, user_id) => {
 				await this.controller.remove_friend(user_id, friend_id);
 				console.log("remove socket")
-				socket.broadcast.emit("update_friends")
+				socket.broadcast.emit("update_friends", true)
 			})
         
         	// User entering the site

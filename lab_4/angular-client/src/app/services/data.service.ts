@@ -29,7 +29,7 @@ export class DataService {
     constructor (
         private socket: Socket
     ) {
-        socket.on("update_friends", () => {
+        socket.on("update_friends", (bool: boolean) => {
             console.log("Need to update friends.")
         })
 
