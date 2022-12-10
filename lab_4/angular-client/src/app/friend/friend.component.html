@@ -4,9 +4,9 @@
             {{ user.name }}
         </a>
     </th>
-    <td class="table_user_birth_date" scope="">{{user.birth}}</td>
-    <td class="table_user_role" scope="">{{user.role}}</td>
-    <td class="table_user_access_status" scope="">{{user.status}}</td>
+    <td class="table_user_birth_date" scope="">{{date_prep.invertedToSlash(user.birth)}}</td>
+    <td class="table_user_role" scope="">{{string_prep.getRole(user.role)}}</td>
+    <td class="table_user_access_status" scope="">{{string_prep.getStatus(user.status)}}</td>
     <td class="table_user_email" scope="">{{user.email}}</td>
     <td class="table_user_interaction_buttons" scope="">
         

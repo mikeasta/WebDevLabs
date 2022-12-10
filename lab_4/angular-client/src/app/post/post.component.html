@@ -6,7 +6,7 @@
                 {{current_post.user_name}}
             </a>
             <div class="news_post_control">
-                <p> {{current_post.date}} </p>
+                <p> {{date_prep.invertedToSlash(current_post.date)}} </p>
                 <button 
                     type="button" 
                     class="btn btn-danger delete_post_btn" 

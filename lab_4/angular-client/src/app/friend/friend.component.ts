@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DataService, User } from '../services/data.service';
+import { DatePreprocessor } from '../services/date.service';
+import { StringPreprocessor } from '../services/string_prep.service';
 
 @Component({
   	selector: 'tbody',
@@ -9,10 +11,12 @@ import { DataService, User } from '../services/data.service';
 export class FriendComponent{
 
 	@Input() user: User = new User;
+	date_prep: DatePreprocessor = new DatePreprocessor();
+	string_prep: StringPreprocessor = new StringPreprocessor();
 
   	constructor(
-		private data: DataService
-  	) { }
+		private data: DataService,
+  	) {}
 
 	remove_friend () {
 		this.data.remove_friend(this.user.id)

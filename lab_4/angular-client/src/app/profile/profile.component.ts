@@ -3,6 +3,8 @@ import { Router, ActivatedRoute} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { User, DataService } from '../services/data.service';
+import { StringPreprocessor } from '../services/string_prep.service';
+import { DatePreprocessor } from '../services/date.service';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +19,9 @@ export class ProfileComponent implements OnInit {
   	constructor(
 		private http: HttpClient,
 		private route: ActivatedRoute,
-		private data: DataService
+		private data: DataService,
+		private string_prep: StringPreprocessor,
+		private date_prep: DatePreprocessor
 	) {
 		this.currentUser = !Boolean(this.route.snapshot.paramMap.get('user_id')) || 
 			(this.route.snapshot.paramMap.get('user_id') == this.data.get_current_user_id())
@@ -30,6 +34,9 @@ export class ProfileComponent implements OnInit {
         .subscribe( 
 		    data => {
                 this.profile = data;
+				this.profile.birth  = this.date_prep.invertedToSlash(this.profile.birth);
+				this.profile.role   = this.string_prep.getRole(this.profile.role);
+				this.profile.status = this.string_prep.getStatus(this.profile.status);
 		    },
 		    error => alert(error.error)
 		)

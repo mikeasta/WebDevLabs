@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DataService, Post } from '../services/data.service';
+import { DatePreprocessor } from '../services/date.service';
 
 @Component({
   	selector: 'news-section',
@@ -9,7 +10,8 @@ import { DataService, Post } from '../services/data.service';
 export class PostComponent{
 
   	@Input() current_post: Post = new Post;
-	user_id : string = ""
+	user_id : string = "";
+	date_prep: DatePreprocessor = new DatePreprocessor();
 
   	constructor(
 		private data: DataService
