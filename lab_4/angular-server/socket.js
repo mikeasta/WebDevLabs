@@ -36,17 +36,21 @@ module.exports = class {
         
         	// Posts action
         	socket.on("posts", async user_id => {
-        		console.log(`Post get emmition from ${user_id}`)
 				const posts = await this.controller.get_posts(user_id)
         		return socket.emit("posts", posts)
         	})
         
 			// New post action
 			socket.on("new_post", post => {
-				console.log(`New post emmition from ${post.user_id}`)
 				this.controller.new_post(post);
 				socket.broadcast.emit("update_posts", true)
 			});
+
+			// Remove post
+			socket.on("remove_post", post_id => {
+				this.controller.remove_post(post_id);
+				socket.broadcast.emit("update_posts", true)
+			})
 
         	// Friends action 
         	socket.on("friends", async user_id => {

@@ -109,4 +109,16 @@ module.exports = class Controller {
 
 		return this.send_post_request(options, { post })
 	}
+
+	remove_post (id) {
+		const options = {
+			host: this.host,
+			port: this.port,
+			path: `/api/posts/delete_post/${id}`,
+			method: "DELETE",
+			rejectUnauthorized: false
+		};
+
+        return this.send_get_request(options)
+	}
 }

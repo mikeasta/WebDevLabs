@@ -69,4 +69,9 @@ export class DataService {
     new_post(post: Post) {
         this.socket.emit("new_post", post);
     }
+
+    remove_post(post_id: string) {
+        this.socket.emit("remove_post", post_id);
+        this.get_posts();
+    }
 }

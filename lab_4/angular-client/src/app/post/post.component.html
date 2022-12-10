@@ -11,6 +11,8 @@
                     type="button" 
                     class="btn btn-danger delete_post_btn" 
                     id='deletePost'
+                    (click)="remove_post()"
+                    *ngIf="user_id == current_post.user_id"
                     > Удалить
                 </button>
             </div>
