@@ -7,9 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@nestjs/cli": "^9.1.5",
-    "create-react-app": "^1.2.1"
-  }
+  "license": "ISC"
 }
