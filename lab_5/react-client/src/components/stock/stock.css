@@ -1,0 +1,27 @@
+.stock-card {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.stock-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stock-text * {
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.stock-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stock-label {
+    font-weight: bold;
+    font-size: 20px;
+}
