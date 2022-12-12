@@ -1,13 +1,14 @@
 import { Component } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom"
+import "./header.css"
 
 export default class Header extends Component {
     render() {
         return (
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand as={Link} to="/exchange">Stocks.IO</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/exchange" className="header-brand" >Stocks.IO</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
