@@ -1,10 +1,10 @@
 import { Component } from "react"
 import { Card, Button } from "react-bootstrap"
+import "./broker.css"
 
 export default class Broker extends Component {
     constructor (props) {
         super(props)
-
         this.broker = props.broker;
     }
 
