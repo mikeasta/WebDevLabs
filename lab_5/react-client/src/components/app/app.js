@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"
 import Header from "../header";
 import Exchange from "../exchange";
 import Stocks from "../stocks";
+import Brokers from "../brokers"
 import "./app.css"
 
 export default class App extends Component {
@@ -17,8 +18,9 @@ export default class App extends Component {
 						<Route exact path="/" element={
 							<Navigate replace to="/exchange" />
 						}/>
-						<Route path="/exchange" element={ <Exchange/>} />
-						<Route path="/stocks" element={ <Stocks/>} />
+						<Route path="/exchange" element={<Exchange/>} />
+						<Route path="/stocks" element={<Stocks/>} />
+						<Route path="/brokers" element={<Brokers/>} />
 					</Routes>
 				</main>
 			</BrowserRouter>

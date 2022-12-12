@@ -1,16 +1,25 @@
 [
 	{
-		"user_id": 1,
-		"balance": 100,
+		"id": 1,
+		"name": "Mikhail Astashonak",
+		"email": "thenaitrise@gmail.com",
+		"password": "12345",
+		"balance": 300,
 		"stocks": []
 	},
 	{
-		"user_id": 2,
+		"id": 2,
+		"name": "John Doe",
+		"email": "johndoe@gmail.com",
+		"password": "12345",
 		"balance": 200,
 		"stocks": []
 	},
 	{
-		"user_id": 3,
+		"id": 3,
+		"name": "Bill Gates",
+		"email": "billgates@gmail.com",
+		"password": "alpine",
 		"balance": 500,
 		"stocks": [
 			{

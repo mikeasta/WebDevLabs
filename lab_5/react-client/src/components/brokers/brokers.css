@@ -1,0 +1,80 @@
+.brokers-page {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.brokers-divider {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+    margin: 10px 0 30px 0;
+}
+
+.brokers-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.brokers-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.brokers-controls * {
+    width: 200px;
+    margin-left: 10px;
+}
+
+.broker-card {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.broker-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.broker-text * {
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.broker-contact * {
+    margin-top: 0;
+}
+
+.broker-email {
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+.broker-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.broker-label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.broker-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.broker-balance {
+    box-sizing: content-box;
+    align-self: flex-end;
+}
+
+.broker-controls * {
+    margin-left: 10px;
+}
