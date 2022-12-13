@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap"
 import "./brokers.css"
 
 import Broker from "../broker";
+import NewBroker from "../new-broker";
 
 const dumpBrokers = [
     {
@@ -43,19 +44,51 @@ const dumpBrokers = [
 ]
 
 export default class Brokers extends Component {
+    constructor (props) {
+        super(props)
+
+        this.state = {
+            showNewBrokerModal: false
+        }
+
+        this.openNewBrokerModal = this.openNewBrokerModal.bind(this);
+        this.hideNewBrokerModal = this.hideNewBrokerModal.bind(this);
+
+    }
+
+    openNewBrokerModal () {
+        this.setState({
+            showNewBrokerModal: true
+        })
+    }
+
+    hideNewBrokerModal () {
+        this.setState({
+            showNewBrokerModal: false
+        })
+    }
+
     render() {
         return (
             <div className="brokers-page">
                 <div className="brokers-header">
                     <h4 className="brokers-headline">Список брокеров</h4>
                     <div className="brokers-controls">
-                        <Button variant="success" type="submit">
+                        <Button 
+                            variant="success" 
+                            type="submit"
+                            onClick={this.openNewBrokerModal}
+                        >
                             Новый брокер
                         </Button>
                     </div>
                 </div>
                 <div className="brokers-divider"></div>
-                {dumpBrokers.map(broker => <Broker broker={broker}/>)}
+                {dumpBrokers.map(broker => <Broker broker={broker} key={broker.id}/>)}
+                <NewBroker 
+                    show={this.state.showNewBrokerModal} 
+                    hide={this.hideNewBrokerModal}
+                />
             </div>
         )
     }
