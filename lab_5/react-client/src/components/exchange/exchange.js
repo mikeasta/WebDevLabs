@@ -21,9 +21,14 @@ export default class Exchange extends Component {
                 <Form className="exchange-form">
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Статус биржи</Form.Label>
-                        <Form.Control type="text" placeholder="Статус биржи" disabled/>
+                        <Form.Control 
+                            type="text" 
+                            placeholder="Статус биржи" 
+                            defaultValue={"Ожидается запуск продаж"}
+                            disabled
+                        />
                         <Form.Text className="text-muted">
-                            Чтобы запустить продажи, нажмите на кнопку "Запустить торги"
+                            Чтобы запустить продажи, добавьте акции в процесс и нажмите на кнопку "Запустить торги"
                         </Form.Text>
                     </Form.Group>
 
