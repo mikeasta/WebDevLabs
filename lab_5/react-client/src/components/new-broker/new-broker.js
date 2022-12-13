@@ -17,7 +17,7 @@ export default class NewBroker extends Component {
                 <Modal.Body className="new-broker-modal-body">
                     <p>Введите данные нового брокера:</p>
                     <FloatingLabel controlId="floatingName" label="Имя">
-                        <Form.Control type="text" placeholder="Имя брокера" />
+                        <Form.Control type="text" placeholder="Имя" />
                     </FloatingLabel>
                     <FloatingLabel
                       controlId="floatingInput"
@@ -29,7 +29,7 @@ export default class NewBroker extends Component {
                     <FloatingLabel controlId="floatingPassword" label="Пароль">
                         <Form.Control type="password" placeholder="Пароль" />
                     </FloatingLabel>
-                    <FloatingLabel controlId="floatingBalance" label="Баланс">
+                    <FloatingLabel controlId="floatingBalance" label="Баланс (в $)">
                         <Form.Control type="text" placeholder="Счет в $" />
                     </FloatingLabel>
                 </Modal.Body>

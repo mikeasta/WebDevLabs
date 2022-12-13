@@ -54,7 +54,7 @@ export default class StockDetails extends Component {
                         <Tab eventKey="list" title="Список">
                             <p>Список</p>
                         </Tab>
-                        <Tab eventKey="graph" title="График">
+                        <Tab eventKey="chart" title="График">
                             <p>График</p>
                         </Tab>
                     </Tabs>
