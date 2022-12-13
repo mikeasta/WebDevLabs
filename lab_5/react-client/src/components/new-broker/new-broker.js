@@ -9,7 +9,7 @@ export default class NewBroker extends Component {
             <Modal 
                 show={this.props.show} 
                 onHide={this.props.hide}
-                className="new-broker-modal"
+                dialogClassName="modal-xxl"
             >
                 <Modal.Header closeButton>
                   <Modal.Title>Новый брокер</Modal.Title>

@@ -4,6 +4,7 @@ import "./brokers.css"
 
 import Broker from "../broker";
 import NewBroker from "../new-broker";
+import BrokerDetails from "../broker-details";
 
 const dumpBrokers = [
     {
@@ -48,12 +49,15 @@ export default class Brokers extends Component {
         super(props)
 
         this.state = {
-            showNewBrokerModal: false
+            showNewBrokerModal: false,
+            showBrokerDetailsModal: false,
+            broker: {}
         }
 
         this.openNewBrokerModal = this.openNewBrokerModal.bind(this);
         this.hideNewBrokerModal = this.hideNewBrokerModal.bind(this);
-
+        this.openBrokerDetailsModal = this.openBrokerDetailsModal.bind(this);
+        this.hideBrokerDetailsModal = this.hideBrokerDetailsModal.bind(this);
     }
 
     openNewBrokerModal () {
@@ -65,6 +69,20 @@ export default class Brokers extends Component {
     hideNewBrokerModal () {
         this.setState({
             showNewBrokerModal: false
+        })
+    }
+
+    openBrokerDetailsModal (broker_id) {
+        const broker = dumpBrokers.find(broker => broker.id === broker_id)
+        this.setState({
+            showBrokerDetailsModal: true,
+            broker: broker
+        })
+    }
+
+    hideBrokerDetailsModal () {
+        this.setState({
+            showBrokerDetailsModal: false
         })
     }
 
@@ -84,10 +102,19 @@ export default class Brokers extends Component {
                     </div>
                 </div>
                 <div className="brokers-divider"></div>
-                {dumpBrokers.map(broker => <Broker broker={broker} key={broker.id}/>)}
+                {dumpBrokers.map(broker => <Broker 
+                    broker={broker} 
+                    key={broker.id}
+                    open={this.openBrokerDetailsModal}
+                />)}
                 <NewBroker 
                     show={this.state.showNewBrokerModal} 
                     hide={this.hideNewBrokerModal}
+                />
+                <BrokerDetails 
+                    show={this.state.showBrokerDetailsModal}
+                    hide={this.hideBrokerDetailsModal}
+                    broker={this.state.broker}
                 />
             </div>
         )

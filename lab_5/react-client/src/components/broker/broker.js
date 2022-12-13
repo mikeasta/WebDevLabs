@@ -24,7 +24,11 @@ export default class Broker extends Component {
                             Баланс: <b>${this.broker.balance}</b>
                         </p>
                         <div className="broker-controls">
-                            <Button variant="primary" type="submit">
+                            <Button 
+                                variant="primary" 
+                                type="submit"
+                                onClick={() => this.props.open(this.broker.id)}
+                            >
                                 Изменить 
                             </Button>
                             <Button variant="danger" type="submit">
