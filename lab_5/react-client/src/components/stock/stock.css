@@ -25,3 +25,7 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.stock-controls *:nth-child(1) {
+    margin-right: 20px;
+}
