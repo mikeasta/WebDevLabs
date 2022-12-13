@@ -1,5 +1,6 @@
 import { Component } from "react"
 import { Modal, Button, Form, FloatingLabel, Tabs, Tab } from "react-bootstrap"
+import QuoteChart from "../quote-chart"
 import QuoteList from "../quote-list"
 import "./stock-details.css"
 
@@ -54,10 +55,10 @@ export default class StockDetails extends Component {
                         className="mb-3" 
                     >
                         <Tab eventKey="list" title="Список">
-                            <QuoteList className="stock-tabs" quotes={this.props.quotes}/>
+                            <QuoteList quotes={this.props.quotes}/>
                         </Tab>
                         <Tab eventKey="chart" title="График">
-                            <p>График</p>
+                            <QuoteChart quotes={this.props.quotes} />
                         </Tab>
                     </Tabs>
 
