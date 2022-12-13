@@ -1,5 +1,6 @@
 import { Component } from "react"
 import { Modal, Button, Form, FloatingLabel, Tabs, Tab } from "react-bootstrap"
+import QuoteList from "../quote-list"
 import "./stock-details.css"
 
 export default class StockDetails extends Component {
@@ -22,6 +23,7 @@ export default class StockDetails extends Component {
                 onHide={this.props.hide}
                 dialogClassName="modal-xxl"
                 size="lg"
+                className="stock-details"
             >
                 <Modal.Header closeButton>
                   <Modal.Title>Данные об акции</Modal.Title>
@@ -49,10 +51,10 @@ export default class StockDetails extends Component {
                         id="controlled-tab-example"
                         activeKey={this.state.key}
                         onSelect={k => this.setKey(k)}
-                        className="mb-3"
+                        className="mb-3" 
                     >
                         <Tab eventKey="list" title="Список">
-                            <p>Список</p>
+                            <QuoteList className="stock-tabs" quotes={this.props.quotes}/>
                         </Tab>
                         <Tab eventKey="chart" title="График">
                             <p>График</p>
